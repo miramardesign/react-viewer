@@ -1,5 +1,6 @@
-
 import * as crypto from "crypto";
+import { promises as fs } from "fs";
+import path from "path";
 
 const examPages = {
   listPg:
@@ -10,29 +11,7 @@ const examPages = {
     "https://www.santafe.gob.ar/examenlicencia/examenETLC/mostrarResultado.php",
 };
 
-// curl 'https://www.santafe.gob.ar/examenlicencia/examenETLC/cuestionario.php' \
-//   --compressed \
-//   -X POST \
-//   -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:144.0) Gecko/20100101 Firefox/144.0' \
-//   -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' \
-//   -H 'Accept-Language: en-US,en;q=0.5' \
-//   -H 'Accept-Encoding: gzip, deflate, br, zstd' \
-//   -H 'Referer: https://www.santafe.gob.ar/examenlicencia/examenETLC/listarCuestionarios.php' \
-//   -H 'Content-Type: application/x-www-form-urlencoded' \
-//   -H 'Origin: https://www.santafe.gob.ar' \
-//   -H 'Connection: keep-alive' \
-//   -H 'Cookie: MoodleSession=cso012di66jrcdfbhndr6kogr1; _pk_id.7.38fb=2b2a0693b7d87bd7.1762704238.3.1762831144.1762830531.; eZSESSID=3n8fk9flu2ofq8qg53u5qn0g87; eZSESSIDweb=3r1ab6dm78137ohfj3ic4s9tb3; _gcl_au=1.1.1717133776.1762830500; _ga_XRDJD94NN8=GS2.1.s1762830500$o1$g0$t1762830511$j49$l0$h0; _ga=GA1.1.1616098780.1762830500; _ga_V7QRESCZPX=GS2.1.s1762830500$o1$g0$t1762830511$j49$l0$h0; _fbp=fb.2.1762830501375.799563771277620418; EXAMENLICENCIApwww=.examenlicencia-pwww3' \
-//   -H 'Upgrade-Insecure-Requests: 1' \
-//   -H 'Sec-Fetch-Dest: document' \
-//   -H 'Sec-Fetch-Mode: navigate' \
-//   -H 'Sec-Fetch-Site: same-origin' \
-//   -H 'Sec-Fetch-User: ?1' \
-//   -H 'Priority: u=0, i' \
-//   --data-raw 'id_sel=245&idcm_sel=245%7CAUTO%2C+UTILITARIO%2C+CAMIONETA+Y+CASA+RODANTE+MOTOR.+H%2F3.500+KG+TOTAL&uword=small&comenzar=Comenzar'
-
-const url =
-  "https://www.santafe.gob.ar/examenlicencia/examenETLC/cuestionario.php";
-const init = async () => {
+const init = async (url: string) => {
   const response = await fetch(url, {
     method: "POST",
     headers: {
@@ -49,10 +28,11 @@ const init = async () => {
   });
 
   const text = await response.text();
-  console.log(text);
+  // console.log('text-----',text);
+  writeFile(text);
 };
 
-init();
+init(examPages.questionPg);
 
 /* the data the way im goign to save it */
 interface AnswerData {
@@ -73,6 +53,21 @@ const processForm = (html: string) => {
   console.log(
     "process html into fake form responses with quest4ion form dataa structure"
   );
+};
+
+const writeFile = async (htmlRes: string) => {
+  console.log("writefileRAn===============");
+  // define output folder and file
+  const dir = path.join(process.cwd(), "savedHtml");
+  const filePath = path.join(dir, "response.html");
+
+  // ensure the folder exists
+  await fs.mkdir(dir, { recursive: true });
+
+  // write the HTML content
+  await fs.writeFile(filePath, htmlRes, "utf8");
+
+  console.log(`✅ Saved HTML to ${filePath}`);
 };
 
 const postTest = async (answerPgUrl: string, html: string) => {
@@ -147,18 +142,19 @@ const postTest = async (answerPgUrl: string, html: string) => {
       "MoodleSession=cso012di66jrcdfbhndr6kogr1; _pk_id.7.38fb=2b2a0693b7d87bd7.1762704238.4.1762883179.1762882059.; eZSESSID=3n8fk9flu2ofq8qg53u5qn0g87; eZSESSIDweb=3r1ab6dm78137ohfj3ic4s9tb3; _gcl_au=1.1.1717133776.1762830500; _ga_XRDJD94NN8=GS2.1.s1762830500$o1$g0$t1762830511$j49$l0$h0; _ga=GA1.1.1616098780.1762830500; _ga_V7QRESCZPX=GS2.1.s1762830500$o1$g0$t1762830511$j49$l0$h0; _fbp=fb.2.1762830501375.799563771277620418; EXAMENLICENCIApwww=.examenlicencia-pwww3; _pk_ses.7.38fb=*",
   };
 
-  const response = await fetch(url, {
+  const response = await fetch(answerPgUrl, {
     method: "POST",
     headers,
     body,
   });
 
   const htmlRes = await response.text();
-  console.log(htmlRes);
+  writeFile(htmlRes);
+  //console.log(htmlRes);
 };
 
 const parseRes = (html: string): AnswerData => {
-  console.log("===>", html);
+  // console.log("===>", html);
 
   const md5Hash = crypto.createHash("md5").update("a").digest("hex");
 
