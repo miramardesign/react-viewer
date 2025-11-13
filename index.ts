@@ -30,7 +30,6 @@ const getQuestions = async (url: string) => {
   });
 
   const text = await response.text();
-  // console.log('text-----',text);
   processQuestionsFile(text);
 };
 
@@ -118,9 +117,9 @@ const processQuestionsFile = async (htmlRes: string) => {
   if (!formHtml) {
     console.warn("⚠️ No <form> element found!");
   } else {
-    const mdfFileName = getMd5FileNameFromForm(
-      formHtml,
-      "answers",
+    const mdfFileName = getFileNameFromFormParms(
+       questionFormParams.id_preg,
+      "que",
       ".partial.html"
     );
     writeFileSimple(formHtml, mdfFileName);
@@ -199,27 +198,23 @@ const postTest = async (
   });
 
   const htmlRes = await response.text();
-  console.warn(
-    "-----",
-    htmlRes.substring(0, 2800),
-    "--------------------------"
-  );
-  const justForm = getElement(htmlRes, ".form");
-  console.log(justForm);
 
-  const mdfFileName = getMd5FileNameFromForm(
-    justForm,
-    "answers",
+  const justForm = getElement(htmlRes, ".form");
+
+  const mdfFileName = getFileNameFromFormParms(
+    questionFormParams.id_preg,
+    "ans",
     ".partial.html"
   );
   writeFileSimple(justForm, mdfFileName);
 };
 
-const getMd5FileNameFromForm = (
-  formHtml: string,
+const getFileNameFromFormParms = (
+  questionsArr: number[],
   prefix: string,
   suffix: string
 ): string => {
-  const md5form = md5(formHtml).substring(0, 6);
+  //const md5form = md5(formHtml).substring(0, 6);
+  const md5form = questionsArr.slice(0, 4).join("-");
   return `${prefix}-${md5form}${suffix}`;
 };
