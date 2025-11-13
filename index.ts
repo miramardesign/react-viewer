@@ -20,7 +20,7 @@ const getQuestions = async (url: string) => {
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
 
       Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-      "Accept-Language": "en-US,en;q=0.5",
+      "Accept-Language": "es-419,es;q=0.9,en;q=0.8",
       "Content-Type": "application/x-www-form-urlencoded",
       Origin: "https://www.santafe.gob.ar",
       Referer:
@@ -31,7 +31,7 @@ const getQuestions = async (url: string) => {
 
   const text = await response.text();
   // console.log('text-----',text);
-  writeFile(text);
+  processQuestionsFile(text);
 };
 
 getQuestions(examPages.questionPg);
@@ -51,26 +51,21 @@ interface QuestionForm {
   enviar: string;
 }
 
-const processForm = (html: string) => {
-  console.log(
-    "process html into fake form responses with quest4ion form dataa structure"
-  );
-};
-
 const md5 = (input: string) => {
   return crypto.createHash("md5").update(input).digest("hex");
 };
 
-const getQuestionFormParamsFromHtml = (formHtml: string) => {
+const getElement = (htmlRes: string, selector = "form"): string => {
+  const $ = load(htmlRes);
+
+  const formHtml = $(selector).first().toString();
+  return formHtml;
+};
+
+const getQuestionFormParamsFromHtml = (formHtml: string): QuestionForm => {
   let formArr: any = [];
 
   const $ = load(formHtml);
-
-  const hasForm = $(".formulation").length > 0;
-
-  if (!hasForm) {
-    return false;
-  }
 
   let id_preg_arr: number[] = [];
   const respuestas_data: Record<number, string> = {};
@@ -108,75 +103,60 @@ const getQuestionFormParamsFromHtml = (formHtml: string) => {
 
   console.log("params=======", params);
 
-  return true;
+  return params;
 };
 
-const writeFile = async (htmlRes: string) => {
-  console.log("writefileRAn===============");
-  // define output folder and file
+const processQuestionsFile = async (htmlRes: string) => {
+  console.log("process questions file===============");
   const $ = load(htmlRes);
 
-  const formHtml = $("form").first().toString();
+  const formHtml = getElement(htmlRes, "form");
 
-  const questionFormParams: QuestionForm = getQuestionFormParamsFromHtml(formHtml);
+  const questionFormParams: QuestionForm =
+    getQuestionFormParamsFromHtml(formHtml);
 
   if (!formHtml) {
     console.warn("⚠️ No <form> element found!");
   } else {
-    const dir = path.join(process.cwd(), "savedHtml");
-    await fs.mkdir(dir, { recursive: true });
+    const mdfFileName = getMd5FileNameFromForm(
+      formHtml,
+      "answers",
+      ".partial.html"
+    );
+    writeFileSimple(formHtml, mdfFileName);
 
-    // save with custom extension
-    const formMd5 = md5(formHtml).substring(0, 6);
+    console.log(`✅ Saved form fragment to ${mdfFileName}`);
 
-    const filenameWithHash = `response_form_hash_${formMd5}.partial.html`;
 
-    const filePath = path.join(dir, filenameWithHash);
-    await fs.writeFile(filePath, formHtml, "utf8");
-
-    console.log(`✅ Saved form fragment to ${filePath}`);
-
+    // CALLs next step!====
+    postTest(examPages.answerPg, questionFormParams);
   }
 };
 
-const postTest = async (answerPgUrl: string, html: string) => {
-   //processForm(html);
+const writeFileSimple = async (htmlRes: string, fileName: string) => {
+  if (!htmlRes) {
+    console.warn("⚠️ No <html> element found!", htmlRes);
+  } else {
+    const dir = path.join(process.cwd(), "savedHtml");
+    await fs.mkdir(dir, { recursive: true });
+
+    const filePath = path.join(dir, fileName);
+    await fs.writeFile(filePath, htmlRes, "utf8");
+
+    console.log(`✅ Saved form fragment to ${filePath}`);
+  }
+};
+
+const postTest = async (
+  answerPgUrl: string,
+  questionFormParams: QuestionForm
+) => {
+  console.warn("post tests4 =============called");
 
   // Define your POST parameters as a JSON object
 
-  const params: QuestionForm = {
-    nombre_cuest: "Cuestionario para Clase B1",
-    id_preg: [
-      1190, 40648, 1089, 1013, 1127, 1182, 1059, 40638, 1096, 1017, 1184, 1162,
-      40653, 1046, 1148, 1555, 1556, 1582, 1569, 1572,
-    ],
-    respuestas: {
-      1190: "1_1190_2555",
-      40648: "2_40648_77623",
-      1089: "3_1089_2254",
-      1013: "4_1013_2025",
-      1127: "5_1127_2367",
-      1182: "6_1182_2532",
-      1059: "7_1059_2164",
-      40638: "8_40638_77594",
-      1096: "9_1096_2275",
-      1017: "10_1017_2036",
-      1184: "11_1184_2537",
-      1162: "12_1162_2472",
-      40653: "13_40653_77637",
-      1046: "14_1046_2124",
-      1148: "15_1148_2429",
-      1555: "16_1555_3273",
-      1556: "17_1556_3275",
-      1582: "18_1582_3354",
-      1569: "19_1569_3315",
-      1572: "20_1572_3323",
-    },
-    enviar: "Enviar",
-  };
-
   // Helper to turn that JSON into `application/x-www-form-urlencoded`
-  function toFormBody(p: typeof params): string {
+  function toFormBody(p: typeof questionFormParams): string {
     const pairs: string[] = [];
 
     pairs.push(`nombre_cuest=${encodeURIComponent(p.nombre_cuest)}`);
@@ -193,7 +173,7 @@ const postTest = async (answerPgUrl: string, html: string) => {
 
     return pairs.join("&");
   }
-  const body = toFormBody(params);
+  const body = toFormBody(questionFormParams);
 
   // const body =
   //   "nombre_cuest=Cuestionario+para+Clase+B1&id_preg%5B%5D=1190&1190=1_1190_2555&id_preg%5B%5D=40648&40648=2_40648_77623&id_preg%5B%5D=1089&1089=3_1089_2254&id_preg%5B%5D=1013&1013=4_1013_2025&id_preg%5B%5D=1127&1127=5_1127_2367&id_preg%5B%5D=1182&1182=6_1182_2532&id_preg%5B%5D=1059&1059=7_1059_2164&id_preg%5B%5D=40638&40638=8_40638_77594&id_preg%5B%5D=1096&1096=9_1096_2275&id_preg%5B%5D=1017&1017=10_1017_2036&id_preg%5B%5D=1184&1184=11_1184_2537&id_preg%5B%5D=1162&1162=12_1162_2472&id_preg%5B%5D=40653&40653=13_40653_77637&id_preg%5B%5D=1046&1046=14_1046_2124&id_preg%5B%5D=1148&1148=15_1148_2429&id_preg%5B%5D=1555&1555=16_1555_3273&id_preg%5B%5D=1556&1556=17_1556_3275&id_preg%5B%5D=1582&1582=18_1582_3354&id_preg%5B%5D=1569&1569=19_1569_3315&id_preg%5B%5D=1572&1572=20_1572_3323&enviar=Enviar";
@@ -203,7 +183,7 @@ const postTest = async (answerPgUrl: string, html: string) => {
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
 
     Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-    "Accept-Language": "en-US,en;q=0.5",
+    "Accept-Language": "es-419,es;q=0.9,en;q=0.8",
     "Content-Type": "application/x-www-form-urlencoded",
     Origin: "https://www.santafe.gob.ar",
     Referer:
@@ -219,18 +199,27 @@ const postTest = async (answerPgUrl: string, html: string) => {
   });
 
   const htmlRes = await response.text();
-  writeFile(htmlRes);
-  //console.log(htmlRes);
+  console.warn(
+    "-----",
+    htmlRes.substring(0, 2800),
+    "--------------------------"
+  );
+  const justForm = getElement(htmlRes, ".form");
+  console.log(justForm);
+
+  const mdfFileName = getMd5FileNameFromForm(
+    justForm,
+    "answers",
+    ".partial.html"
+  );
+  writeFileSimple(justForm, mdfFileName);
 };
 
-const parseRes = (html: string): AnswerData => {
-  // console.log("===>", html);
-
-  const md5Hash = crypto.createHash("md5").update("a").digest("hex");
-
-  return {
-    QuestionHash: md5Hash,
-    Answers: ["a", "b", "c"],
-    CorrectAnswer: "a",
-  };
+const getMd5FileNameFromForm = (
+  formHtml: string,
+  prefix: string,
+  suffix: string
+): string => {
+  const md5form = md5(formHtml).substring(0, 6);
+  return `${prefix}-${md5form}${suffix}`;
 };
