@@ -31,8 +31,12 @@ const getQuestions = async (url: string) => {
 
   const text = await response.text();
 
+  // ⬅️ Capture cookies so i dont spam the same session.
+  const cookies = response.headers.getSetCookie().join("; ");
+  console.log("Cookies:", cookies);
+
   await new Promise((resolve) => setTimeout(resolve, 2000));
-  processQuestionsFile(text);
+  processQuestionsFile(text, cookies);
 };
 
 //kicks the whole thing off, aka init.
@@ -110,7 +114,7 @@ const getQuestionFormParamsFromHtml = (formHtml: string): QuestionForm => {
   return params;
 };
 
-const processQuestionsFile = async (htmlRes: string) => {
+const processQuestionsFile = async (htmlRes: string, cookies: string) => {
   console.log("process questions file===============");
   const $ = load(htmlRes);
 
@@ -122,19 +126,21 @@ const processQuestionsFile = async (htmlRes: string) => {
   if (!formHtml) {
     console.warn("⚠️ No <form> element found!");
   } else {
-    const mdfFileName = getFileNameFromFormParms(
-      questionFormParams.id_preg,
-      "q",
-      ".htm"
-    );
-    writeFileSimple(formHtml, mdfFileName);
 
-    console.log(`✅ Saved form fragment to ${mdfFileName}`);
+    //dont need the questions. any more..
+    // const mdfFileName = getFileNameFromFormParms(
+    //   questionFormParams.id_preg,
+    //   "q",
+    //   ".htm"
+    // );
+    // writeFileSimple(formHtml, mdfFileName);
+
+   // console.log(`✅ Saved form fragment to ${mdfFileName}`);
 
     //worry about spamming them.
     await new Promise((resolve) => setTimeout(resolve, 2000));
     // CALLs next step!====
-    postTest(examPages.answerPg, questionFormParams);
+    postTest(examPages.answerPg, questionFormParams, cookies);
   }
 };
 
@@ -154,7 +160,8 @@ const writeFileSimple = async (htmlRes: string, fileName: string) => {
 
 const postTest = async (
   answerPgUrl: string,
-  questionFormParams: QuestionForm
+  questionFormParams: QuestionForm,
+  cookies: string
 ) => {
   console.warn("post tests4 =============called");
 
@@ -190,8 +197,11 @@ const postTest = async (
     Origin: "https://www.santafe.gob.ar",
     Referer:
       "https://www.santafe.gob.ar/examenlicencia/examenETLC/cuestionario.php",
-    Cookie:
-      "MoodleSession=cso012di66jrcdfbhndr6kogr1; _pk_id.7.38fb=2b2a0693b7d87bd7.1762704238.4.1762883179.1762882059.; eZSESSID=3n8fk9flu2ofq8qg53u5qn0g87; eZSESSIDweb=3r1ab6dm78137ohfj3ic4s9tb3; _gcl_au=1.1.1717133776.1762830500; _ga_XRDJD94NN8=GS2.1.s1762830500$o1$g0$t1762830511$j49$l0$h0; _ga=GA1.1.1616098780.1762830500; _ga_V7QRESCZPX=GS2.1.s1762830500$o1$g0$t1762830511$j49$l0$h0; _fbp=fb.2.1762830501375.799563771277620418; EXAMENLICENCIApwww=.examenlicencia-pwww3; _pk_ses.7.38fb=*",
+
+    //should probably refresh this session cookie...
+    // Cookie:
+    //   "MoodleSession=cso012di66jrcdfbhndr6kogr1; _pk_id.7.38fb=2b2a0693b7d87bd7.1762704238.4.1762883179.1762882059.; eZSESSID=3n8fk9flu2ofq8qg53u5qn0g87; eZSESSIDweb=3r1ab6dm78137ohfj3ic4s9tb3; _gcl_au=1.1.1717133776.1762830500; _ga_XRDJD94NN8=GS2.1.s1762830500$o1$g0$t1762830511$j49$l0$h0; _ga=GA1.1.1616098780.1762830500; _ga_V7QRESCZPX=GS2.1.s1762830500$o1$g0$t1762830511$j49$l0$h0; _fbp=fb.2.1762830501375.799563771277620418; EXAMENLICENCIApwww=.examenlicencia-pwww3; _pk_ses.7.38fb=*",
+    Cookie: cookies,
   };
 
   const response = await fetch(answerPgUrl, {
@@ -265,27 +275,29 @@ const processAnswerRows = (
 
     const questionId = questionFormParams.id_preg[i];
 
-    console.log(
-      "questionText:",
-      questionText,
-      "\nrightAnswer:",
-      rightAnswer,
-      "\nid:",
-      questionId
-    );
+    // console.log(
+    //   "questionText:",
+    //   questionText,
+    //   "\nrightAnswer:",
+    //   rightAnswer,
+    //   "\nid:",
+    //   questionId
+    // );
 
-    const answerData:AnswerData = {
+    const answerData: AnswerData = {
       QuestionText: questionText,
       CorrectAnswer: rightAnswer,
-      Answers: ['a', 'b']
+      Answers: ["a", "b"],
+    };
+    if (questionId) {
+      answerDataMap[questionId] = answerData;
     }
-    answerDataMap[i] = answerData;
-
   });
 
-  console.log('anserdatamap', answerDataMap);
+  console.log("anserdatamap", answerDataMap);
 
-  return getMockAnswerDataMap();
+  //return getMockAnswerDataMap();
+  return answerDataMap;
 };
 
 const processAnswersFile = (
