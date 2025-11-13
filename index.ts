@@ -1,6 +1,7 @@
 import * as crypto from "crypto";
 import { promises as fs } from "fs";
 import path from "path";
+import { load } from "cheerio";
 
 const examPages = {
   listPg:
@@ -16,7 +17,8 @@ const init = async (url: string) => {
     method: "POST",
     headers: {
       "User-Agent":
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:144.0) Gecko/20100101 Firefox/144.0",
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+
       Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
       "Accept-Language": "en-US,en;q=0.5",
       "Content-Type": "application/x-www-form-urlencoded",
@@ -55,19 +57,47 @@ const processForm = (html: string) => {
   );
 };
 
+const md5 = (input: string) => {
+  return crypto.createHash("md5").update(input).digest("hex");
+};
+
 const writeFile = async (htmlRes: string) => {
   console.log("writefileRAn===============");
+
   // define output folder and file
-  const dir = path.join(process.cwd(), "savedHtml");
-  const filePath = path.join(dir, "response.html");
 
-  // ensure the folder exists
-  await fs.mkdir(dir, { recursive: true });
+  // const dir = path.join(process.cwd(), "savedHtml");
+  // const filePath = path.join(dir, "response_form_hash_.partial.html");
 
-  // write the HTML content
-  await fs.writeFile(filePath, htmlRes, "utf8");
+  // // ensure the folder exists
+  // await fs.mkdir(dir, { recursive: true });
 
-  console.log(`✅ Saved HTML to ${filePath}`);
+  // // write the HTML content
+  // await fs.writeFile(filePath, htmlRes, "utf8");
+
+  // console.log(`✅ Saved HTML to ${filePath}`);
+
+  const $ = load(htmlRes);
+
+  // grab the first <form> element (or refine with selector)
+  const formHtml = $("form").first().toString();
+
+  if (!formHtml) {
+    console.warn("⚠️ No <form> element found!");
+  } else {
+    const dir = path.join(process.cwd(), "savedHtml");
+    await fs.mkdir(dir, { recursive: true });
+
+    // save with custom extension
+    const formMd5 = md5(formHtml).substring(0, 6);
+
+    const filenameWithHash = `response_form_hash_${formMd5}.partial.html`;
+
+    const filePath = path.join(dir, filenameWithHash);
+    await fs.writeFile(filePath, formHtml, "utf8");
+
+    console.log(`✅ Saved form fragment to ${filePath}`);
+  }
 };
 
 const postTest = async (answerPgUrl: string, html: string) => {
@@ -131,7 +161,8 @@ const postTest = async (answerPgUrl: string, html: string) => {
 
   const headers = {
     "User-Agent":
-      "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:144.0) Gecko/20100101 Firefox/144.0",
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+
     Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
     "Accept-Language": "en-US,en;q=0.5",
     "Content-Type": "application/x-www-form-urlencoded",
