@@ -33,11 +33,12 @@ const getQuestions = async (url: string) => {
   processQuestionsFile(text);
 };
 
+//kicks the whole thing off, aka init.
 getQuestions(examPages.questionPg);
 
 /* the data the way im goign to save it */
 interface AnswerData {
-  QuestionHash: string;
+  QuestionId: number;
   Answers: string[];
   CorrectAnswer: string;
 }
@@ -118,14 +119,13 @@ const processQuestionsFile = async (htmlRes: string) => {
     console.warn("⚠️ No <form> element found!");
   } else {
     const mdfFileName = getFileNameFromFormParms(
-       questionFormParams.id_preg,
+      questionFormParams.id_preg,
       "que",
       ".partial.html"
     );
     writeFileSimple(formHtml, mdfFileName);
 
     console.log(`✅ Saved form fragment to ${mdfFileName}`);
-
 
     // CALLs next step!====
     postTest(examPages.answerPg, questionFormParams);
@@ -198,7 +198,6 @@ const postTest = async (
   });
 
   const htmlRes = await response.text();
-
   const justForm = getElement(htmlRes, ".form");
 
   const mdfFileName = getFileNameFromFormParms(
@@ -207,6 +206,37 @@ const postTest = async (
     ".partial.html"
   );
   writeFileSimple(justForm, mdfFileName);
+
+  processAnswersFile(justForm, questionFormParams);
+};
+
+//parse the answer html iterate over elements of the psuedo form it has matching up the ids
+//of the questions and answers such that i can make a master json object with the ids as keys
+const getAnswerData = (
+  justAnswerForm: string,
+  questionFormParams: QuestionForm
+): AnswerData[] => {
+  const answerDataArr = [];
+
+  const mockAnswerData = { QuestionId: 0, Answers: ["a"], CorrectAnswer: "a" }
+  answerDataArr.push( mockAnswerData)
+
+  return answerDataArr;
+};
+
+const processAnswersFile = (
+  justForm: string,
+  questionFormParams: QuestionForm
+) => {
+  const answerData: AnswerData[] = getAnswerData(justForm, questionFormParams);
+  const appendMasterJsonFile = answerData;
+};
+
+const appendMasterJsonFile = (
+  justForm: string,
+  questionFormParams: QuestionForm
+) => {
+  console.log("todo open a js object saved to file aadd ids to it ");
 };
 
 const getFileNameFromFormParms = (
@@ -214,7 +244,6 @@ const getFileNameFromFormParms = (
   prefix: string,
   suffix: string
 ): string => {
-  //const md5form = md5(formHtml).substring(0, 6);
   const md5form = questionsArr.slice(0, 4).join("-");
   return `${prefix}-${md5form}${suffix}`;
 };
