@@ -40,11 +40,12 @@ getQuestions(examPages.questionPg);
 
 /* the data the way im goign to save it */
 interface AnswerData {
-  QuestionId: number;
   QuestionText: string;
   Answers: string[];
   CorrectAnswer: string;
 }
+
+type AnswerDataMap = Record<number, AnswerData>;
 
 /** the datga the way they expext it posted to answer the exam questions. */
 interface QuestionForm {
@@ -179,9 +180,6 @@ const postTest = async (
   }
   const body = toFormBody(questionFormParams);
 
-  // const body =
-  //   "nombre_cuest=Cuestionario+para+Clase+B1&id_preg%5B%5D=1190&1190=1_1190_2555&id_preg%5B%5D=40648&40648=2_40648_77623&id_preg%5B%5D=1089&1089=3_1089_2254&id_preg%5B%5D=1013&1013=4_1013_2025&id_preg%5B%5D=1127&1127=5_1127_2367&id_preg%5B%5D=1182&1182=6_1182_2532&id_preg%5B%5D=1059&1059=7_1059_2164&id_preg%5B%5D=40638&40638=8_40638_77594&id_preg%5B%5D=1096&1096=9_1096_2275&id_preg%5B%5D=1017&1017=10_1017_2036&id_preg%5B%5D=1184&1184=11_1184_2537&id_preg%5B%5D=1162&1162=12_1162_2472&id_preg%5B%5D=40653&40653=13_40653_77637&id_preg%5B%5D=1046&1046=14_1046_2124&id_preg%5B%5D=1148&1148=15_1148_2429&id_preg%5B%5D=1555&1555=16_1555_3273&id_preg%5B%5D=1556&1556=17_1556_3275&id_preg%5B%5D=1582&1582=18_1582_3354&id_preg%5B%5D=1569&1569=19_1569_3315&id_preg%5B%5D=1572&1572=20_1572_3323&enviar=Enviar";
-
   const headers = {
     "User-Agent":
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
@@ -216,38 +214,42 @@ const postTest = async (
 };
 
 //todo fix
-const getMockAnswerData = () => {
+const getMockAnswerDataMap = (): AnswerDataMap => {
   return {
-    QuestionId: 0,
-    QuestionText: "what?",
-    Answers: ["a"],
-    CorrectAnswer: "a",
+    0: {
+      QuestionText: "what?",
+      Answers: ["a"],
+      CorrectAnswer: "a",
+    },
   };
 };
 
 //parse the answer html iterate over elements of the psuedo form it has matching up the ids
 //of the questions and answers such that i can make a master json object with the ids as keys
-const getAnswerData = (
+const getAnswerDataMap = (
   justAnswerForm: string,
   questionFormParams: QuestionForm
-): AnswerData[] => {
+): AnswerDataMap => {
   const answerDataArr = [];
 
   //todo fix.
-  const mockAnswerData = getMockAnswerData();
+  const mockAnswerData = getMockAnswerDataMap();
   answerDataArr.push(mockAnswerData);
 
   processAnswerRows(justAnswerForm, questionFormParams);
 
-  return answerDataArr;
+  // return answerDataArr;
+  return mockAnswerData;
 };
 
 const processAnswerRows = (
   justAnswerForm: string,
   questionFormParams: QuestionForm
-): AnswerData => {
+): AnswerDataMap => {
   const $ = load(justAnswerForm);
 
+  //const answerDataMap = {};
+  const answerDataMap: Record<number, AnswerData> = {};
   $(".formulation").each((i, el) => {
     const questionText =
       $(el).find(".qtext p").text().trim() ||
@@ -271,16 +273,29 @@ const processAnswerRows = (
       "\nid:",
       questionId
     );
+
+    const answerData:AnswerData = {
+      QuestionText: questionText,
+      CorrectAnswer: rightAnswer,
+      Answers: ['a', 'b']
+    }
+    answerDataMap[i] = answerData;
+
   });
 
-  return getMockAnswerData();
+  console.log('anserdatamap', answerDataMap);
+
+  return getMockAnswerDataMap();
 };
 
 const processAnswersFile = (
   justForm: string,
   questionFormParams: QuestionForm
 ) => {
-  const answerData: AnswerData[] = getAnswerData(justForm, questionFormParams);
+  const answerData: AnswerDataMap = getAnswerDataMap(
+    justForm,
+    questionFormParams
+  );
   const appendMasterJsonFile = answerData;
 };
 
