@@ -123,8 +123,8 @@ const processQuestionsFile = async (htmlRes: string) => {
   } else {
     const mdfFileName = getFileNameFromFormParms(
       questionFormParams.id_preg,
-      "que",
-      ".partial.html"
+      "q",
+      ".htm"
     );
     writeFileSimple(formHtml, mdfFileName);
 
@@ -207,8 +207,8 @@ const postTest = async (
 
   const mdfFileName = getFileNameFromFormParms(
     questionFormParams.id_preg,
-    "ans",
-    ".partial.html"
+    "a",
+    ".htm"
   );
   writeFileSimple(justForm, mdfFileName);
 
@@ -249,7 +249,6 @@ const processAnswerRows = (
   const $ = load(justAnswerForm);
 
   $(".formulation").each((i, el) => {
-    //const questionText = $(el).find(".qtext p").text().trim();
     const questionText =
       $(el).find(".qtext p").text().trim() ||
       $(el).find(".qtext").text().trim();
@@ -297,6 +296,9 @@ const getFileNameFromFormParms = (
   prefix: string,
   suffix: string
 ): string => {
-  const md5form = questionsArr.slice(0, 4).join("-");
+  //const md5form = questionsArr.slice(0, 4).join("-");
+
+  //is about 154 chars at 250 ename too long happens, including full win path c://
+  const md5form = questionsArr.join("-");
   return `${prefix}-${md5form}${suffix}`;
 };
