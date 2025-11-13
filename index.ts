@@ -61,10 +61,16 @@ const md5 = (input: string) => {
   return crypto.createHash("md5").update(input).digest("hex");
 };
 
-const parseForm = (formHtml: string) => {
+const getQuestionFormParamsFromHtml = (formHtml: string) => {
   let formArr: any = [];
 
   const $ = load(formHtml);
+
+  const hasForm = $(".formulation").length > 0;
+
+  if (!hasForm) {
+    return false;
+  }
 
   let id_preg_arr: number[] = [];
   const respuestas_data: Record<number, string> = {};
@@ -73,12 +79,14 @@ const parseForm = (formHtml: string) => {
     const id_preg = $(el)
       .find('input[type="hidden"][name="id_preg[]"]')
       .val() as string | undefined;
-    const firstRadioValue = $(el).find('input[type="radio"]').first().val();
+    const firstRadioValue = $(el).find('input[type="radio"]').first().val() as
+      | string
+      | undefined;
     const questionText = $(el).find(".qtext p").text().trim();
 
     formArr.push({ id_preg, firstRadioValue, questionText });
 
-    console.log({ id_preg, firstRadioValue, questionText });
+    //console.log({ id_preg, firstRadioValue, questionText });
 
     if (id_preg && !isNaN(parseInt(id_preg, 10))) {
       id_preg_arr.push(parseInt(id_preg, 10));
@@ -89,32 +97,28 @@ const parseForm = (formHtml: string) => {
     }
   });
 
-
   const params: QuestionForm = {
     nombre_cuest: "Cuestionario para Clase B1",
-    id_preg: [], //id_preg_arr,
+    id_preg: id_preg_arr,
 
     //needs 20 TODO
-    respuestas: {
-      1190: "1_1190_2555",
-      40648: "2_40648_77623",
-      
-    },
+    respuestas: respuestas_data,
     enviar: "Enviar",
   };
 
-  console.log("formarr", JSON.stringify(formArr));
+  console.log("params=======", params);
 
-
+  return true;
 };
 
 const writeFile = async (htmlRes: string) => {
   console.log("writefileRAn===============");
   // define output folder and file
+  const $ = load(htmlRes);
 
+  const formHtml = $("form").first().toString();
 
-  const formHtml = parseForm(htmlRes);
-
+  const questionFormParams: QuestionForm = getQuestionFormParamsFromHtml(formHtml);
 
   if (!formHtml) {
     console.warn("⚠️ No <form> element found!");
@@ -131,11 +135,12 @@ const writeFile = async (htmlRes: string) => {
     await fs.writeFile(filePath, formHtml, "utf8");
 
     console.log(`✅ Saved form fragment to ${filePath}`);
+
   }
 };
 
 const postTest = async (answerPgUrl: string, html: string) => {
-  processForm(html);
+   //processForm(html);
 
   // Define your POST parameters as a JSON object
 
