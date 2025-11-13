@@ -1,6 +1,6 @@
 import * as crypto from "crypto";
 import { promises as fs } from "fs";
-import path from "path";
+import path, { format } from "path";
 import { load } from "cheerio";
 
 const examPages = {
@@ -12,7 +12,7 @@ const examPages = {
     "https://www.santafe.gob.ar/examenlicencia/examenETLC/mostrarResultado.php",
 };
 
-const init = async (url: string) => {
+const getQuestions = async (url: string) => {
   const response = await fetch(url, {
     method: "POST",
     headers: {
@@ -34,7 +34,7 @@ const init = async (url: string) => {
   writeFile(text);
 };
 
-init(examPages.questionPg);
+getQuestions(examPages.questionPg);
 
 /* the data the way im goign to save it */
 interface AnswerData {
@@ -61,26 +61,60 @@ const md5 = (input: string) => {
   return crypto.createHash("md5").update(input).digest("hex");
 };
 
+const parseForm = (formHtml: string) => {
+  let formArr: any = [];
+
+  const $ = load(formHtml);
+
+  let id_preg_arr: number[] = [];
+  const respuestas_data: Record<number, string> = {};
+
+  $(".formulation").each((_, el) => {
+    const id_preg = $(el)
+      .find('input[type="hidden"][name="id_preg[]"]')
+      .val() as string | undefined;
+    const firstRadioValue = $(el).find('input[type="radio"]').first().val();
+    const questionText = $(el).find(".qtext p").text().trim();
+
+    formArr.push({ id_preg, firstRadioValue, questionText });
+
+    console.log({ id_preg, firstRadioValue, questionText });
+
+    if (id_preg && !isNaN(parseInt(id_preg, 10))) {
+      id_preg_arr.push(parseInt(id_preg, 10));
+    }
+
+    if (id_preg && firstRadioValue) {
+      respuestas_data[parseInt(id_preg, 10)] = firstRadioValue;
+    }
+  });
+
+
+  const params: QuestionForm = {
+    nombre_cuest: "Cuestionario para Clase B1",
+    id_preg: [], //id_preg_arr,
+
+    //needs 20 TODO
+    respuestas: {
+      1190: "1_1190_2555",
+      40648: "2_40648_77623",
+      
+    },
+    enviar: "Enviar",
+  };
+
+  console.log("formarr", JSON.stringify(formArr));
+
+
+};
+
 const writeFile = async (htmlRes: string) => {
   console.log("writefileRAn===============");
-
   // define output folder and file
 
-  // const dir = path.join(process.cwd(), "savedHtml");
-  // const filePath = path.join(dir, "response_form_hash_.partial.html");
 
-  // // ensure the folder exists
-  // await fs.mkdir(dir, { recursive: true });
+  const formHtml = parseForm(htmlRes);
 
-  // // write the HTML content
-  // await fs.writeFile(filePath, htmlRes, "utf8");
-
-  // console.log(`✅ Saved HTML to ${filePath}`);
-
-  const $ = load(htmlRes);
-
-  // grab the first <form> element (or refine with selector)
-  const formHtml = $("form").first().toString();
 
   if (!formHtml) {
     console.warn("⚠️ No <form> element found!");
