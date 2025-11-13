@@ -31,7 +31,7 @@ const getQuestions = async (url: string) => {
 
   const text = await response.text();
 
-  await new Promise(resolve => setTimeout(resolve, 2000));
+  await new Promise((resolve) => setTimeout(resolve, 2000));
   processQuestionsFile(text);
 };
 
@@ -131,7 +131,7 @@ const processQuestionsFile = async (htmlRes: string) => {
     console.log(`✅ Saved form fragment to ${mdfFileName}`);
 
     //worry about spamming them.
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     // CALLs next step!====
     postTest(examPages.answerPg, questionFormParams);
   }
@@ -217,9 +217,13 @@ const postTest = async (
 
 //todo fix
 const getMockAnswerData = () => {
-    return { QuestionId: 0, QuestionText: 'what?', Answers: ["a"], CorrectAnswer: "a" };
-}
-
+  return {
+    QuestionId: 0,
+    QuestionText: "what?",
+    Answers: ["a"],
+    CorrectAnswer: "a",
+  };
+};
 
 //parse the answer html iterate over elements of the psuedo form it has matching up the ids
 //of the questions and answers such that i can make a master json object with the ids as keys
@@ -231,32 +235,47 @@ const getAnswerData = (
 
   //todo fix.
   const mockAnswerData = getMockAnswerData();
-  answerDataArr.push( mockAnswerData);
+  answerDataArr.push(mockAnswerData);
 
   processAnswerRows(justAnswerForm, questionFormParams);
 
   return answerDataArr;
 };
 
-const processAnswerRows = (justAnswerForm: string, questionFormParams: QuestionForm): AnswerData => {
+const processAnswerRows = (
+  justAnswerForm: string,
+  questionFormParams: QuestionForm
+): AnswerData => {
   const $ = load(justAnswerForm);
 
-  $(".formulation").each((_, el) => {
+  $(".formulation").each((i, el) => {
+    //const questionText = $(el).find(".qtext p").text().trim();
+    const questionText =
+      $(el).find(".qtext p").text().trim() ||
+      $(el).find(".qtext").text().trim();
 
-    const questionText = $(el).find(".qtext p").text().trim();
-   
-    const rightAnswer =  $(el).find('.rightanswer').text().trim() as
-      | string
-      | undefined;
+    const rightAnswer = $(el)
+      .nextAll(".outcome_correcto, .outcome")
+      .first()
+      .find(".rightanswer")
+      .text()
+      .replace(/^Respuesta correcta:\s*/i, "")
+      .trim();
 
-      const QuestionId = questionFormParams.id_preg[ _ ]; 
+    const questionId = questionFormParams.id_preg[i];
 
-      console.log('questionText', questionText, 'rightAnswer',rightAnswer, 'id?', QuestionId);
-
-   
+    console.log(
+      "questionText:",
+      questionText,
+      "\nrightAnswer:",
+      rightAnswer,
+      "\nid:",
+      questionId
+    );
   });
-   return getMockAnswerData()
-}
+
+  return getMockAnswerData();
+};
 
 const processAnswersFile = (
   justForm: string,
