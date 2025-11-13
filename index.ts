@@ -30,6 +30,8 @@ const getQuestions = async (url: string) => {
   });
 
   const text = await response.text();
+
+  await new Promise(resolve => setTimeout(resolve, 2000));
   processQuestionsFile(text);
 };
 
@@ -39,6 +41,7 @@ getQuestions(examPages.questionPg);
 /* the data the way im goign to save it */
 interface AnswerData {
   QuestionId: number;
+  QuestionText: string;
   Answers: string[];
   CorrectAnswer: string;
 }
@@ -127,6 +130,8 @@ const processQuestionsFile = async (htmlRes: string) => {
 
     console.log(`✅ Saved form fragment to ${mdfFileName}`);
 
+    //worry about spamming them.
+    await new Promise(resolve => setTimeout(resolve, 2000));
     // CALLs next step!====
     postTest(examPages.answerPg, questionFormParams);
   }
@@ -210,6 +215,12 @@ const postTest = async (
   processAnswersFile(justForm, questionFormParams);
 };
 
+//todo fix
+const getMockAnswerData = () => {
+    return { QuestionId: 0, QuestionText: 'what?', Answers: ["a"], CorrectAnswer: "a" };
+}
+
+
 //parse the answer html iterate over elements of the psuedo form it has matching up the ids
 //of the questions and answers such that i can make a master json object with the ids as keys
 const getAnswerData = (
@@ -218,11 +229,34 @@ const getAnswerData = (
 ): AnswerData[] => {
   const answerDataArr = [];
 
-  const mockAnswerData = { QuestionId: 0, Answers: ["a"], CorrectAnswer: "a" }
-  answerDataArr.push( mockAnswerData)
+  //todo fix.
+  const mockAnswerData = getMockAnswerData();
+  answerDataArr.push( mockAnswerData);
+
+  processAnswerRows(justAnswerForm, questionFormParams);
 
   return answerDataArr;
 };
+
+const processAnswerRows = (justAnswerForm: string, questionFormParams: QuestionForm): AnswerData => {
+  const $ = load(justAnswerForm);
+
+  $(".formulation").each((_, el) => {
+
+    const questionText = $(el).find(".qtext p").text().trim();
+   
+    const rightAnswer =  $(el).find('.rightanswer').text().trim() as
+      | string
+      | undefined;
+
+      const QuestionId = questionFormParams.id_preg[ _ ]; 
+
+      console.log('questionText', questionText, 'rightAnswer',rightAnswer, 'id?', QuestionId);
+
+   
+  });
+   return getMockAnswerData()
+}
 
 const processAnswersFile = (
   justForm: string,
