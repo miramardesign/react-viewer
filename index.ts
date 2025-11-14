@@ -42,10 +42,16 @@ const getQuestions = async (url: string) => {
 //kicks the whole thing off, aka init.
 getQuestions(examPages.questionPg);
 
+interface Answer {
+  AnswerId: number;
+  AnswerText: string;
+}
+
 /* the data the way im goign to save it */
 interface AnswerData {
   QuestionText: string;
-  Answers: string[];
+  Answers: Answer[];
+  // Answers: string[];
   CorrectAnswer: string;
 }
 
@@ -126,17 +132,6 @@ const processQuestionsFile = async (htmlRes: string, cookies: string) => {
   if (!formHtml) {
     console.warn("⚠️ No <form> element found!");
   } else {
-
-    //dont need the questions. any more..
-    // const mdfFileName = getFileNameFromFormParms(
-    //   questionFormParams.id_preg,
-    //   "q",
-    //   ".htm"
-    // );
-    // writeFileSimple(formHtml, mdfFileName);
-
-   // console.log(`✅ Saved form fragment to ${mdfFileName}`);
-
     //worry about spamming them.
     await new Promise((resolve) => setTimeout(resolve, 2000));
     // CALLs next step!====
@@ -228,7 +223,7 @@ const getMockAnswerDataMap = (): AnswerDataMap => {
   return {
     0: {
       QuestionText: "what?",
-      Answers: ["a"],
+      Answers: [{ AnswerId: 1, AnswerText: "a" }],
       CorrectAnswer: "a",
     },
   };
@@ -243,10 +238,10 @@ const getAnswerDataMap = (
   const answerDataArr = [];
 
   //todo fix.
-  const mockAnswerData = getMockAnswerDataMap();
-  answerDataArr.push(mockAnswerData);
+  //const mockAnswerData = getMockAnswerDataMap();
+  //answerDataArr.push(mockAnswerData);
 
-  processAnswerRows(justAnswerForm, questionFormParams);
+  const mockAnswerData = processAnswerRows(justAnswerForm, questionFormParams);
 
   // return answerDataArr;
   return mockAnswerData;
@@ -275,28 +270,40 @@ const processAnswerRows = (
 
     const questionId = questionFormParams.id_preg[i];
 
-    // console.log(
-    //   "questionText:",
-    //   questionText,
-    //   "\nrightAnswer:",
-    //   rightAnswer,
-    //   "\nid:",
-    //   questionId
-    // );
+    const answerArr: Answer[] = [];
+    $(el)
+      .find(".answer .r0")
+      .each((j, r0) => {
+        const rawId = $(r0).find("input").val();
+        const answerId = rawId ? Number(rawId) : -1; // fallback if undefined
+
+        const answerText = $(r0).find("label").text();
+        const answerData: Answer = {
+          AnswerId: answerId,
+          AnswerText: answerText,
+        };
+
+        answerArr.push(answerData);
+        console.warn(
+          "found answeer.00000.",
+          answerText,
+          "id============",
+          answerId
+        );
+      });
 
     const answerData: AnswerData = {
       QuestionText: questionText,
       CorrectAnswer: rightAnswer,
-      Answers: ["a", "b"],
+      Answers: answerArr,
     };
     if (questionId) {
       answerDataMap[questionId] = answerData;
     }
   });
 
-  console.log("anserdatamap", answerDataMap);
+  console.log("anserdatamap", JSON.stringify(answerDataMap ) );
 
-  //return getMockAnswerDataMap();
   return answerDataMap;
 };
 
