@@ -8,7 +8,7 @@ export interface AnswerData {
   QuestionText: string;
   Answers: Answer[];
   // Answers: string[];
-  CorrectAnswer: string;
+  CorrectAnswerId: number;
 }
 
 export type AnswerDataMap = Record<string, AnswerData>;

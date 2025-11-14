@@ -303,13 +303,17 @@ const processAnswerRows = (
       );
     }
 
-    const rightAnswer = $(el)
+    const correctAnswerText = $(el)
       .nextAll(".outcome_correcto, .outcome")
       .first()
       .find(".rightanswer")
       .text()
-      .replace(/^Respuesta correcta:\s*/i, "")
+      //.replace(/^Respuesta correcta:\s*/i, "")
+      .replace(/Respuesta correcta\:/i, "")
+
       .trim();
+
+    let correctAnswerId = -1
 
     const questionId = questionFormParams.id_preg[i];
 
@@ -319,25 +323,27 @@ const processAnswerRows = (
       .each((j, r0) => {
         const rawId = $(r0).find("input").val();
         const answerId = rawId ? Number(rawId) : -1; // fallback if undefined
-
-        const answerText = $(r0).find("label").text();
+ 
+        const answerText = $(r0).find("label").text().trim();
         const answerData: Answer = {
           AnswerId: answerId,
           AnswerText: answerText,
         };
+        
+        if(answerText.includes(correctAnswerText)){
+          console.log('found correct99999999999999999999999999999999999===========', )
+          correctAnswerId = answerId;
+        }else{
+          console.log('correctAnswerText', correctAnswerText, 'answerText:', answerText, )
+        }
 
         answerArr.push(answerData);
-        // console.warn(
-        //   "found answeer.00000.",
-        //   answerText,
-        //   "id============",
-        //   answerId
-        // );
+
       });
 
     const answerData: AnswerData = {
       QuestionText: questionText,
-      CorrectAnswer: rightAnswer,
+      CorrectAnswerId: correctAnswerId,
       Answers: answerArr,
     };
     if (questionId) {
