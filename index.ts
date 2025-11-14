@@ -3,16 +3,7 @@ import { promises as fs } from "fs";
 import path from "path";
 import { load } from "cheerio";
 import type { Answer, AnswerData, AnswerDataMap, QuestionForm } from "./types/AnswerTypes.js";
-
-
-const examPages = {
-  listPg:
-    "https://www.santafe.gob.ar/examenlicencia/examenETLC/listarCuestionarios.php",
-  questionPg:
-    "https://www.santafe.gob.ar/examenlicencia/examenETLC/cuestionario.php",
-  answerPg:
-    "https://www.santafe.gob.ar/examenlicencia/examenETLC/mostrarResultado.php",
-};
+import { examPages } from "./const/urls.js";
 
 const getQuestions = async (url: string) => {
   const response = await fetch(url, {
@@ -131,6 +122,7 @@ const writeFileSimple = async (htmlRes: string, fileName: string) => {
   }
 };
 
+/** passsed in cookies from 1st respons so that its not always the same session. */
 const postTest = async (
   answerPgUrl: string,
   questionFormParams: QuestionForm,

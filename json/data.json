@@ -665,6 +665,24 @@
       }
     ]
   },
+  "1049": {
+    "QuestionText": "¿Por dónde debe circular un peatón?",
+    "CorrectAnswer": "Respuesta correcta: Por la acera, sendas y puentes peatonales, y excepcionalmente por la calzada rodeando el vehículo para ascenso y descenso.",
+    "Answers": [
+      {
+        "AnswerId": 2132,
+        "AnswerText": "a. Por la calzada lo más lejos posible de los vehículos, por la acera o canteros centrales y por la senda peatonal."
+      },
+      {
+        "AnswerId": 2133,
+        "AnswerText": "b. Por la acera, por las calles peatonales en el microcentro, por la calzada paralelo a los autos estacionados al descender del vehículo, por la senda peatonal o puentes peatonales en caso de no existir senda."
+      },
+      {
+        "AnswerId": 2134,
+        "AnswerText": "c. Por la acera, sendas y puentes peatonales, y excepcionalmente por la calzada rodeando el vehículo para ascenso y descenso."
+      }
+    ]
+  },
   "1051": {
     "QuestionText": "¿Cuál es la velocidad máxima permitida en ciudad, para un automóvil particular en calles comunes?",
     "CorrectAnswer": "Respuesta correcta: 40 km por hora.",
@@ -716,6 +734,24 @@
       {
         "AnswerId": 2146,
         "AnswerText": "c. 20 cm del lado izquierdo, 40 cm. del lado derecho  y un metro en la parte trasera."
+      }
+    ]
+  },
+  "1054": {
+    "QuestionText": "¿Con qué luces encendidas se debe circular de noche en la ciudad?",
+    "CorrectAnswer": "Respuesta correcta: Con luz de posición, luz baja y luz de chapa patente.",
+    "Answers": [
+      {
+        "AnswerId": 2147,
+        "AnswerText": "a. Con luz de posición, luz baja y luz de chapa patente."
+      },
+      {
+        "AnswerId": 2148,
+        "AnswerText": "b. Con luz de alcance medio o faros rompenieblas."
+      },
+      {
+        "AnswerId": 2149,
+        "AnswerText": "c. Con luz alta, bajando a luz de alcance medio en caso de aproximarse un vehículo de frente."
       }
     ]
   },
@@ -824,6 +860,24 @@
       {
         "AnswerId": 2167,
         "AnswerText": "c. Circular normalmente."
+      }
+    ]
+  },
+  "1061": {
+    "QuestionText": "¿En el vehículo son obligatorios los correajes y cabezales normalizados o dispositivos que los reemplacen?",
+    "CorrectAnswer": "Respuesta correcta: Sí, según lo determina la reglamentación.",
+    "Answers": [
+      {
+        "AnswerId": 2168,
+        "AnswerText": "a. Sí, según lo determina la reglamentación."
+      },
+      {
+        "AnswerId": 2169,
+        "AnswerText": "b. No, no son obligatorios."
+      },
+      {
+        "AnswerId": 2170,
+        "AnswerText": "c. No, todo queda a criterio del usuario."
       }
     ]
   },
@@ -968,6 +1022,24 @@
       {
         "AnswerId": 2194,
         "AnswerText": "c. Roja adelante y blanca atrás."
+      }
+    ]
+  },
+  "1070": {
+    "QuestionText": "¿Qué es la tara de un automotor?",
+    "CorrectAnswer": "Respuesta correcta: Es el peso del vehículo sin su carga útil.",
+    "Answers": [
+      {
+        "AnswerId": 2195,
+        "AnswerText": "a. Es el peso que un vehículo puede trasportar en la calzada."
+      },
+      {
+        "AnswerId": 2196,
+        "AnswerText": "b. Es el peso de una unidad tractora desprovista del acoplado."
+      },
+      {
+        "AnswerId": 2197,
+        "AnswerText": "c. Es el peso del vehículo sin su carga útil."
       }
     ]
   },
@@ -1583,6 +1655,24 @@
       }
     ]
   },
+  "1117": {
+    "QuestionText": "Las señales informativas:",
+    "CorrectAnswer": "Respuesta correcta: Sirven para brindar información acerca de servicios, lugares, tipos de ruta, distancias y cualquier otro dato de utilidad para el usuario de la vía.",
+    "Answers": [
+      {
+        "AnswerId": 2336,
+        "AnswerText": "a. Son las que advierten acerca de la proximidad de una variación en el camino o un hecho que puede resultar peligroso a la circulación y requiere especial atención y adecuación a la conducción."
+      },
+      {
+        "AnswerId": 2337,
+        "AnswerText": "b. Son las que transmiten órdenes de carácter obligatorio en el lugar para el cual están destinadas."
+      },
+      {
+        "AnswerId": 2338,
+        "AnswerText": "c. Sirven para brindar información acerca de servicios, lugares, tipos de ruta, distancias y cualquier otro dato de utilidad para el usuario de la vía."
+      }
+    ]
+  },
   "1118": {
     "QuestionText": "Las señales transitorias:",
     "CorrectAnswer": "Respuesta correcta: Señalizan la ejecución de trabajos de construcción y mantenimiento de la vía o zonas aledañas y su función principal es permitir el desplazamiento de vehículos y personas, evitando el riesgo de siniestros y las demoras.",
@@ -1850,6 +1940,24 @@
       {
         "AnswerId": 2395,
         "AnswerText": "c. La autoridad de control debe llevar mi vehículo a un taller de reparación."
+      }
+    ]
+  },
+  "1137": {
+    "QuestionText": "¿A qué se denomina carretón?",
+    "CorrectAnswer": "Respuesta correcta: El vehículo especial, cuya capacidad de carga, tanto en peso como en dimensiones, supera la de los vehículos convencionales.",
+    "Answers": [
+      {
+        "AnswerId": 2396,
+        "AnswerText": "a. El vehículo especial, cuya capacidad de carga, tanto en peso como en dimensiones, no supera la de  vehículos convencionales."
+      },
+      {
+        "AnswerId": 2397,
+        "AnswerText": "b. El vehículo especial, cuya capacidad de carga, tanto en peso como en dimensiones, supera la de los vehículos convencionales."
+      },
+      {
+        "AnswerId": 2398,
+        "AnswerText": "c. Dispositivo estructural especial armado para el transporte de cargas, independiente del vehículo."
       }
     ]
   },
@@ -2246,6 +2354,24 @@
       {
         "AnswerId": 2470,
         "AnswerText": "c. Detenerse obligatoriamente."
+      }
+    ]
+  },
+  "1162": {
+    "QuestionText": "¿Qué significa esta señal?",
+    "CorrectAnswer": "Respuesta correcta: Prohibido circular maquinaria agrícola.",
+    "Answers": [
+      {
+        "AnswerId": 2471,
+        "AnswerText": "a. Prohibida la tracción a sangre."
+      },
+      {
+        "AnswerId": 2472,
+        "AnswerText": "b. Prohibido circular maquinaria agrícola."
+      },
+      {
+        "AnswerId": 2473,
+        "AnswerText": "c. Prohibido el tránsito pesado."
       }
     ]
   },
@@ -2732,6 +2858,24 @@
       {
         "AnswerId": 3277,
         "AnswerText": "c. 0,5 gr/1000 cm3."
+      }
+    ]
+  },
+  "1557": {
+    "QuestionText": "¿En un automóvil, pueden viajar 9 personas mayores?",
+    "CorrectAnswer": "Respuesta correcta: No.",
+    "Answers": [
+      {
+        "AnswerId": 3278,
+        "AnswerText": "a. Sí."
+      },
+      {
+        "AnswerId": 3279,
+        "AnswerText": "b. No."
+      },
+      {
+        "AnswerId": 3280,
+        "AnswerText": "c. Sólo si al menos cuatro de ellos fueran menores de 10 años."
       }
     ]
   },
