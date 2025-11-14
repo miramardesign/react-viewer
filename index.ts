@@ -1,7 +1,9 @@
 import * as crypto from "crypto";
 import { promises as fs } from "fs";
-import path, { format } from "path";
+import path from "path";
 import { load } from "cheerio";
+import type { Answer, AnswerData, AnswerDataMap, QuestionForm } from "./types/AnswerTypes.js";
+
 
 const examPages = {
   listPg:
@@ -42,28 +44,6 @@ const getQuestions = async (url: string) => {
 //kicks the whole thing off, aka init.
 getQuestions(examPages.questionPg);
 
-interface Answer {
-  AnswerId: number;
-  AnswerText: string;
-}
-
-/* the data the way im goign to save it */
-interface AnswerData {
-  QuestionText: string;
-  Answers: Answer[];
-  // Answers: string[];
-  CorrectAnswer: string;
-}
-
-type AnswerDataMap = Record<string, AnswerData>;
-
-/** the datga the way they expext it posted to answer the exam questions. */
-interface QuestionForm {
-  nombre_cuest: string;
-  id_preg: number[];
-  respuestas: Record<number, string>;
-  enviar: string;
-}
 
 const md5 = (input: string) => {
   return crypto.createHash("md5").update(input).digest("hex");
@@ -114,8 +94,6 @@ const getQuestionFormParamsFromHtml = (formHtml: string): QuestionForm => {
     respuestas: respuestas_data,
     enviar: "Enviar",
   };
-
-  // console.log("params=======", params);
 
   return params;
 };
@@ -218,28 +196,12 @@ const postTest = async (
   processAnswersFile(justForm, questionFormParams);
 };
 
-//todo fix
-// const getMockAnswerDataMap = (): AnswerDataMap => {
-//   return {
-//     0: {
-//       QuestionText: "what?",
-//       Answers: [{ AnswerId: 1, AnswerText: "a" }],
-//       CorrectAnswer: "a",
-//     },
-//   };
-// };
-
 //parse the answer html iterate over elements of the psuedo form it has matching up the ids
 //of the questions and answers such that i can make a master json object with the ids as keys
 const getAnswerDataMap = (
   justAnswerForm: string,
   questionFormParams: QuestionForm
 ): AnswerDataMap => {
-  // const answerDataArr = [];
-
-  //todo fix.
-  //const mockAnswerData = getMockAnswerDataMap();
-  //answerDataArr.push(mockAnswerData);
 
   const mockAnswerData = processAnswerRows(justAnswerForm, questionFormParams);
 

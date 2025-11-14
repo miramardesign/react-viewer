@@ -125,6 +125,24 @@
       }
     ]
   },
+  "1013": {
+    "QuestionText": "En zonas urbanas y rurales si existen cruces a distinto nivel con senda para peatones ¿Su uso es obligatorio para atravesar la calzada?",
+    "CorrectAnswer": "Respuesta correcta: Sí, es obligatorio.",
+    "Answers": [
+      {
+        "AnswerId": 2024,
+        "AnswerText": "a. Sólo en autopista."
+      },
+      {
+        "AnswerId": 2025,
+        "AnswerText": "b. Sí, es obligatorio."
+      },
+      {
+        "AnswerId": 2026,
+        "AnswerText": "c. Depende de las destrezas del peatón."
+      }
+    ]
+  },
   "1014": {
     "QuestionText": "¿En la circulación deben advertirse las maniobras?",
     "CorrectAnswer": "Respuesta correcta: Cualquier maniobra deben advertirla previamente y realizarla con precaución, sin crear riesgo ni afectar la fluidez del tránsito.",
@@ -233,6 +251,24 @@
       }
     ]
   },
+  "1021": {
+    "QuestionText": "¿Qué luces deben utilizarse mientras el vehículo transite por rutas?",
+    "CorrectAnswer": "Respuesta correcta: Luces bajas.",
+    "Answers": [
+      {
+        "AnswerId": 2048,
+        "AnswerText": "a. Luces altas."
+      },
+      {
+        "AnswerId": 2049,
+        "AnswerText": "b. Luces bajas."
+      },
+      {
+        "AnswerId": 2050,
+        "AnswerText": "c. Luces de posición."
+      }
+    ]
+  },
   "1023": {
     "QuestionText": "¿En qué momento deben usarse las luces de destellos?",
     "CorrectAnswer": "Respuesta correcta: Debe usarse en los cruces de vías y para advertir los sobrepasos.",
@@ -323,6 +359,60 @@
       }
     ]
   },
+  "1031": {
+    "QuestionText": "El cinturón de seguridad es obligatorio para:",
+    "CorrectAnswer": "Respuesta correcta: Todos los ocupantes del vehículo.",
+    "Answers": [
+      {
+        "AnswerId": 2078,
+        "AnswerText": "a. Todos los que vayan en el asiento delantero."
+      },
+      {
+        "AnswerId": 2079,
+        "AnswerText": "b. El conductor."
+      },
+      {
+        "AnswerId": 2080,
+        "AnswerText": "c. Todos los ocupantes del vehículo."
+      }
+    ]
+  },
+  "1032": {
+    "QuestionText": "Según la Ley Nacional Nº 24.449, cuál es el límite mínimo de velocidad obligatorio para zona urbana y autopistas?",
+    "CorrectAnswer": "Respuesta correcta: La mitad del máximo fijado para cada tipo de vía.",
+    "Answers": [
+      {
+        "AnswerId": 2081,
+        "AnswerText": "a. 40 km/h, salvo los vehículos que deban portar permisos, y las maquinarias especiales."
+      },
+      {
+        "AnswerId": 2082,
+        "AnswerText": "b. La mitad del máximo fijado para cada tipo de vía."
+      },
+      {
+        "AnswerId": 2083,
+        "AnswerText": "c. 60 km/h."
+      }
+    ]
+  },
+  "1033": {
+    "QuestionText": "¿Qué validez máxima tiene la licencia de conducir?",
+    "CorrectAnswer": "Respuesta correcta: Las licencias podrán otorgarse con una validez de hasta CINCO (5) años.",
+    "Answers": [
+      {
+        "AnswerId": 2084,
+        "AnswerText": "a. Las licencias podrán otorgarse con una validez de hasta OCHO (8) años."
+      },
+      {
+        "AnswerId": 2085,
+        "AnswerText": "b. Las licencias podrán otorgarse con una validez de hasta CINCO (5) años."
+      },
+      {
+        "AnswerId": 2086,
+        "AnswerText": "c. Las licencias podrán otorgarse con una validez de hasta veinte (20) años."
+      }
+    ]
+  },
   "1034": {
     "QuestionText": "¿Todo titular de una licencia deberá acatar los controles y órdenes que imparta la autoridad de tránsito en el ejercicio de sus funciones?",
     "CorrectAnswer": "Respuesta correcta: Sí.",
@@ -338,6 +428,24 @@
       {
         "AnswerId": 2089,
         "AnswerText": "c. Según las circunstancias."
+      }
+    ]
+  },
+  "1035": {
+    "QuestionText": "¿Es un requisito saber leer para obtener la licencia de conducir?",
+    "CorrectAnswer": "Respuesta correcta: Saber leer y para los conductores profesionales también escribir.",
+    "Answers": [
+      {
+        "AnswerId": 2090,
+        "AnswerText": "a. Saber leer y para los conductores profesionales también escribir."
+      },
+      {
+        "AnswerId": 2091,
+        "AnswerText": "b. No necesariamente, se pueden adaptar las instancias de evaluación."
+      },
+      {
+        "AnswerId": 2092,
+        "AnswerText": "c. Sólo si el contexto de circulación frecuente del conductor lo amerita."
       }
     ]
   },
@@ -392,6 +500,24 @@
       {
         "AnswerId": 2101,
         "AnswerText": "c. Una vía multicarril con cruces a nivel con ferrocarril, con calzadas sin separar físicamente y sin limitación de ingreso directo desde los predios frentistas lindantes."
+      }
+    ]
+  },
+  "1039": {
+    "QuestionText": "¿A qué se denomina banquina?",
+    "CorrectAnswer": "Respuesta correcta: La zona de la vía contigua a una calzada pavimentada, de un ancho de hasta tres metros, si no está delimitada.",
+    "Answers": [
+      {
+        "AnswerId": 2102,
+        "AnswerText": "a. La zona de la vía contigua izquierda a una calzada pavimentada."
+      },
+      {
+        "AnswerId": 2103,
+        "AnswerText": "b. La zona de la vía contigua a una calzada pavimentada, de un ancho de hasta tres metros, si no está delimitada."
+      },
+      {
+        "AnswerId": 2104,
+        "AnswerText": "c. La zona delimitada para adelantamiento de la vía contigua a una calzada sólo pavimentada."
       }
     ]
   },
@@ -590,6 +716,24 @@
       {
         "AnswerId": 2146,
         "AnswerText": "c. 20 cm del lado izquierdo, 40 cm. del lado derecho  y un metro en la parte trasera."
+      }
+    ]
+  },
+  "1055": {
+    "QuestionText": "¿Con qué luces encendidas cruza de noche un paso a nivel sin barreras?",
+    "CorrectAnswer": "Respuesta correcta: Con luz de posición para poder observar mejor las luces de un tren que pudiera estar aproximándose y ser vistos por otro auto.",
+    "Answers": [
+      {
+        "AnswerId": 2150,
+        "AnswerText": "a. Con luz de posición, haciendo destellos intermitentes de luz alta para ser notado por un tren que pudiera estar aproximándose u otros vehículos."
+      },
+      {
+        "AnswerId": 2151,
+        "AnswerText": "b. Con luz de posición para poder observar mejor las luces de un tren que pudiera estar aproximándose y ser vistos por otro auto."
+      },
+      {
+        "AnswerId": 2152,
+        "AnswerText": "c. Con las luces apagadas para poder observar mejor las luces de un tren que pudiera estar aproximándose."
       }
     ]
   },
@@ -914,6 +1058,24 @@
       {
         "AnswerId": 2227,
         "AnswerText": "c. Detener hasta que cambie de color."
+      }
+    ]
+  },
+  "1083": {
+    "QuestionText": "¿Es necesario circular con las dos manos sobre el volante?",
+    "CorrectAnswer": "Respuesta correcta: Sí, debe sujetarse siempre con ambas manos, excepto el momento en que se deba accionar un comando manual.",
+    "Answers": [
+      {
+        "AnswerId": 2234,
+        "AnswerText": "a. No, siempre que se sujete firmemente."
+      },
+      {
+        "AnswerId": 2235,
+        "AnswerText": "b. Sí, debe sujetarse siempre con ambas manos, excepto el momento en que se deba accionar un comando manual."
+      },
+      {
+        "AnswerId": 2236,
+        "AnswerText": "c. No, sólo debe sujetarse con ambas manos al realizar un giro."
       }
     ]
   },
@@ -1256,6 +1418,24 @@
       {
         "AnswerId": 2302,
         "AnswerText": "c. Sí, sólo si el pago voluntario se efectiviza dentro de los 30 días."
+      }
+    ]
+  },
+  "1107": {
+    "QuestionText": "Las alteraciones más importantes producidas por la somnolencia y que afectan la conducción son:",
+    "CorrectAnswer": "Respuesta correcta: La alteración de las funciones sensoriales, de la percepción, una menor concentración y más distracciones, toma de decisiones más lenta y más errores.",
+    "Answers": [
+      {
+        "AnswerId": 2306,
+        "AnswerText": "a. La alteración de las funciones sensoriales, de la percepción, una menor concentración y más distracciones, toma de decisiones más lenta y más errores."
+      },
+      {
+        "AnswerId": 2307,
+        "AnswerText": "b. Movimientos más concentrados."
+      },
+      {
+        "AnswerId": 2308,
+        "AnswerText": "c. No produce alteraciones en la conducción."
       }
     ]
   },
@@ -1691,6 +1871,24 @@
       }
     ]
   },
+  "1139": {
+    "QuestionText": "¿Qué significa esta señal?",
+    "CorrectAnswer": "Respuesta correcta: Cruce de varias vías férreas. Paso a nivel peligroso.",
+    "Answers": [
+      {
+        "AnswerId": 2402,
+        "AnswerText": "a. Detención Cruce de caminos."
+      },
+      {
+        "AnswerId": 2403,
+        "AnswerText": "b. Cruce de varias vías férreas. Paso a nivel peligroso."
+      },
+      {
+        "AnswerId": 2404,
+        "AnswerText": "c. Puente ferroviario."
+      }
+    ]
+  },
   "1140": {
     "QuestionText": "¿Qué significa esta señal?",
     "CorrectAnswer": "Respuesta correcta: Detención obligatoria.",
@@ -1796,6 +1994,24 @@
       {
         "AnswerId": 2428,
         "AnswerText": "c. Circulación sólo de autos."
+      }
+    ]
+  },
+  "1148": {
+    "QuestionText": "¿Qué significa esta señal?",
+    "CorrectAnswer": "Respuesta correcta: Prohibido circular camiones.",
+    "Answers": [
+      {
+        "AnswerId": 2429,
+        "AnswerText": "a. Prohibido circular camiones."
+      },
+      {
+        "AnswerId": 2430,
+        "AnswerText": "b. Precaución camiones."
+      },
+      {
+        "AnswerId": 2431,
+        "AnswerText": "c. Circulación exclusiva de autos."
       }
     ]
   },
@@ -1925,6 +2141,24 @@
       }
     ]
   },
+  "1156": {
+    "QuestionText": "¿Qué significa esta señal?",
+    "CorrectAnswer": "Respuesta correcta: Velocidad máxima permitida.",
+    "Answers": [
+      {
+        "AnswerId": 2453,
+        "AnswerText": "a. Velocidad máxima permitida."
+      },
+      {
+        "AnswerId": 2454,
+        "AnswerText": "b. Velocidad mínima permitida."
+      },
+      {
+        "AnswerId": 2455,
+        "AnswerText": "c. Velocidad precautoria en el carril derecho."
+      }
+    ]
+  },
   "1157": {
     "QuestionText": "¿Qué significa esta señal?",
     "CorrectAnswer": "Respuesta correcta: Vía de doble circulación.",
@@ -1994,6 +2228,24 @@
       {
         "AnswerId": 2467,
         "AnswerText": "c. Prohibido tránsito pesado."
+      }
+    ]
+  },
+  "1161": {
+    "QuestionText": "¿Qué significa esta señal?",
+    "CorrectAnswer": "Respuesta correcta: Prohibido tocar bocina.",
+    "Answers": [
+      {
+        "AnswerId": 2468,
+        "AnswerText": "a. Prohibido las emanaciones de gases."
+      },
+      {
+        "AnswerId": 2469,
+        "AnswerText": "b. Prohibido tocar bocina."
+      },
+      {
+        "AnswerId": 2470,
+        "AnswerText": "c. Detenerse obligatoriamente."
       }
     ]
   },
@@ -2213,6 +2465,24 @@
       }
     ]
   },
+  "1181": {
+    "QuestionText": "¿Qué significa esta señal?",
+    "CorrectAnswer": "Respuesta correcta: Elevación transversal lomo de burro.",
+    "Answers": [
+      {
+        "AnswerId": 2528,
+        "AnswerText": "a. Depresión transversal badén."
+      },
+      {
+        "AnswerId": 2529,
+        "AnswerText": "b. Elevación transversal lomo de burro."
+      },
+      {
+        "AnswerId": 2530,
+        "AnswerText": "c. Pendiente peligrosa bajada."
+      }
+    ]
+  },
   "1182": {
     "QuestionText": "¿Qué significa esta señal?",
     "CorrectAnswer": "Respuesta correcta: Túnel vehicular.",
@@ -2282,6 +2552,60 @@
       {
         "AnswerId": 2548,
         "AnswerText": "c. Cruce peatones."
+      }
+    ]
+  },
+  "1188": {
+    "QuestionText": "¿Qué significa esta señal?",
+    "CorrectAnswer": "Respuesta correcta: Zona escolar.",
+    "Answers": [
+      {
+        "AnswerId": 2549,
+        "AnswerText": "a. Precaución niños jugando."
+      },
+      {
+        "AnswerId": 2550,
+        "AnswerText": "b. Zona escolar."
+      },
+      {
+        "AnswerId": 2551,
+        "AnswerText": "c. Cruce peatones."
+      }
+    ]
+  },
+  "1191": {
+    "QuestionText": "¿Qué significa esta señal?",
+    "CorrectAnswer": "Respuesta correcta: Paso a nivel con barreras.",
+    "Answers": [
+      {
+        "AnswerId": 2558,
+        "AnswerText": "a. Animales sueltos."
+      },
+      {
+        "AnswerId": 2559,
+        "AnswerText": "b. Paso a nivel con barreras."
+      },
+      {
+        "AnswerId": 2560,
+        "AnswerText": "c. Proximidad de zona rural."
+      }
+    ]
+  },
+  "1192": {
+    "QuestionText": "¿Qué significa esta señal?",
+    "CorrectAnswer": "Respuesta correcta: Ancho limitado.",
+    "Answers": [
+      {
+        "AnswerId": 2561,
+        "AnswerText": "a. Ancho limitado."
+      },
+      {
+        "AnswerId": 2562,
+        "AnswerText": "b. Altura limitada."
+      },
+      {
+        "AnswerId": 2563,
+        "AnswerText": "c. Camino angosto."
       }
     ]
   },
@@ -2465,6 +2789,24 @@
       }
     ]
   },
+  "1561": {
+    "QuestionText": "¿A qué se denomina camioneta?",
+    "CorrectAnswer": "Respuesta correcta: El automotor para transporte de carga de hasta 3.500 kg. de peso total.",
+    "Answers": [
+      {
+        "AnswerId": 3290,
+        "AnswerText": "a. El automotor para transporte de carga de más 3.500 kg. de peso total."
+      },
+      {
+        "AnswerId": 3291,
+        "AnswerText": "b. El automotor para transporte de carga de hasta 3.500 kg. de peso total."
+      },
+      {
+        "AnswerId": 3292,
+        "AnswerText": "c. Automotor para transporte adaptado para la circulación por diversos terrenos."
+      }
+    ]
+  },
   "1562": {
     "QuestionText": "La licencia habilitante clase B1, ¿incluye la posibilidad de conducir un motovehículo?",
     "CorrectAnswer": "Respuesta correcta: No, es habilitante para conducir automóviles y pick-up hasta 3500kg.",
@@ -2609,6 +2951,24 @@
       }
     ]
   },
+  "1570": {
+    "QuestionText": "¿Qué requisito respecto de la carga debe cumplir una pick-up que traslada arena?",
+    "CorrectAnswer": "Respuesta correcta: Taparla con una lona.",
+    "Answers": [
+      {
+        "AnswerId": 3317,
+        "AnswerText": "a. Señalizar con un banderín."
+      },
+      {
+        "AnswerId": 3318,
+        "AnswerText": "b. Taparla con una lona."
+      },
+      {
+        "AnswerId": 3319,
+        "AnswerText": "c. Llevar la factura correspondiente."
+      }
+    ]
+  },
   "1571": {
     "QuestionText": "Si una pick-up traslada carga liviana, ¿puede sobresalir de la carrocería?",
     "CorrectAnswer": "Respuesta correcta: 20 cm a ambos lados y 70 cm en la parte trasera.",
@@ -2624,6 +2984,24 @@
       {
         "AnswerId": 3322,
         "AnswerText": "c. 20 cm a ambos lados y 70 cm en la parte trasera."
+      }
+    ]
+  },
+  "1572": {
+    "QuestionText": "Si conduce un automóvil que tenga air-bag en la parte delantera, ¿es obligatorio abrocharse el cinturón de seguridad?",
+    "CorrectAnswer": "Respuesta correcta: Sí, la obligatoriedad es indistinta del air-bag.",
+    "Answers": [
+      {
+        "AnswerId": 3323,
+        "AnswerText": "a. Sí, la obligatoriedad es indistinta del air-bag."
+      },
+      {
+        "AnswerId": 3324,
+        "AnswerText": "b. No, porque el vehículo dispone de un dispositivo de seguridad pasiva análoga."
+      },
+      {
+        "AnswerId": 3325,
+        "AnswerText": "c. Sólo para el acompañante del asiento delantero, el conductor además de ir tomado del volante cuenta con la protección adicional del air-bag."
       }
     ]
   },
@@ -2948,6 +3326,24 @@
       {
         "AnswerId": 77612,
         "AnswerText": "c. Que el tren se aproxima y que tiene prioridad de paso."
+      }
+    ]
+  },
+  "40647": {
+    "QuestionText": "La prioridad de paso en las encrucijadas al conductor que viene circulando por la derecha es:",
+    "CorrectAnswer": "Respuesta correcta: Es una prioridad absoluta que se pierde ante determinadas situaciones.",
+    "Answers": [
+      {
+        "AnswerId": 77619,
+        "AnswerText": "a. Una prioridad absoluta."
+      },
+      {
+        "AnswerId": 77620,
+        "AnswerText": "b. Es una prioridad absoluta que se pierde ante determinadas situaciones."
+      },
+      {
+        "AnswerId": 77621,
+        "AnswerText": "c. No es una prioridad."
       }
     ]
   },
