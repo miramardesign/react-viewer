@@ -33,7 +33,54 @@ const getQuestions = async (url: string) => {
 };
 
 //kicks the whole thing off, aka init.
-getQuestions(examPages.questionPg);
+
+const arg = process.argv.find(a => a.startsWith("--mode="));
+const mode = arg ? arg.split("=")[1] : undefined;
+
+const runRequests = () => {
+  getQuestions(examPages.questionPg);
+}
+
+const scanAnswerFiles = async () => {
+  const dir = path.join(process.cwd(), "savedHtml");
+
+  let files: string[] = [];
+
+  try {
+    files = await fs.readdir(dir);
+  } catch (err) {
+    console.error("❌ Could not read ./savedHtml directory:", err);
+    return;
+  }
+
+  // Match files like a-1006-1145-1008-1170-...-1559.htm
+  const pattern = /^a-(\d+-)*\d+\.htm$/i;
+  const htmlFiles = files.filter(f => pattern.test(f));
+
+  console.log(`📁 Found ${htmlFiles.length} files:`);
+
+  for (const file of htmlFiles) {
+    console.log("➡ scanning:", file);
+
+    const filePath = path.join(dir, file);
+    const content = await fs.readFile(filePath, "utf8");
+
+    // TODO: parse with cheerio
+    // parseQuestions(content, file);
+  }
+
+  console.log("✔ Finished scanning saved HTML files.");
+};
+
+
+console.log('modeeeeeeeeeeeeeeeeeeeeeeeeee', mode); 
+
+if (mode === "scan") {
+  scanAnswerFiles();
+} else {
+  runRequests();
+}
+
 
 
 const md5 = (input: string) => {

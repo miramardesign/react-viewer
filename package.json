@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
-    "start": "nodemon dist/index.js"
+    "start": "nodemon dist/index.js",
+    "scan": "nodemon --ignore json/data.json dist/index.js --mode=scan"
   },
   "keywords": [],
   "author": "",
@@ -21,7 +22,9 @@
   "dependencies": {
     "cheerio": "^1.1.2"
   },
-    "nodemonConfig": {
-    "ignore": ["json/data.json"]
+  "nodemonConfig": {
+    "ignore": [
+      "json/data.json"
+    ]
   }
 }

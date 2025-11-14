@@ -1097,6 +1097,42 @@
       }
     ]
   },
+  "1076": {
+    "QuestionText": "Si circulo en una ruta detrás de un camión, y éste hace señas manuales y/o con la luz de giro derecha para que lo pase, ¿qué se debe hacer?",
+    "CorrectAnswer": "Respuesta correcta: Quedarse en el carril hasta que con los propios ojos se observa el camino y se comprueba que se tiene la vía libre en una distancia suficiente para evitar todo riesgo al sobrepasar.",
+    "Answers": [
+      {
+        "AnswerId": 2213,
+        "AnswerText": "a. Inicio el adelantamiento con total seguridad."
+      },
+      {
+        "AnswerId": 2214,
+        "AnswerText": "b. Espero en mi carril hasta que el camión encienda la luz de giro izquierda."
+      },
+      {
+        "AnswerId": 2215,
+        "AnswerText": "c. Quedarse en el carril hasta que con los propios ojos se observa el camino y se comprueba que se tiene la vía libre en una distancia suficiente para evitar todo riesgo al sobrepasar."
+      }
+    ]
+  },
+  "1077": {
+    "QuestionText": "¿Es obligatorio el uso de luces bajas encendidas durante la circulación en rutas?",
+    "CorrectAnswer": "Respuesta correcta: Es obligatorio.",
+    "Answers": [
+      {
+        "AnswerId": 2216,
+        "AnswerText": "a. Solamente en horas nocturnas."
+      },
+      {
+        "AnswerId": 2217,
+        "AnswerText": "b. No es necesario mientras haya luz solar."
+      },
+      {
+        "AnswerId": 2218,
+        "AnswerText": "c. Es obligatorio."
+      }
+    ]
+  },
   "1079": {
     "QuestionText": "¿Cuál es la velocidad máxima permitida en rutas cuando atravesamos zonas urbanas?",
     "CorrectAnswer": "Respuesta correcta: 60 km por hora.",
@@ -1490,6 +1526,24 @@
       {
         "AnswerId": 2302,
         "AnswerText": "c. Sí, sólo si el pago voluntario se efectiviza dentro de los 30 días."
+      }
+    ]
+  },
+  "1106": {
+    "QuestionText": "El conductor de un vehículo que se negare a someterse a las pruebas destinadas a determinar su estado de intoxicación alcohólica, de ser hallado responsable debe ser sancionado por el juez:",
+    "CorrectAnswer": "Respuesta correcta: Con pena de multa más inhabilitación para conducir.",
+    "Answers": [
+      {
+        "AnswerId": 2303,
+        "AnswerText": "a. Con pena de inhabilitación para conducir, en cuyo caso no se aplica multa alguna."
+      },
+      {
+        "AnswerId": 2304,
+        "AnswerText": "b. Con pena de multa más inhabilitación para conducir."
+      },
+      {
+        "AnswerId": 2305,
+        "AnswerText": "c. Sólo con pena de multa."
       }
     ]
   },
@@ -2627,6 +2681,24 @@
       }
     ]
   },
+  "1183": {
+    "QuestionText": "¿Qué significa esta señal?",
+    "CorrectAnswer": "Respuesta correcta: Calzada resbaladiza.",
+    "Answers": [
+      {
+        "AnswerId": 2534,
+        "AnswerText": "a. Camino sinuoso."
+      },
+      {
+        "AnswerId": 2535,
+        "AnswerText": "b. Calzada resbaladiza."
+      },
+      {
+        "AnswerId": 2536,
+        "AnswerText": "c. Curva y contracurva menor."
+      }
+    ]
+  },
   "1184": {
     "QuestionText": "¿Qué significa esta señal?",
     "CorrectAnswer": "Respuesta correcta: Zona de derrumbe.",
@@ -2663,6 +2735,24 @@
       }
     ]
   },
+  "1186": {
+    "QuestionText": "¿Qué significa esta señal?",
+    "CorrectAnswer": "Respuesta correcta: Obras.",
+    "Answers": [
+      {
+        "AnswerId": 2543,
+        "AnswerText": "a. Niños jugando."
+      },
+      {
+        "AnswerId": 2544,
+        "AnswerText": "b. Zona escolar."
+      },
+      {
+        "AnswerId": 2545,
+        "AnswerText": "c. Obras."
+      }
+    ]
+  },
   "1187": {
     "QuestionText": "¿Qué significa esta señal?",
     "CorrectAnswer": "Respuesta correcta: Precaución niños jugando.",
@@ -2695,6 +2785,24 @@
       },
       {
         "AnswerId": 2551,
+        "AnswerText": "c. Cruce peatones."
+      }
+    ]
+  },
+  "1189": {
+    "QuestionText": "¿Qué significa esta señal?",
+    "CorrectAnswer": "Respuesta correcta: Cruce peatones.",
+    "Answers": [
+      {
+        "AnswerId": 2552,
+        "AnswerText": "a. Precaución niños jugando."
+      },
+      {
+        "AnswerId": 2553,
+        "AnswerText": "b. Zona escolar."
+      },
+      {
+        "AnswerId": 2554,
         "AnswerText": "c. Cruce peatones."
       }
     ]
@@ -3542,6 +3650,24 @@
       {
         "AnswerId": 77636,
         "AnswerText": "c. La distancia entre el apoyacabeza y la nuca del conductor no debe ser mayor a 5 cm."
+      }
+    ]
+  },
+  "40654": {
+    "QuestionText": "La seguridad preventiva es:",
+    "CorrectAnswer": "Respuesta correcta: Los dispositivos que ayudan a disminuir los daños producidos por un siniestro vial.",
+    "Answers": [
+      {
+        "AnswerId": 77640,
+        "AnswerText": "a. El conjunto de soluciones técnicas que hacen distendida la vida a bordo del automóvil."
+      },
+      {
+        "AnswerId": 77641,
+        "AnswerText": "b. Los dispositivos que colaboran para tener una conducción confortable."
+      },
+      {
+        "AnswerId": 77642,
+        "AnswerText": "c. Los dispositivos que ayudan a disminuir los daños producidos por un siniestro vial."
       }
     ]
   },
