@@ -149,10 +149,8 @@ const getQuestionFormParamsFromHtml = (formHtml: string): QuestionForm => {
 
     if (isImage(questionText)) {
       questionText =
-        $(el).find(".qtext p").next("p").next("img").attr("src") ?? "";
+        $(el).find(".qtext p").next("p").next("img").attr("src") ?? "false";
     }
-
-    //isImageQuestionText? break: continue;
 
     formArr.push({ id_preg, firstRadioValue, questionText });
 
@@ -268,13 +266,6 @@ const postTest = async (
   const htmlRes = await response.text();
   const justForm = getElement(htmlRes, ".form");
 
-  const mdfFileName = getFileNameFromFormParms(
-    questionFormParams.id_preg,
-    "a",
-    ".htm"
-  );
-  writeFileSimple(justForm, mdfFileName);
-
   processAnswersFile(justForm, questionFormParams);
 };
 
@@ -367,10 +358,22 @@ const processAnswersFile = async (
     justForm,
     questionFormParams
   );
-  await appendMasterJsonFile(answerData);
+
+  const additions = await appendMasterJsonFile(answerData);
+
+  if (additions > 0) {
+    const mdfFileName = getFileNameFromFormParms(
+      questionFormParams.id_preg,
+      "a",
+      ".htm"
+    );
+    writeFileSimple(justForm, mdfFileName);
+  }
 };
 
-const appendMasterJsonFile = async (answerData: AnswerDataMap) => {
+const appendMasterJsonFile = async (
+  answerData: AnswerDataMap
+): Promise<number> => {
   const filePath = path.join(process.cwd(), "json", "data.json");
 
   // 1. Load existing file
@@ -399,15 +402,16 @@ const appendMasterJsonFile = async (answerData: AnswerDataMap) => {
     }
   }
 
-  // 3. Save back to file
-  await fs.writeFile(filePath, JSON.stringify(existing, null, 2), "utf8");
-
+  // 3. Save back to file, no use saving if nothing added.
   const totalCount = Object.keys(existing).length;
 
   console.log(
     `✔ Saved. Added ${addedCount} new entries. Total entries: ${totalCount}`,
     entriesAdded.join(",")
   );
+
+  await fs.writeFile(filePath, JSON.stringify(existing, null, 2), "utf8");
+  return addedCount;
 };
 
 const getFileNameFromFormParms = (

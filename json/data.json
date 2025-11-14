@@ -413,6 +413,24 @@
       }
     ]
   },
+  "1029": {
+    "QuestionText": "Después de realizar un adelantamiento, tiene usted la obligación de señalizar la maniobra de volver al carril derecho?",
+    "CorrectAnswer": "Respuesta correcta: Sí, porque altero de nuevo mi posición en la calzada.",
+    "Answers": [
+      {
+        "AnswerId": 2072,
+        "AnswerText": "a. Sí, porque altero de nuevo mi posición en la calzada."
+      },
+      {
+        "AnswerId": 2073,
+        "AnswerText": "b. No, porque cumplo sencillamente con una obligación."
+      },
+      {
+        "AnswerId": 2074,
+        "AnswerText": "c. No, es indiferente."
+      }
+    ]
+  },
   "1030": {
     "QuestionText": "El vehículo que está siendo adelantado, ¿debe facilitar el adelantamiento?",
     "CorrectAnswer": "Respuesta correcta: Sí, disminuyendo la velocidad si fuera necesario.",
