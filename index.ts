@@ -73,6 +73,7 @@ const scanAnswerFiles = async () => {
   }
 
   // Match files like a-1006-1145-1008-1170-...-1559.htm
+  //const pattern = /1553\-1559\.htm/; //to test one withtou looping.
   const pattern = /^a-(\d+-)*\d+\.htm$/i;
   const htmlFiles = files.filter((f) => pattern.test(f));
 
@@ -85,7 +86,7 @@ const scanAnswerFiles = async () => {
     const content = await fs.readFile(filePath, "utf8");
 
     const idPreg = getIdPregFromFilename(file);
-    console.log("idPregfggggggggg", idPreg);
+    /// console.log("idPregfggggggggg", idPreg);
 
     const questionFormParams: QuestionForm = {
       nombre_cuest: "test?",
@@ -126,7 +127,7 @@ const getElement = (htmlRes: string, selector = "form"): string => {
 };
 
 const isImage = (questionText: string): boolean => {
-  return questionText === "¿Qué significa esta señal?";
+  return questionText.includes("significa esta se");
 };
 
 const getQuestionFormParamsFromHtml = (formHtml: string): QuestionForm => {
@@ -150,6 +151,8 @@ const getQuestionFormParamsFromHtml = (formHtml: string): QuestionForm => {
       questionText =
         $(el).find(".qtext p").next("p").next("img").attr("src") ?? "";
     }
+
+    //isImageQuestionText? break: continue;
 
     formArr.push({ id_preg, firstRadioValue, questionText });
 
@@ -296,9 +299,18 @@ const processAnswerRows = (
   //const answerDataMap = {};
   const answerDataMap: Record<string, AnswerData> = {};
   $(".formulation").each((i, el) => {
-    const questionText =
+    let questionText =
       $(el).find(".qtext p").text().trim() ||
       $(el).find(".qtext").text().trim();
+
+    const isImageQuestionText = isImage(questionText);
+    if (isImageQuestionText) {
+      questionText = $(el).find(".qtext img").attr("src") ?? "cantfind";
+      console.log(
+        "questionText isIMG===========================",
+        questionText
+      );
+    }
 
     const rightAnswer = $(el)
       .nextAll(".outcome_correcto, .outcome")
@@ -324,12 +336,12 @@ const processAnswerRows = (
         };
 
         answerArr.push(answerData);
-        console.warn(
-          "found answeer.00000.",
-          answerText,
-          "id============",
-          answerId
-        );
+        // console.warn(
+        //   "found answeer.00000.",
+        //   answerText,
+        //   "id============",
+        //   answerId
+        // );
       });
 
     const answerData: AnswerData = {
