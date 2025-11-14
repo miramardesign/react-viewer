@@ -2,7 +2,12 @@ import * as crypto from "crypto";
 import { promises as fs } from "fs";
 import path from "path";
 import { load } from "cheerio";
-import type { Answer, AnswerData, AnswerDataMap, QuestionForm } from "./types/AnswerTypes.js";
+import type {
+  Answer,
+  AnswerData,
+  AnswerDataMap,
+  QuestionForm,
+} from "./types/AnswerTypes.js";
 import { examPages } from "./const/urls.js";
 
 const getQuestions = async (url: string) => {
@@ -34,13 +39,27 @@ const getQuestions = async (url: string) => {
 
 //kicks the whole thing off, aka init.
 
-const arg = process.argv.find(a => a.startsWith("--mode="));
+const arg = process.argv.find((a) => a.startsWith("--mode="));
 const mode = arg ? arg.split("=")[1] : undefined;
 
 const runRequests = () => {
   getQuestions(examPages.questionPg);
-}
+};
 
+const getIdPregFromFilename = (filename: string): number[] => {
+  // Remove prefix and extension
+  const cleaned = filename
+    .replace(/^a-/, "") // remove leading "a-"
+    .replace(/\.htm$/i, ""); // remove trailing ".htm"
+
+  // Split → string[] → convert to number[]
+  return cleaned
+    .split("-")
+    .map((n) => Number(n))
+    .filter((n) => !isNaN(n)); // safety: drop any non-numbers
+};
+
+//get from saved thml backup.
 const scanAnswerFiles = async () => {
   const dir = path.join(process.cwd(), "savedHtml");
 
@@ -55,7 +74,7 @@ const scanAnswerFiles = async () => {
 
   // Match files like a-1006-1145-1008-1170-...-1559.htm
   const pattern = /^a-(\d+-)*\d+\.htm$/i;
-  const htmlFiles = files.filter(f => pattern.test(f));
+  const htmlFiles = files.filter((f) => pattern.test(f));
 
   console.log(`📁 Found ${htmlFiles.length} files:`);
 
@@ -65,23 +84,35 @@ const scanAnswerFiles = async () => {
     const filePath = path.join(dir, file);
     const content = await fs.readFile(filePath, "utf8");
 
-    // TODO: parse with cheerio
-    // parseQuestions(content, file);
+    const idPreg = getIdPregFromFilename(file);
+    console.log("idPregfggggggggg", idPreg);
+
+    const questionFormParams: QuestionForm = {
+      nombre_cuest: "test?",
+      id_preg: idPreg,
+      respuestas: {
+        1: "mock-1",
+      } as Record<number, string>,
+      enviar: "enviar",
+    };
+
+    const justForm = getElement(content, ".form");
+
+    await processAnswersFile(justForm, questionFormParams);
+
+   // break; // ← stops after first file
   }
 
   console.log("✔ Finished scanning saved HTML files.");
 };
 
-
-console.log('modeeeeeeeeeeeeeeeeeeeeeeeeee', mode); 
+console.log("modeeeeeeeeeeeeeeeeeeeeeeeeee", mode);
 
 if (mode === "scan") {
   scanAnswerFiles();
 } else {
   runRequests();
 }
-
-
 
 const md5 = (input: string) => {
   return crypto.createHash("md5").update(input).digest("hex");
@@ -241,7 +272,6 @@ const getAnswerDataMap = (
   justAnswerForm: string,
   questionFormParams: QuestionForm
 ): AnswerDataMap => {
-
   const mockAnswerData = processAnswerRows(justAnswerForm, questionFormParams);
 
   // return answerDataArr;
@@ -303,7 +333,7 @@ const processAnswerRows = (
     }
   });
 
- // console.log("anserdatamap", JSON.stringify(answerDataMap ) );
+  // console.log("anserdatamap", JSON.stringify(answerDataMap ) );
 
   return answerDataMap;
 };
@@ -339,7 +369,7 @@ const appendMasterJsonFile = async (answerData: AnswerDataMap) => {
   // 2. Merge only *new* IDs
   let addedCount = 0;
 
-  const entriesAdded: string[] = []
+  const entriesAdded: string[] = [];
   for (const [id, data] of Object.entries(answerData)) {
     if (!existing[id]) {
       existing[id] = data;
@@ -353,7 +383,10 @@ const appendMasterJsonFile = async (answerData: AnswerDataMap) => {
 
   const totalCount = Object.keys(existing).length;
 
-  console.log(`✔ Saved. Added ${addedCount} new entries. Total entries: ${totalCount}`, entriesAdded.join(','));
+  console.log(
+    `✔ Saved. Added ${addedCount} new entries. Total entries: ${totalCount}`,
+    entriesAdded.join(",")
+  );
 };
 
 const getFileNameFromFormParms = (
@@ -361,7 +394,6 @@ const getFileNameFromFormParms = (
   prefix: string,
   suffix: string
 ): string => {
-
   //is about 154 chars at 250 ename too long happens, including full win path c://
   const listIds = questionsArr.join("-");
   return `${prefix}-${listIds}${suffix}`;

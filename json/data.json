@@ -89,6 +89,24 @@
       }
     ]
   },
+  "1010": {
+    "QuestionText": "En la vía pública se debe circular respetando las indicaciones de la autoridad de comprobación o aplicación, las señales de tránsito y las normas legales, en ese orden de prioridad.",
+    "CorrectAnswer": "Respuesta correcta: Sí, en todos los casos.",
+    "Answers": [
+      {
+        "AnswerId": 2015,
+        "AnswerText": "a. Sí, en todos los casos."
+      },
+      {
+        "AnswerId": 2016,
+        "AnswerText": "b. Sólo en situaciones que alteren la normalidad de la circulación."
+      },
+      {
+        "AnswerId": 2017,
+        "AnswerText": "c. No, las señales de tránsito por norma general deben respetarse siempre."
+      }
+    ]
+  },
   "1011": {
     "QuestionText": "¿En caso de que un inspector de tránsito indique circular traspasando el semáforo en rojo?",
     "CorrectAnswer": "Respuesta correcta: Debe respetar la indicación de la autoridad de comprobación.",
@@ -194,6 +212,24 @@
       {
         "AnswerId": 2035,
         "AnswerText": "c. Obligatorio para conductor y acompañante."
+      }
+    ]
+  },
+  "1017": {
+    "QuestionText": "Todo conductor debe ceder siempre el paso en las encrucijadas al que cruza desde su derecha. Esta prioridad del que viene por la derecha es absoluta, y sólo se pierde ante:",
+    "CorrectAnswer": "Respuesta correcta: La señalización específica en contrario, los vehículos ferroviarios, los vehículos del servicio público de urgencia, los vehículos que circulan por una semiautopista y los peatones que cruzan.",
+    "Answers": [
+      {
+        "AnswerId": 2036,
+        "AnswerText": "a. La señalización específica en contrario, los vehículos ferroviarios, los vehículos del servicio público de urgencia, los vehículos que circulan por una semiautopista y los peatones que cruzan."
+      },
+      {
+        "AnswerId": 2037,
+        "AnswerText": "b. Nunca se pierde."
+      },
+      {
+        "AnswerId": 2038,
+        "AnswerText": "c. Los vehículos de mayor porte."
       }
     ]
   },
@@ -305,6 +341,24 @@
       }
     ]
   },
+  "1025": {
+    "QuestionText": "Conforme la Ley Nacional Nº 24.449, en autopistas:",
+    "CorrectAnswer": "Respuesta correcta: El carril extremo izquierdo se utilizará para el desplazamiento a la máxima velocidad admitida por la vía y a maniobras de adelantamiento.",
+    "Answers": [
+      {
+        "AnswerId": 2060,
+        "AnswerText": "a. El carril extremo izquierdo se utilizará solo para maniobras de adelantamiento."
+      },
+      {
+        "AnswerId": 2061,
+        "AnswerText": "b. El carril extremo izquierdo se utilizará para el desplazamiento a la máxima velocidad admitida por la vía y a maniobras de adelantamiento."
+      },
+      {
+        "AnswerId": 2062,
+        "AnswerText": "c. El carril extremo izquierdo sólo debe utilizarse en caso de urgencias."
+      }
+    ]
+  },
   "1026": {
     "QuestionText": "Según la Ley Nacional Nº 24.449, la licencia clase F autoriza a conducir:",
     "CorrectAnswer": "Respuesta correcta: Automotores especialmente adaptados para conductores con alguna discapacidad.",
@@ -320,6 +374,24 @@
       {
         "AnswerId": 2065,
         "AnswerText": "c. Automotores especialmente adaptados para conductores con alguna discapacidad."
+      }
+    ]
+  },
+  "1027": {
+    "QuestionText": "Según las disposiciones de la Ley Nacional Nº 24.449 relativas a adelantamiento de vehículos, para indicar a los vehículos posteriores la inconveniencia de adelantarse, se pondrá:",
+    "CorrectAnswer": "Respuesta correcta: La luz de giro izquierda, ante la cual los mismos se abstendrán del sobrepaso.",
+    "Answers": [
+      {
+        "AnswerId": 2066,
+        "AnswerText": "a. La luz de giro izquierda, ante la cual los mismos se abstendrán del sobrepaso."
+      },
+      {
+        "AnswerId": 2067,
+        "AnswerText": "b. La luz de giro derecha, ante la cual los mismos se abstendrán del sobrepaso."
+      },
+      {
+        "AnswerId": 2068,
+        "AnswerText": "c. La baliza, ante la cual los mismos se abstendrán del sobrepaso."
       }
     ]
   },
@@ -521,6 +593,24 @@
       }
     ]
   },
+  "1040": {
+    "QuestionText": "¿A qué se denomina calzada?",
+    "CorrectAnswer": "Respuesta correcta: La zona de la vía destinada sólo a la circulación de vehículos.",
+    "Answers": [
+      {
+        "AnswerId": 2105,
+        "AnswerText": "a. La zona de la vía destinada sólo a la circulación de vehículos."
+      },
+      {
+        "AnswerId": 2106,
+        "AnswerText": "b. La zona de la vía destinada sólo a la circulación de motos."
+      },
+      {
+        "AnswerId": 2107,
+        "AnswerText": "c. La zona de la vía destinada a los peatones."
+      }
+    ]
+  },
   "1041": {
     "QuestionText": "¿A qué se denomina vehículo detenido?",
     "CorrectAnswer": "Respuesta correcta: El que detiene la marcha por circunstancias de la circulación (señalización, embotellamiento) o para ascenso o descenso de pasajeros o carga, sin que deje el conductor su puesto.",
@@ -680,6 +770,24 @@
       {
         "AnswerId": 2134,
         "AnswerText": "c. Por la acera, sendas y puentes peatonales, y excepcionalmente por la calzada rodeando el vehículo para ascenso y descenso."
+      }
+    ]
+  },
+  "1050": {
+    "QuestionText": "El conductor que estaciona y desciende del vehículo ¿Puede caminar por la calzada?",
+    "CorrectAnswer": "Respuesta correcta: Alrededor de su vehículo.",
+    "Answers": [
+      {
+        "AnswerId": 2135,
+        "AnswerText": "a. Los peatones tienen prohibido circular por la calzada."
+      },
+      {
+        "AnswerId": 2136,
+        "AnswerText": "b. Alrededor de su vehículo."
+      },
+      {
+        "AnswerId": 2137,
+        "AnswerText": "c. Debe circular paralelo a los autos estacionados hasta la senda peatonal."
       }
     ]
   },
@@ -1061,6 +1169,24 @@
       }
     ]
   },
+  "1072": {
+    "QuestionText": "Si una bicicleta viene circulando por la derecha, ¿tiene prioridad de paso, en un cruce de calles, como sucede con los automóviles?",
+    "CorrectAnswer": "Respuesta correcta: No, las bicicletas, al igual que cualquier vehículo de tracción a sangre o cuando se conduzcan animales, no tienen prioridad de paso en las encrucijadas aunque circulen por la derecha.",
+    "Answers": [
+      {
+        "AnswerId": 2201,
+        "AnswerText": "a. No, las bicicletas, al igual que cualquier vehículo de tracción a sangre o cuando se conduzcan animales, no tienen prioridad de paso en las encrucijadas aunque circulen por la derecha."
+      },
+      {
+        "AnswerId": 2202,
+        "AnswerText": "b. Sí, tiene prioridad."
+      },
+      {
+        "AnswerId": 2203,
+        "AnswerText": "c. Sólo en avenidas."
+      }
+    ]
+  },
   "1073": {
     "QuestionText": "¿Es necesario tener licencia de conducir para conducir ciclomotores?",
     "CorrectAnswer": "Respuesta correcta: Sí, es obligatorio poseer licencia para conducir ciclomotores.",
@@ -1076,6 +1202,24 @@
       {
         "AnswerId": 2206,
         "AnswerText": "c. Es obligatorio tener licencia de conducir sólo si el ciclomotor es más de 50 cc."
+      }
+    ]
+  },
+  "1074": {
+    "QuestionText": "¿Está prohibido para el conductor el uso de teléfonos celulares?",
+    "CorrectAnswer": "Respuesta correcta: Sí, está prohibido conducir utilizando auriculares y sistemas de comunicación de operación manual continua, como teléfonos celulares o inalámbricos.",
+    "Answers": [
+      {
+        "AnswerId": 2207,
+        "AnswerText": "a. Sí, está prohibido conducir utilizando auriculares y sistemas de comunicación de operación manual continua, como teléfonos celulares o inalámbricos."
+      },
+      {
+        "AnswerId": 2208,
+        "AnswerText": "b. No, porque mientras se habla por teléfono es poco frecuente el riesgo de un accidente."
+      },
+      {
+        "AnswerId": 2209,
+        "AnswerText": "c. Está prohibido sólo en rutas y autopistas."
       }
     ]
   },
@@ -1133,6 +1277,24 @@
       }
     ]
   },
+  "1078": {
+    "QuestionText": "Las señales verticales de prevención transmiten:",
+    "CorrectAnswer": "Respuesta correcta: Advertencias sobre características de la vía.",
+    "Answers": [
+      {
+        "AnswerId": 2219,
+        "AnswerText": "a. Órdenes precisas."
+      },
+      {
+        "AnswerId": 2220,
+        "AnswerText": "b. Advertencias sobre características de la vía."
+      },
+      {
+        "AnswerId": 2221,
+        "AnswerText": "c. Prohibiciones."
+      }
+    ]
+  },
   "1079": {
     "QuestionText": "¿Cuál es la velocidad máxima permitida en rutas cuando atravesamos zonas urbanas?",
     "CorrectAnswer": "Respuesta correcta: 60 km por hora.",
@@ -1166,6 +1328,42 @@
       {
         "AnswerId": 2227,
         "AnswerText": "c. Detener hasta que cambie de color."
+      }
+    ]
+  },
+  "1081": {
+    "QuestionText": "Una denuncia policial de extravío de la licencia de conducir, ¿lo habilita a conducir?",
+    "CorrectAnswer": "Respuesta correcta: No.",
+    "Answers": [
+      {
+        "AnswerId": 2228,
+        "AnswerText": "a. Sí."
+      },
+      {
+        "AnswerId": 2229,
+        "AnswerText": "b. Depende cuánto tiempo transcurrió del extravío."
+      },
+      {
+        "AnswerId": 2230,
+        "AnswerText": "c. No."
+      }
+    ]
+  },
+  "1082": {
+    "QuestionText": "Llevar matafuegos en un automóvil, ¿es exigible por ley?",
+    "CorrectAnswer": "Respuesta correcta: Sí, es exigible por ley.",
+    "Answers": [
+      {
+        "AnswerId": 2231,
+        "AnswerText": "a. No, no es exigible por ley pero debemos llevarlo por seguridad"
+      },
+      {
+        "AnswerId": 2232,
+        "AnswerText": "b. No, no es exigible porque ante un incendio del vehículo debemos llamar a los bomberos"
+      },
+      {
+        "AnswerId": 2233,
+        "AnswerText": "c. Sí, es exigible por ley."
       }
     ]
   },
@@ -1295,6 +1493,24 @@
       }
     ]
   },
+  "1090": {
+    "QuestionText": "Si para adelantar debe invadir un carril exclusivo para ómnibus y taxis; ¿le está permitido realizar la maniobra?",
+    "CorrectAnswer": "Respuesta correcta: No, porque está prohibido utilizar  dicho carril.",
+    "Answers": [
+      {
+        "AnswerId": 2255,
+        "AnswerText": "a. No, porque está prohibido utilizar  dicho carril."
+      },
+      {
+        "AnswerId": 2256,
+        "AnswerText": "b. Sí, cuando la línea longitudinal del lado exterior de este carril sea continua."
+      },
+      {
+        "AnswerId": 2257,
+        "AnswerText": "c. Sí, este tipo de maniobras siempre están permitidas."
+      }
+    ]
+  },
   "1091": {
     "QuestionText": "¿Está permitido en los vehículos agregar en los paragolpes aditamentos (defensas, etc.) de cualquier naturaleza, que puedan considerarse peligrosos para personas u otros vehículos?",
     "CorrectAnswer": "Respuesta correcta: No, no está permitido modificar paragolpes originales de fábrica agregándoles elementos que puedan considerarse peligrosos o agresivos.",
@@ -1328,6 +1544,24 @@
       {
         "AnswerId": 2263,
         "AnswerText": "c. Salir lo más rápido posible porque tiene prioridad."
+      }
+    ]
+  },
+  "1093": {
+    "QuestionText": "¿Cuánto tiempo está habilitado a circular un vehículo sin placas patentes?",
+    "CorrectAnswer": "Respuesta correcta: No está permitido circular sin placas patentes.",
+    "Answers": [
+      {
+        "AnswerId": 2264,
+        "AnswerText": "a. 30 días."
+      },
+      {
+        "AnswerId": 2265,
+        "AnswerText": "b. 45 días."
+      },
+      {
+        "AnswerId": 2266,
+        "AnswerText": "c. No está permitido circular sin placas patentes."
       }
     ]
   },
@@ -1382,6 +1616,24 @@
       {
         "AnswerId": 2275,
         "AnswerText": "c. No, está prohibido."
+      }
+    ]
+  },
+  "1097": {
+    "QuestionText": "En el vehículo que usted conduce va a viajar como pasajero su hijo de 6 años; está permitido que lo haga en el asiento delantero?",
+    "CorrectAnswer": "Respuesta correcta: No, en ningún caso.",
+    "Answers": [
+      {
+        "AnswerId": 2276,
+        "AnswerText": "a. No, en ningún caso."
+      },
+      {
+        "AnswerId": 2277,
+        "AnswerText": "b. No, salvo que utilice una silla o dispositivo especial de retención infantil."
+      },
+      {
+        "AnswerId": 2278,
+        "AnswerText": "c. Sí, está permitido."
       }
     ]
   },
@@ -1853,6 +2105,24 @@
       }
     ]
   },
+  "1125": {
+    "QuestionText": "¿Qué indica la luz roja de un semáforo?",
+    "CorrectAnswer": "Respuesta correcta: Indica \"alto\", es decir, que hay que detenerse antes de la línea de detención o de la senda peatonal.",
+    "Answers": [
+      {
+        "AnswerId": 2360,
+        "AnswerText": "a. Indica \"alto\", es decir, que hay que detenerse antes de la línea de detención o de la senda peatonal."
+      },
+      {
+        "AnswerId": 2361,
+        "AnswerText": "b. Indica que hay que detenerse si se estima que no se alcanzará a trasponer la encrucijada."
+      },
+      {
+        "AnswerId": 2362,
+        "AnswerText": "c. Indica cruce riesgoso, por lo que se debe circular con precaución."
+      }
+    ]
+  },
   "1126": {
     "QuestionText": "¿Qué indica la luz amarilla intermitente de un semáforo?",
     "CorrectAnswer": "Respuesta correcta: Indica cruce riesgoso, por lo que se debe circular con precaución.",
@@ -1889,6 +2159,24 @@
       }
     ]
   },
+  "1128": {
+    "QuestionText": "¿Qué indica la luz verde de un semáforo?",
+    "CorrectAnswer": "Respuesta correcta: Indica que hay que avanzar, pero no se debe iniciar la marcha hasta tanto la encrucijada se encuentre despejada.",
+    "Answers": [
+      {
+        "AnswerId": 2369,
+        "AnswerText": "a. Indica que hay que avanzar, pero no se debe iniciar la marcha hasta tanto la encrucijada se encuentre despejada."
+      },
+      {
+        "AnswerId": 2370,
+        "AnswerText": "b. Indica que hay que detenerse si se estima que no se alcanzará a trasponer la encrucijada."
+      },
+      {
+        "AnswerId": 2371,
+        "AnswerText": "c. Indica que hay que avanzar aunque mi vehículo quede detenido en el medio obstruyendo la circulación de la calzada que cruza."
+      }
+    ]
+  },
   "1129": {
     "QuestionText": "El uso del cinturón de seguridad:",
     "CorrectAnswer": "Respuesta correcta: Evita que el cuerpo se desplace excesivamente en caso de impacto frontal y choque contra el volante, el parabrisas o los asientos delanteros.",
@@ -1922,6 +2210,24 @@
       {
         "AnswerId": 2377,
         "AnswerText": "c. Sirven para absorber parte de la energía cinética del cuerpo, frenando suavemente el movimiento de los pasajeros, evitando el impacto contra elementos interiores del vehículo (volante, parabrisas, etc.)."
+      }
+    ]
+  },
+  "1131": {
+    "QuestionText": "La colocación correcta del apoyacabezas es:",
+    "CorrectAnswer": "Respuesta correcta: Con relación a la altura el borde superior debe estar entre el borde superior de la cabeza y la altura de los ojos; en cuanto a la distancia, la separación entre la cabeza y el mismo no debe ser superior a 4 cm.",
+    "Answers": [
+      {
+        "AnswerId": 2378,
+        "AnswerText": "a. A la altura del cuello y a una distancia de 6 cm."
+      },
+      {
+        "AnswerId": 2379,
+        "AnswerText": "b. Con relación a la altura el borde superior debe estar entre el borde superior de la cabeza y la altura de los ojos; en cuanto a la distancia, la separación entre la cabeza y el mismo no debe ser superior a 4 cm."
+      },
+      {
+        "AnswerId": 2380,
+        "AnswerText": "c. Cuando apoyemos la cabeza y lo sintamos cómodo."
       }
     ]
   },
@@ -2084,6 +2390,24 @@
       {
         "AnswerId": 2410,
         "AnswerText": "c. Precaución, bocacalle."
+      }
+    ]
+  },
+  "1142": {
+    "QuestionText": "¿Qué significa esta señal?",
+    "CorrectAnswer": "Respuesta correcta: Contramano.",
+    "Answers": [
+      {
+        "AnswerId": 2411,
+        "AnswerText": "a. Detención obligatoria."
+      },
+      {
+        "AnswerId": 2412,
+        "AnswerText": "b. Ceda el paso."
+      },
+      {
+        "AnswerId": 2413,
+        "AnswerText": "c. Contramano."
       }
     ]
   },
@@ -2429,6 +2753,24 @@
       }
     ]
   },
+  "1163": {
+    "QuestionText": "¿Qué significa esta señal?",
+    "CorrectAnswer": "Respuesta correcta: Curva peligrosa.",
+    "Answers": [
+      {
+        "AnswerId": 2474,
+        "AnswerText": "a. Curva peligrosa."
+      },
+      {
+        "AnswerId": 2475,
+        "AnswerText": "b. Giro obligatorio."
+      },
+      {
+        "AnswerId": 2476,
+        "AnswerText": "c. Prohibido seguir en el sentido de circulación."
+      }
+    ]
+  },
   "1164": {
     "QuestionText": "¿Qué significa esta señal?",
     "CorrectAnswer": "Respuesta correcta: Curva.",
@@ -2519,6 +2861,24 @@
       }
     ]
   },
+  "1169": {
+    "QuestionText": "¿Qué significa esta señal?",
+    "CorrectAnswer": "Respuesta correcta: Bifurcación en T",
+    "Answers": [
+      {
+        "AnswerId": 2492,
+        "AnswerText": "a. Incorporación de camino."
+      },
+      {
+        "AnswerId": 2493,
+        "AnswerText": "b. Bifurcación en T"
+      },
+      {
+        "AnswerId": 2494,
+        "AnswerText": "c. Camino lateral."
+      }
+    ]
+  },
   "1170": {
     "QuestionText": "¿Qué significa esta señal?",
     "CorrectAnswer": "Respuesta correcta: Bifurcación en Y.",
@@ -2533,6 +2893,24 @@
       },
       {
         "AnswerId": 2497,
+        "AnswerText": "c. Camino lateral."
+      }
+    ]
+  },
+  "1171": {
+    "QuestionText": "¿Qué significa esta señal?",
+    "CorrectAnswer": "Respuesta correcta: Camino lateral.",
+    "Answers": [
+      {
+        "AnswerId": 2498,
+        "AnswerText": "a. Incorporación de camino."
+      },
+      {
+        "AnswerId": 2499,
+        "AnswerText": "b. Bifurcación en Y."
+      },
+      {
+        "AnswerId": 2500,
         "AnswerText": "c. Camino lateral."
       }
     ]
@@ -2807,6 +3185,24 @@
       }
     ]
   },
+  "1190": {
+    "QuestionText": "¿Qué significa esta señal?",
+    "CorrectAnswer": "Respuesta correcta: Animales en libertad.",
+    "Answers": [
+      {
+        "AnswerId": 2555,
+        "AnswerText": "a. Animales en libertad."
+      },
+      {
+        "AnswerId": 2556,
+        "AnswerText": "b. Parque Nacional."
+      },
+      {
+        "AnswerId": 2557,
+        "AnswerText": "c. Proximidad de zona rural."
+      }
+    ]
+  },
   "1191": {
     "QuestionText": "¿Qué significa esta señal?",
     "CorrectAnswer": "Respuesta correcta: Paso a nivel con barreras.",
@@ -2876,6 +3272,24 @@
       {
         "AnswerId": 2569,
         "AnswerText": "c. Prohibido circular maquinaria agrícola."
+      }
+    ]
+  },
+  "1195": {
+    "QuestionText": "¿Qué significa esta señal?",
+    "CorrectAnswer": "Respuesta correcta: Proximidad de aeropuertos - Vuelos bajos.",
+    "Answers": [
+      {
+        "AnswerId": 2570,
+        "AnswerText": "a. Proximidad de aeropuertos - Vuelos bajos."
+      },
+      {
+        "AnswerId": 2571,
+        "AnswerText": "b. Transporte público."
+      },
+      {
+        "AnswerId": 2572,
+        "AnswerText": "c. Zona rural."
       }
     ]
   },
@@ -3509,6 +3923,24 @@
       }
     ]
   },
+  "40640": {
+    "QuestionText": "Para efectuar las maniobras de adelantamiento por el carril izquierdo en una autopista, ¿cuál es la velocidad máxima que puede alcanzar?:",
+    "CorrectAnswer": "Respuesta correcta: 130 km/h.",
+    "Answers": [
+      {
+        "AnswerId": 77598,
+        "AnswerText": "a. 150 km/h."
+      },
+      {
+        "AnswerId": 77599,
+        "AnswerText": "b. 130 km/h."
+      },
+      {
+        "AnswerId": 77600,
+        "AnswerText": "c. 90 km/h."
+      }
+    ]
+  },
   "40641": {
     "QuestionText": "La señalización horizontal de doble línea continua indica:",
     "CorrectAnswer": "Respuesta correcta: Que está prohibido traspasarla.",
@@ -3578,6 +4010,24 @@
       {
         "AnswerId": 77612,
         "AnswerText": "c. Que el tren se aproxima y que tiene prioridad de paso."
+      }
+    ]
+  },
+  "40646": {
+    "QuestionText": "¿Cuándo se produce el “efecto túnel”, es decir la reducción del campo visual en la conducción?",
+    "CorrectAnswer": "Respuesta correcta: Al aumentar la velocidad.",
+    "Answers": [
+      {
+        "AnswerId": 77616,
+        "AnswerText": "a. Al aumentar la velocidad."
+      },
+      {
+        "AnswerId": 77617,
+        "AnswerText": "b. Al disminuir la velocidad."
+      },
+      {
+        "AnswerId": 77618,
+        "AnswerText": "c. Al ingresar en una zona de poca luminosidad."
       }
     ]
   },
@@ -3653,6 +4103,24 @@
       }
     ]
   },
+  "40653": {
+    "QuestionText": "¿Cuál es la forma correcta en que debe colocarse el cinturón de seguridad para que sea efectivo?",
+    "CorrectAnswer": "Respuesta correcta: La correa del cinturón se debe pasar entre la base del cuello y el hombro,  y estar firme.",
+    "Answers": [
+      {
+        "AnswerId": 77637,
+        "AnswerText": "a. La correa del cinturón se debe pasar entre la base del cuello y el hombro,  y estar firme."
+      },
+      {
+        "AnswerId": 77638,
+        "AnswerText": "b. Si la correa del cinturón está muy ajustada, hay que pasarla por debajo del brazo."
+      },
+      {
+        "AnswerId": 77639,
+        "AnswerText": "c. Todas las opciones son correctas."
+      }
+    ]
+  },
   "40654": {
     "QuestionText": "La seguridad preventiva es:",
     "CorrectAnswer": "Respuesta correcta: Los dispositivos que ayudan a disminuir los daños producidos por un siniestro vial.",
@@ -3707,6 +4175,24 @@
       }
     ]
   },
+  "40658": {
+    "QuestionText": "Los titulares de vehículos siniestrados, deben:",
+    "CorrectAnswer": "Respuesta correcta: Realizar nuevamente la revisión técnica vehicular obligatoria (RTO)",
+    "Answers": [
+      {
+        "AnswerId": 77652,
+        "AnswerText": "a. Realizar nuevamente la revisión técnica vehicular obligatoria (RTO)"
+      },
+      {
+        "AnswerId": 77653,
+        "AnswerText": "b. No deben realizar la revisión técnica, pudiendo circular con el certificado de RTO otorgado anteriormente."
+      },
+      {
+        "AnswerId": 77654,
+        "AnswerText": "c. Pueden circular en forma condicional por 60 días."
+      }
+    ]
+  },
   "40659": {
     "QuestionText": "La distancia de seguridad es  el espacio que se deja de margen entre un vehículo y el propio. En rutas debe ser como mínimo de:",
     "CorrectAnswer": "Respuesta correcta: 80 m de distancia.",
@@ -3740,6 +4226,24 @@
       {
         "AnswerId": 77660,
         "AnswerText": "c. Es el área de visión no cubierta por el parabrisas."
+      }
+    ]
+  },
+  "40661": {
+    "QuestionText": "En una subida estrecha, ¿quién tiene la prioridad de paso?",
+    "CorrectAnswer": "Respuesta correcta: Quien asciende por la vía.",
+    "Answers": [
+      {
+        "AnswerId": 77661,
+        "AnswerText": "a. Quien asciende por la vía."
+      },
+      {
+        "AnswerId": 77662,
+        "AnswerText": "b. Quien desciende por la vía."
+      },
+      {
+        "AnswerId": 77663,
+        "AnswerText": "c. No existe prioridad definida."
       }
     ]
   },
