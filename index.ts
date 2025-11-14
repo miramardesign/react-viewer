@@ -33,7 +33,7 @@ const getQuestions = async (url: string) => {
 
   // ⬅️ Capture cookies so i dont spam the same session.
   const cookies = response.headers.getSetCookie().join("; ");
-  console.log("Cookies:", cookies);
+  // console.log("Cookies:", cookies);
 
   await new Promise((resolve) => setTimeout(resolve, 2000));
   processQuestionsFile(text, cookies);
@@ -55,7 +55,7 @@ interface AnswerData {
   CorrectAnswer: string;
 }
 
-type AnswerDataMap = Record<number, AnswerData>;
+type AnswerDataMap = Record<string, AnswerData>;
 
 /** the datga the way they expext it posted to answer the exam questions. */
 interface QuestionForm {
@@ -115,7 +115,7 @@ const getQuestionFormParamsFromHtml = (formHtml: string): QuestionForm => {
     enviar: "Enviar",
   };
 
-  console.log("params=======", params);
+  // console.log("params=======", params);
 
   return params;
 };
@@ -219,15 +219,15 @@ const postTest = async (
 };
 
 //todo fix
-const getMockAnswerDataMap = (): AnswerDataMap => {
-  return {
-    0: {
-      QuestionText: "what?",
-      Answers: [{ AnswerId: 1, AnswerText: "a" }],
-      CorrectAnswer: "a",
-    },
-  };
-};
+// const getMockAnswerDataMap = (): AnswerDataMap => {
+//   return {
+//     0: {
+//       QuestionText: "what?",
+//       Answers: [{ AnswerId: 1, AnswerText: "a" }],
+//       CorrectAnswer: "a",
+//     },
+//   };
+// };
 
 //parse the answer html iterate over elements of the psuedo form it has matching up the ids
 //of the questions and answers such that i can make a master json object with the ids as keys
@@ -235,7 +235,7 @@ const getAnswerDataMap = (
   justAnswerForm: string,
   questionFormParams: QuestionForm
 ): AnswerDataMap => {
-  const answerDataArr = [];
+  // const answerDataArr = [];
 
   //todo fix.
   //const mockAnswerData = getMockAnswerDataMap();
@@ -254,7 +254,7 @@ const processAnswerRows = (
   const $ = load(justAnswerForm);
 
   //const answerDataMap = {};
-  const answerDataMap: Record<number, AnswerData> = {};
+  const answerDataMap: Record<string, AnswerData> = {};
   $(".formulation").each((i, el) => {
     const questionText =
       $(el).find(".qtext p").text().trim() ||
@@ -302,12 +302,12 @@ const processAnswerRows = (
     }
   });
 
-  console.log("anserdatamap", JSON.stringify(answerDataMap ) );
+ // console.log("anserdatamap", JSON.stringify(answerDataMap ) );
 
   return answerDataMap;
 };
 
-const processAnswersFile = (
+const processAnswersFile = async (
   justForm: string,
   questionFormParams: QuestionForm
 ) => {
@@ -315,14 +315,44 @@ const processAnswersFile = (
     justForm,
     questionFormParams
   );
-  const appendMasterJsonFile = answerData;
+  await appendMasterJsonFile(answerData);
 };
 
-const appendMasterJsonFile = (
-  justForm: string,
-  questionFormParams: QuestionForm
-) => {
-  console.log("todo open a js object saved to file aadd ids to it ");
+const appendMasterJsonFile = async (answerData: AnswerDataMap) => {
+  const filePath = path.join(process.cwd(), "json", "data.json");
+
+  // 1. Load existing file
+  let existing: AnswerDataMap = {};
+
+  try {
+    const raw = await fs.readFile(filePath, "utf8");
+    existing = JSON.parse(raw);
+  } catch (err: any) {
+    if (err.code === "ENOENT") {
+      console.warn("data.json not found — creating a new one.");
+    } else {
+      throw err;
+    }
+  }
+
+  // 2. Merge only *new* IDs
+  let addedCount = 0;
+
+  const entriesAdded: string[] = []
+  for (const [id, data] of Object.entries(answerData)) {
+    if (!existing[id]) {
+      existing[id] = data;
+      addedCount++;
+      entriesAdded.push(id);
+    }
+  }
+
+  // 3. Save back to file
+  await fs.writeFile(filePath, JSON.stringify(existing, null, 2), "utf8");
+
+  const totalCount = Object.keys(existing).length;
+
+  console.log(`✔ Saved. Added ${addedCount} new entries. Total entries: ${totalCount}`, entriesAdded.join(','));
 };
 
 const getFileNameFromFormParms = (
@@ -330,9 +360,8 @@ const getFileNameFromFormParms = (
   prefix: string,
   suffix: string
 ): string => {
-  //const md5form = questionsArr.slice(0, 4).join("-");
 
   //is about 154 chars at 250 ename too long happens, including full win path c://
-  const md5form = questionsArr.join("-");
-  return `${prefix}-${md5form}${suffix}`;
+  const listIds = questionsArr.join("-");
+  return `${prefix}-${listIds}${suffix}`;
 };
