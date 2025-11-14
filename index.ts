@@ -100,7 +100,7 @@ const scanAnswerFiles = async () => {
 
     await processAnswersFile(justForm, questionFormParams);
 
-   // break; // ← stops after first file
+    // break; // ← stops after first file
   }
 
   console.log("✔ Finished scanning saved HTML files.");
@@ -125,6 +125,10 @@ const getElement = (htmlRes: string, selector = "form"): string => {
   return formHtml;
 };
 
+const isImage = (questionText: string): boolean => {
+  return questionText === "¿Qué significa esta señal?";
+};
+
 const getQuestionFormParamsFromHtml = (formHtml: string): QuestionForm => {
   let formArr: any = [];
 
@@ -140,7 +144,12 @@ const getQuestionFormParamsFromHtml = (formHtml: string): QuestionForm => {
     const firstRadioValue = $(el).find('input[type="radio"]').first().val() as
       | string
       | undefined;
-    const questionText = $(el).find(".qtext p").text().trim();
+    let questionText = $(el).find(".qtext p").text().trim();
+
+    if (isImage(questionText)) {
+      questionText =
+        $(el).find(".qtext p").next("p").next("img").attr("src") ?? "";
+    }
 
     formArr.push({ id_preg, firstRadioValue, questionText });
 

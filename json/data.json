@@ -2411,6 +2411,24 @@
       }
     ]
   },
+  "1143": {
+    "QuestionText": "¿Qué significa esta señal?",
+    "CorrectAnswer": "Respuesta correcta: Prohibido girar a la izquierda.",
+    "Answers": [
+      {
+        "AnswerId": 2414,
+        "AnswerText": "a. Prohibido girar a la izquierda."
+      },
+      {
+        "AnswerId": 2415,
+        "AnswerText": "b. Precaución curva."
+      },
+      {
+        "AnswerId": 2416,
+        "AnswerText": "c. Prohibido girar en U."
+      }
+    ]
+  },
   "1144": {
     "QuestionText": "¿Qué significa esta señal?",
     "CorrectAnswer": "Respuesta correcta: Prohibido girar en U.",
