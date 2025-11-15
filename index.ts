@@ -40,10 +40,16 @@ const getQuestions = async (url: string) => {
 //kicks the whole thing off, aka init.
 
 const arg = process.argv.find((a) => a.startsWith("--mode="));
-const mode = arg ? arg.split("=")[1] : undefined;
+const mode = arg ? arg.split("=")[1] : "net";
 
-const runRequests = () => {
-  getQuestions(examPages.questionPg);
+const scanNet = async () => {
+  const maxScans = 50
+  for(let i = 0;i <=  maxScans; i++){
+  
+    await getQuestions(examPages.questionPg);
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
+  }
 };
 
 const getIdPregFromFilename = (filename: string): number[] => {
@@ -60,7 +66,7 @@ const getIdPregFromFilename = (filename: string): number[] => {
 };
 
 //get from saved thml backup.
-const scanAnswerFiles = async () => {
+const scanHtmlAnswerFiles = async () => {
   const dir = path.join(process.cwd(), "savedHtml");
 
   let files: string[] = [];
@@ -109,10 +115,10 @@ const scanAnswerFiles = async () => {
 
 console.log("modeeeeeeeeeeeeeeeeeeeeeeeeee", mode);
 
-if (mode === "scan") {
-  scanAnswerFiles();
+if (mode === "html") {
+  scanHtmlAnswerFiles();
 } else {
-  runRequests();
+  scanNet();
 }
 
 const md5 = (input: string) => {

@@ -17,7 +17,7 @@ export interface AnswerData {
 export type AnswerDataMap = Record<string, AnswerData>;
 
 function pickRandom<T>(arr: T[]): T {
-  return arr[Math.floor(Math.random() * arr.length)];
+  return arr[Math.floor(Math.random() * arr.length)]!;
 }
 
 function App() {
@@ -117,9 +117,9 @@ function App() {
   return (
     <div className="wrapper" {...swipeHandlers}>
       <div className="card">
-        <QuestionText text={q.QuestionText} />
+        <QuestionText text={q?.QuestionText || ""} />
         <section>
-          <small>{q.CorrectAnswerId.toString()}</small>
+          <small>{q?.CorrectAnswerId.toString()}</small>
         </section>
         <div className="instructions">
           <div className="answers">

@@ -1943,6 +1943,24 @@
       }
     ]
   },
+  "1114": {
+    "QuestionText": "Las señales verticales se clasifican en:",
+    "CorrectAnswerId": 2327,
+    "Answers": [
+      {
+        "AnswerId": 2327,
+        "AnswerText": "a. Reglamentarias, preventivas, informativas y transitorias."
+      },
+      {
+        "AnswerId": 2328,
+        "AnswerText": "b. Longitudinales, manuales e informativas."
+      },
+      {
+        "AnswerId": 2329,
+        "AnswerText": "c. Reglamentarias y transitorias."
+      }
+    ]
+  },
   "1115": {
     "QuestionText": "Las señales reglamentarias:",
     "CorrectAnswerId": 2331,
@@ -2264,6 +2282,24 @@
       {
         "AnswerId": 2383,
         "AnswerText": "c. Autorización de la Dirección Nacional de Vialidad."
+      }
+    ]
+  },
+  "1133": {
+    "QuestionText": "¿Cómo debe ser el sistema de frenado de un vehículo?",
+    "CorrectAnswerId": 2385,
+    "Answers": [
+      {
+        "AnswerId": 2384,
+        "AnswerText": "a. Aceptable."
+      },
+      {
+        "AnswerId": 2385,
+        "AnswerText": "b. Permanente, seguro y eficaz."
+      },
+      {
+        "AnswerId": 2386,
+        "AnswerText": "c. Puede no ser seguro, ya que en caso de emergencia accionaremos el freno de mano."
       }
     ]
   },
@@ -3020,6 +3056,24 @@
       {
         "AnswerId": 2512,
         "AnswerText": "c. Camino dividido."
+      }
+    ]
+  },
+  "1176": {
+    "QuestionText": "images/preguntas/d2846d103ccce2be4f0fdecad415f3ea9abf4d00.jpg",
+    "CorrectAnswerId": 2513,
+    "Answers": [
+      {
+        "AnswerId": 2513,
+        "AnswerText": "a. Rotonda."
+      },
+      {
+        "AnswerId": 2514,
+        "AnswerText": "b. Giro."
+      },
+      {
+        "AnswerId": 2515,
+        "AnswerText": "c. Curva y contracurva."
       }
     ]
   },
