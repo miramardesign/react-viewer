@@ -43,7 +43,7 @@ const arg = process.argv.find((a) => a.startsWith("--mode="));
 const mode = arg ? arg.split("=")[1] : "net";
 
 const scanNet = async () => {
-  const maxScans = 50
+  const maxScans = 100
   for(let i = 0;i <=  maxScans; i++){
   
     await getQuestions(examPages.questionPg);
