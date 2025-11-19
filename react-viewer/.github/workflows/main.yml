@@ -18,8 +18,11 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: react-viewer
     steps:
-      - name: Checkout repository11
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup Node.js
@@ -27,6 +30,7 @@ jobs:
         with:
           node-version: 20
           cache: npm
+          cache-dependency-path: react-viewer/package-lock.json
 
       - name: Install dependencies
         run: npm ci
@@ -37,7 +41,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: react-viewer/dist
 
   deploy:
     needs: build
