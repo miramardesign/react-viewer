@@ -22,7 +22,7 @@ This repository now includes a GitHub Actions workflow (`.github/workflows/deplo
      - install dependencies with `npm ci`
      - run `npm run build`
      - upload `dist/` as the Pages artifact
-     - deploy it with `actions/deploy-pages`
+     - deploy it with `actions/deploy-pages`.
 3. **Live URL**
    - Once the workflow finishes, the app is live at `https://drving-test.github.io/react-viewer/`.
    - If you later move the repo or use a custom domain, update the `base` option inside `vite.config.ts` accordingly so asset paths stay correct.
