@@ -1,7 +1,8 @@
 {
-    "compilerOptions": {
+  "compilerOptions": {
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "types": [
-      "vite-plugin-pwa/client",  
+      "vite-plugin-pwa/client"
     ]
   },
   "files": [],

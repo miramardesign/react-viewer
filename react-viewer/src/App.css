@@ -9,7 +9,7 @@
   align-items: center;
   position: relative;
   text-align: center;
-  touch-action: none;
+  touch-action: pan-y;
 }
 
 /* Card structure */
@@ -95,4 +95,6 @@
   background: #f3f3f3;
   color: darkblue;
   font-size: 18px;
+  touch-action: manipulation;
+  cursor: pointer;
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { useSwipeable } from "react-swipeable";
 import "./App.css";
 import { QuestionText } from "./QuestionText";
@@ -29,6 +29,7 @@ function App() {
   const [correctText, setCorrectText] = useState<string | null>(null);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [showOverlay, setShowOverlay] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     fetch("/json/data.json") // MUST be in /public/json/data.json
@@ -40,6 +41,15 @@ function App() {
         setCurrentId(pickRandom(ids));
       })
       .catch((err) => console.error("Error loading data:", err));
+  }, []);
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
   }, []);
 
   const nextQuestion = useCallback(() => {
@@ -81,11 +91,18 @@ function App() {
 
     setCorrectText(correctAnswerText);
     setUserAnswer(answerId);
+    console.log(userAnswer, 'useranswer');
     setIsCorrect(isCorrect); 
     setShowOverlay(true);
 
+    // Clear any existing timeout
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
     // Next question after 4 seconds
-    setTimeout(() => {
+    timeoutRef.current = setTimeout(() => {
+      setShowOverlay(false);
       nextQuestion();
     }, 3500);
   };
@@ -166,7 +183,24 @@ function App() {
       </div>
 
       {showOverlay && (
-        <div className="overlay">
+        <div 
+          className="overlay"
+          onClick={() => {
+            if (timeoutRef.current) {
+              clearTimeout(timeoutRef.current);
+            }
+            setShowOverlay(false);
+            nextQuestion();
+          }}
+          onTouchEnd={(e) => {
+            e.preventDefault();
+            if (timeoutRef.current) {
+              clearTimeout(timeoutRef.current);
+            }
+            setShowOverlay(false);
+            nextQuestion();
+          }}
+        >
           <div className="overlay-content">
             {isCorrect ? (
               <>
