@@ -1,14 +1,20 @@
+// tsconfig.json - Make sure this file exists and is committed to Git
 {
   "compilerOptions": {
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "types": [
-      "vite-plugin-pwa/client"
-    ]
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node", // Crucial for finding packages in node_modules
+    "jsx": "react-jsx",         // Crucial for React 17+ JSX transform
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "noEmit": true, // This is fine if you just want to type check
+    "resolveJsonModule": true,
+    "isolatedModules": true
   },
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ],
   "include": ["src"]
 }
