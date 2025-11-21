@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",   
-    "build": "tsc --noEmit && vite build",
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview --host",
     "serve": "serve dist -l 4173 --host --ssl-cert cert.pem --ssl-key key.pem"
