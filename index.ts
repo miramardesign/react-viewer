@@ -9,23 +9,68 @@ import type {
   QuestionForm,
 } from "./types/AnswerTypes.js";
 import { examPages } from "./const/urls.js";
+import { Agent } from 'undici';
+
+// Create a custom undici Agent (Dispatcher)
+// This is where you include specific connection options to handle legacy servers.
+// The secureOptions line below helps resolve the 'unsafe legacy renegotiation disabled' error.
+const customDispatcher = new Agent({
+  connect: {
+    // Re-enables the ability to connect to legacy servers if they use insecure renegotiation
+    secureOptions: crypto.constants.SSL_OP_LEGACY_SERVER_CONNECT
+  }
+});
+
 
 const getQuestions = async (url: string) => {
-  const response = await fetch(url, {
-    method: "POST",
-    headers: {
-      "User-Agent":
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
 
-      Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-      "Accept-Language": "es-419,es;q=0.9,en;q=0.8",
-      "Content-Type": "application/x-www-form-urlencoded",
-      Origin: "https://www.santafe.gob.ar",
-      Referer:
-        "https://www.santafe.gob.ar/examenlicencia/examenETLC/listarCuestionarios.php",
-    },
-    body: "id_sel=245&idcm_sel=245%7CAUTO%2C+UTILITARIO%2C+CAMIONETA+Y+CASA+RODANTE+MOTOR.+H%2F3.500+KG+TOTAL&uword=small&comenzar=Comenzar",
-  });
+// Configure the fetch options, using 'dispatcher' instead of 'agent'
+const fetchOptions = {
+  method: "POST",
+  headers: {
+    "User-Agent":
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+    Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "es-419,es;q=0.9,en;q=0.8",
+    "Content-Type": "application/x-www-form-urlencoded",
+    Origin: examPages.origin,
+    Referer: examPages.listPg      
+  },
+  body: "id_sel=245&idcm_sel=245%7CAUTO%2C+UTILITARIO%2C+CAMIONETA+Y+CASA+RODANTE+MOTOR.+H%2F3.500+KG+TOTAL&uword=small&comenzar=Comenzar",
+  // Add the custom dispatcher here
+  dispatcher: customDispatcher
+};
+
+
+
+  // const response = await fetch(url, {
+  //   method: "POST",
+  //   headers: {
+  //     "User-Agent":
+  //       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+
+  //     Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+  //     "Accept-Language": "es-419,es;q=0.9,en;q=0.8",
+  //     "Content-Type": "application/x-www-form-urlencoded",
+  //     Origin: "https://www.santafe.gob.ar",
+  //     Referer:
+  //       "https://www.santafe.gob.ar/examenlicencia/examenETLC/listarCuestionarios.php",
+  //   },
+  //   body: "id_sel=245&idcm_sel=245%7CAUTO%2C+UTILITARIO%2C+CAMIONETA+Y+CASA+RODANTE+MOTOR.+H%2F3.500+KG+TOTAL&uword=small&comenzar=Comenzar",
+  // });
+
+// Make the fetch request using the custom dispatcher
+const response = await fetch(url, fetchOptions);
+
+// You can now process the response as usual
+if (response.ok) {
+    console.log('Fetch successful! Status:', response.status);
+    // const data = await response.text();
+    // console.log(data);
+} else {
+    console.error('Fetch failed with status:', response.status);
+}
+
 
   const text = await response.text();
 
@@ -43,7 +88,7 @@ const arg = process.argv.find((a) => a.startsWith("--mode="));
 const mode = arg ? arg.split("=")[1] : "net";
 
 const scanNet = async () => {
-  const maxScans = 100
+  const maxScans = 100;
   for(let i = 0;i <=  maxScans; i++){
   
     await getQuestions(examPages.questionPg);
@@ -120,10 +165,6 @@ if (mode === "html") {
 } else {
   scanNet();
 }
-
-const md5 = (input: string) => {
-  return crypto.createHash("md5").update(input).digest("hex");
-};
 
 const getElement = (htmlRes: string, selector = "form"): string => {
   const $ = load(htmlRes);
@@ -246,28 +287,25 @@ const postTest = async (
   }
   const body = toFormBody(questionFormParams);
 
-  const headers = {
+
+  const fetchOptions = {
+    method: "POST",
     "User-Agent":
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
 
     Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
     "Accept-Language": "es-419,es;q=0.9,en;q=0.8",
     "Content-Type": "application/x-www-form-urlencoded",
-    Origin: "https://www.santafe.gob.ar",
-    Referer:
-      "https://www.santafe.gob.ar/examenlicencia/examenETLC/cuestionario.php",
+    Origin: examPages.origin,
+    Referer: examPages.questionPg,
 
-    //should probably refresh this session cookie...
-    // Cookie:
-    //   "MoodleSession=cso012di66jrcdfbhndr6kogr1; _pk_id.7.38fb=2b2a0693b7d87bd7.1762704238.4.1762883179.1762882059.; eZSESSID=3n8fk9flu2ofq8qg53u5qn0g87; eZSESSIDweb=3r1ab6dm78137ohfj3ic4s9tb3; _gcl_au=1.1.1717133776.1762830500; _ga_XRDJD94NN8=GS2.1.s1762830500$o1$g0$t1762830511$j49$l0$h0; _ga=GA1.1.1616098780.1762830500; _ga_V7QRESCZPX=GS2.1.s1762830500$o1$g0$t1762830511$j49$l0$h0; _fbp=fb.2.1762830501375.799563771277620418; EXAMENLICENCIApwww=.examenlicencia-pwww3; _pk_ses.7.38fb=*",
     Cookie: cookies,
+    dispatcher: customDispatcher,
+    body: body
+
   };
 
-  const response = await fetch(answerPgUrl, {
-    method: "POST",
-    headers,
-    body,
-  });
+  const response = await fetch(answerPgUrl, fetchOptions);
 
   const htmlRes = await response.text();
   const justForm = getElement(htmlRes, ".form");

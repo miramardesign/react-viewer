@@ -1,4 +1,5 @@
 export const examPages = {
+  origin: "https://www.santafe.gob.ar",
   listPg:
     "https://www.santafe.gob.ar/examenlicencia/examenETLC/listarCuestionarios.php",
   questionPg:
