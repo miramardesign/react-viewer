@@ -3,18 +3,13 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "Node", // Crucial for finding packages in node_modules
-    "jsx": "react-jsx",         // Crucial for React 17+ JSX transform
+    "jsx": "react-jsx",
+    "moduleResolution": "Node",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "noEmit": true, // This is fine if you just want to type check
-    "resolveJsonModule": true,
-    "isolatedModules": true
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src"]
 }

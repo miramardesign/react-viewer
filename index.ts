@@ -340,7 +340,21 @@ const processAnswerRows = (
 
     const isImageQuestionText = isImage(questionText);
     if (isImageQuestionText) {
-      questionText = $(el).find(".qtext img").attr("src") ?? "cantfind";
+      questionText = $(el).find(".qtext img").attr("src") ?? "";
+      if(questionText){
+        //download image to local folder for reference later.
+        const downloadImage = async (url: string, filepath: string) => {
+          const response = await fetch(url);
+          const buffer = await response.arrayBuffer();  
+          await fs.writeFile(filepath, Buffer.from(buffer));
+        };
+        const imagesDir = path.join(process.cwd(), "react-viewer/data/images");
+        fs.mkdir(imagesDir, { recursive: true });
+        const imageFileName = `question_${questionFormParams.id_preg[i]}.jpg`;
+        const imageFilePath = path.join(imagesDir, imageFileName);
+        downloadImage(questionText, imageFilePath);
+        questionText = imageFilePath; //set to local path now.
+      }
       console.log(
         "questionText isIMG===========================",
         questionText
