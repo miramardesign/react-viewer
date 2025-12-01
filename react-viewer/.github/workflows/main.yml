@@ -41,6 +41,19 @@ jobs:
         run: npm run build
         working-directory: react-viewer
 
+      - name: Verify build output
+        run: |
+          echo "Listing build output:"
+          ls -la react-viewer/dist || (echo "ERROR: dist folder missing" && exit 1)
+          if [ ! -f react-viewer/dist/index.html ]; then
+            echo "ERROR: react-viewer/dist/index.html not found. Build may have failed or output path is wrong."
+            echo "Contents of dist (if any):"
+            ls -la react-viewer/dist || true
+            exit 1
+          fi
+          echo "index.html found. Showing first 50 lines for quick inspection:"
+          head -n 50 react-viewer/dist/index.html
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
