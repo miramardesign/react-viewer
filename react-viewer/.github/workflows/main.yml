@@ -41,6 +41,14 @@ jobs:
         run: npm run build
         working-directory: react-viewer
 
+      - name: SPA fallback for GitHub Pages
+        run: cp dist/index.html dist/404.html
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: react-viewer/dist
+
       - name: Verify build output
         run: |
           echo "Listing build output:"
