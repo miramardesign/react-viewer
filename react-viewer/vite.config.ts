@@ -8,6 +8,7 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
+      base: '/react-viewer/',
       registerType: 'autoUpdate',
       strategies: 'injectManifest',
       srcDir: 'public',
@@ -24,7 +25,6 @@ export default defineConfig({
         theme_color: '#ffffff',
         background_color: '#ffffff',
         display: 'standalone',
-        //start_url: '/',
         start_url: '/react-viewer/',
         scope: '/react-viewer/',
         icons: [
@@ -47,9 +47,7 @@ export default defineConfig({
         ]
       },
       injectManifest: {
-        globPatterns: [
-          '**/*.{js,css,html,ico,png,svg,json}'
-        ],
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,json}'],
       }
     })
   ]
