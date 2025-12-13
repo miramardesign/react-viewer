@@ -4,9 +4,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vite.dev/config/
 export default defineConfig({
-  // base: '/react-viewer/',
-    base: '/drving-test/',
-
+  base: '/react-viewer/',
   plugins: [
     react(),
     VitePWA({
@@ -26,7 +24,9 @@ export default defineConfig({
         theme_color: '#ffffff',
         background_color: '#ffffff',
         display: 'standalone',
-        start_url: '/',
+        //start_url: '/',
+        start_url: '/react-viewer/',
+        scope: '/react-viewer/',
         icons: [
           {
             src: 'pwa-192x192.png',
