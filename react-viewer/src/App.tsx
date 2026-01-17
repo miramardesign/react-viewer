@@ -29,10 +29,11 @@ function App() {
   const [correctText, setCorrectText] = useState<string | null>(null);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [showOverlay, setShowOverlay] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    const url = `${window.location.origin}/react-viewer/json/data.json`;
+    const url = `${import.meta.env.BASE_URL}json/data.json`;
     console.log("Fetching data from:", url);
     fetch(url)
       .then((r) => {
@@ -44,10 +45,16 @@ function App() {
         console.log("Data loaded successfully:", Object.keys(json).length, "questions");
         setData(json);
         setLoading(false);
+        setError(null);
         const ids = Object.keys(json);
         setCurrentId(pickRandom(ids));
       })
-      .catch((err) => console.error("Error loading data:", err));
+      .catch((err) => {
+        const errorMsg = `Error loading data: ${err.message}`;
+        console.error(errorMsg);
+        setError(errorMsg);
+        setLoading(false);
+      });
   }, []);
 
   // Cleanup timeout on unmount
@@ -134,6 +141,7 @@ function App() {
     trackMouse: true,
   });
 
+  if (error) return <div className="error" style={{ color: "red", fontSize: "18px", padding: "20px", textAlign: "center" }}>{error}</div>;
   if (loading || !currentId) return <div className="loading">Loading…</div>;
 
   const q = data[currentId];
