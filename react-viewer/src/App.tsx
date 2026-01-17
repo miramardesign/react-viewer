@@ -32,9 +32,16 @@ function App() {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    fetch("/react-viewer/json/data.json") // MUST be in /public/json/data.json
-      .then((r) => r.json())
+    const url = "/react-viewer/json/data.json";
+    console.log("Fetching data from:", url);
+    fetch(url)
+      .then((r) => {
+        console.log("Response status:", r.status, "ok:", r.ok);
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+      })
       .then((json) => {
+        console.log("Data loaded successfully:", Object.keys(json).length, "questions");
         setData(json);
         setLoading(false);
         const ids = Object.keys(json);
