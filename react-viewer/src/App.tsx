@@ -141,8 +141,8 @@ function App() {
     trackMouse: true,
   });
 
-  if (error) return <div className="error" style={{ color: "red", fontSize: "18px", padding: "20px", textAlign: "center" }}>{error}</div>;
-  if (loading || !currentId) return <div className="loading">Loading…</div>;
+  if (error) return <div className="error" style={{ color: "red", fontSize: "20px", padding: "40px", textAlign: "center", fontWeight: "bold" }}>❌ {error}</div>;
+  if (loading || !currentId) return <div className="loading" style={{ fontSize: "24px", padding: "40px", textAlign: "center" }}>⏳ Loading…</div>;
 
   const q = data[currentId];
 
