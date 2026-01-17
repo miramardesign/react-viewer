@@ -32,7 +32,7 @@ function App() {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    fetch("/json/data.json") // MUST be in /public/json/data.json
+    fetch("/react-viewer/json/data.json") // MUST be in /public/json/data.json
       .then((r) => r.json())
       .then((json) => {
         setData(json);
