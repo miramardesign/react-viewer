@@ -1,55 +1,10 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vite.dev/config/
 export default defineConfig({
   base: '/react-viewer/',
   plugins: [
     react(),
-    // Temporarily disable PWA to fix caching issues
-    // VitePWA({
-    //   base: '/react-viewer/',
-    //   registerType: 'autoUpdate',
-    //   strategies: 'injectManifest',
-    //   srcDir: 'public',
-    //   filename: 'sw.js',
-    //   includeAssets: [
-    //     'favicon.svg',
-    //     'robots.txt',
-    //     'apple-touch-icon.png'
-    //   ],
-    //   manifest: {
-    //     name: 'Examen Flashcards',
-    //     short_name: 'Examen',
-    //     description: 'Práctica rápida de preguntas del examen de conducir.',
-    //     theme_color: '#ffffff',
-    //     background_color: '#ffffff',
-    //     display: 'standalone',
-    //     start_url: '/react-viewer/',
-    //     scope: '/react-viewer/',
-    //     icons: [
-    //       {
-    //         src: 'pwa-192x192.png',
-    //         sizes: '192x192',
-    //         type: 'image/png'
-    //       },
-    //       {
-    //         src: 'pwa-512x512.png',
-    //         sizes: '512x512',
-    //         type: 'image/png'
-    //       },
-    //       {
-    //         src: 'pwa-512x512.png',
-    //         sizes: '512x512',
-    //         type: 'image/png',
-    //         purpose: 'any maskable'
-    //       }
-    //     ]
-    //   },
-    //   injectManifest: {
-    //     globPatterns: ['**/*.{js,css,html,ico,png,svg,json}'],
-    //   }
-    // })
   ]
 })
