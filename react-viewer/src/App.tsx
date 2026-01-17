@@ -34,7 +34,9 @@ function App() {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    const url = "/react-viewer/json/data.json";
+    // BASE_URL is /react-viewer/ in production, / in dev
+    // Files in public/ are served at BASE_URL/
+    const url = `${import.meta.env.BASE_URL}json/data.json`;
     console.log("Fetching data from:", url);
     fetch(url)
       .then((r) => {
