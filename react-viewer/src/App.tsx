@@ -36,7 +36,7 @@ function App() {
   useEffect(() => {
     // BASE_URL is /react-viewer/ in production, / in dev
     // Files in public/ are served at BASE_URL/
-    const url = `${import.meta.env.BASE_URL}json/data.json`;
+    const url = `${import.meta.env.BASE_URL}answers.json`;
     console.log("Fetching data from:", url);
     fetch(url)
       .then((r) => {
