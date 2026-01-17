@@ -33,7 +33,7 @@ function App() {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    const url = `${import.meta.env.BASE_URL}json/data.json`;
+    const url = "/react-viewer/json/data.json";
     console.log("Fetching data from:", url);
     fetch(url)
       .then((r) => {
