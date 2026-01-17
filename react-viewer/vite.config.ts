@@ -7,6 +7,7 @@ export default defineConfig({
   base: '/react-viewer/',
   plugins: [
     react(),
+    // Temporarily disable PWA to fix caching issues
     // VitePWA({
     //   base: '/react-viewer/',
     //   registerType: 'autoUpdate',
