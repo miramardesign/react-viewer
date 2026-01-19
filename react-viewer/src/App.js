@@ -16,7 +16,7 @@ function App() {
     const [showOverlay, setShowOverlay] = useState(false);
     const timeoutRef = useRef(null);
     useEffect(() => {
-        fetch("/json/data.json") // MUST be in /public/json/data.json
+        fetch("/react-viewer/answers.json") // Load from answers.json in root
             .then((r) => r.json())
             .then((json) => {
             setData(json);
