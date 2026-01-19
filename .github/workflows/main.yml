@@ -34,10 +34,13 @@ jobs:
       - name: Build
         run: npm run build --prefix react-viewer
 
+      - name: Verify dist folder
+        run: ls -la dist/ && echo "---" && ls -la react-viewer/dist/
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: react-viewer/dist
+          path: dist
 
   deploy:
     needs: build
