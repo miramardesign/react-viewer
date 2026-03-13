@@ -60,13 +60,7 @@
   font-size: 64px;
 }
 
-.text-correct {
-  color: #00ff70;
-}
 
-.text-wrong {
-  color: #ff4444;
-}
 
 /* Correct answer explanation */
 .correct-answer-box {
@@ -97,4 +91,12 @@
   font-size: 18px;
   touch-action: manipulation;
   cursor: pointer;
+}
+
+.text-correct {
+  color: #054d25;
+}
+
+.text-wrong {
+  color: #ff4444;
 }

@@ -3,6 +3,7 @@ import { useSwipeable } from "react-swipeable";
 import "./App.css";
 import { QuestionText } from "./QuestionText";
 import AnswerButtons from "./AnswerButtons";
+import ProgressBar from "./ProgressBar";
 
 export interface Answer {
   AnswerId: number;
@@ -32,6 +33,7 @@ function App() {
   const [showOverlay, setShowOverlay] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [answerHistory, setAnswerHistory] = useState<boolean[]>([]);
+  const [showAnswerOnButtons, setShowAnswerOnButtons] = useState(false);
   // Trigger workflow test
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -61,6 +63,33 @@ function App() {
         setError(errorMsg);
         setLoading(false);
       });
+  }, []);
+
+  // Handle showAnswerOnButtons cookie and URL parameter
+  useEffect(() => {
+    // Check for cookie
+    const cookieValue = document.cookie
+      .split('; ')
+      .find(row => row.startsWith('showAnswerOnButtons='))
+      ?.split('=')[1];
+
+    if (cookieValue === 'true') {
+      setShowAnswerOnButtons(true);
+    } else if (cookieValue === 'false') {
+      setShowAnswerOnButtons(false);
+    }
+
+    // Check for URL parameter ?a=true or ?a=false
+    const urlParams = new URLSearchParams(window.location.search);
+    const aParam = urlParams.get('a');
+    
+    if (aParam === 'true') {
+      document.cookie = 'showAnswerOnButtons=true; path=/; max-age=86400'; // 24 hours
+      setShowAnswerOnButtons(true);
+    } else if (aParam === 'false') {
+      document.cookie = 'showAnswerOnButtons=false; path=/; max-age=86400'; // 24 hours
+      setShowAnswerOnButtons(false);
+    }
   }, []);
 
   // Cleanup timeout on unmount
@@ -166,7 +195,12 @@ function App() {
         <QuestionText text={q?.QuestionText || ""} />
 
         <section className="instructions">
-          <AnswerButtons correctAnswerId={q?.CorrectAnswerId || ""} answers={q?.Answers || []} onAnswerSelect={handleAnswerById} />
+          <AnswerButtons 
+            correctAnswerId={q?.CorrectAnswerId || ""} 
+            answers={q?.Answers || []} 
+            onAnswerSelect={handleAnswerById}
+            showAnswerOnButtons={showAnswerOnButtons}
+          />
         </section>
       </div>
 
@@ -211,39 +245,7 @@ function App() {
         </div>
       )}
 
-      {/* Progress Bar */}
-      <div style={{
-        position: 'fixed',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        padding: '16px',
-        backgroundColor: 'rgba(255, 255, 255, 0.95)',
-        borderTop: '1px solid #ddd',
-      }}>
-        <div style={{ marginBottom: '8px', fontSize: '12px', fontWeight: 'bold', color: '#333' }}>
-          {answerHistory.length > 0 ? `${answerHistory.filter(a => a).length} / ${Math.min(answerHistory.length, 20)}` : '0 / 20'}
-        </div>
-        <div style={{
-          width: '100%',
-          maxWidth: '300px',
-          height: '20px',
-          backgroundColor: '#e0e0e0',
-          borderRadius: '10px',
-          overflow: 'hidden',
-          border: '2px solid #999',
-        }}>
-          <div style={{
-            height: '100%',
-            width: `${answerHistory.length > 0 ? (answerHistory.filter(a => a).length / Math.min(answerHistory.length, 20)) * 100 : 0}%`,
-            backgroundColor: answerHistory.length > 0 && answerHistory.filter(a => a).length >= 18 ? '#4caf50' : '#f44336',
-            transition: 'width 0.3s ease, background-color 0.3s ease',
-          }} />
-        </div>
-      </div>
+      <ProgressBar answerHistory={answerHistory} />
     </div>
   );
 }
