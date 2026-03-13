@@ -42,23 +42,6 @@ const fetchOptions = {
 };
 
 
-
-  // const response = await fetch(url, {
-  //   method: "POST",
-  //   headers: {
-  //     "User-Agent":
-  //       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
-
-  //     Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-  //     "Accept-Language": "es-419,es;q=0.9,en;q=0.8",
-  //     "Content-Type": "application/x-www-form-urlencoded",
-  //     Origin: "https://www.santafe.gob.ar",
-  //     Referer:
-  //       "https://www.santafe.gob.ar/examenlicencia/examenETLC/listarCuestionarios.php",
-  //   },
-  //   body: "id_sel=245&idcm_sel=245%7CAUTO%2C+UTILITARIO%2C+CAMIONETA+Y+CASA+RODANTE+MOTOR.+H%2F3.500+KG+TOTAL&uword=small&comenzar=Comenzar",
-  // });
-
 // Make the fetch request using the custom dispatcher
 const response = await fetch(url, fetchOptions);
 

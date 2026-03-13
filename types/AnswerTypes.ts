@@ -7,7 +7,6 @@ export interface Answer {
 export interface AnswerData {
   QuestionText: string;
   Answers: Answer[];
-  // Answers: string[];
   CorrectAnswerId: number;
 }
 

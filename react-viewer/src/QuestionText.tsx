@@ -34,7 +34,7 @@ export const QuestionText: React.FC<QuestionTextProps> = ({ text }) => {
 
   return imgUrl ? (
     <section>
-      <h2>¿Qué significa esta señal?</h2>
+      <h2 className="question">¿Qué significa esta señal?</h2>
       <img src={baseUrl + imgUrl} alt="Pregunta" className="question-image" />
     </section>
   ) : (

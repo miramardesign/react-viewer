@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback, useRef } from "react";
 import { useSwipeable } from "react-swipeable";
 import "./App.css";
 import { QuestionText } from "./QuestionText";
+import AnswerButtons from "./AnswerButtons";
 
 export interface Answer {
   AnswerId: number;
@@ -157,55 +158,16 @@ function App() {
 
   const q = data[currentId];
 
+  // q.CorrectAnswerId
+
   return (
     <div className="wrapper" {...swipeHandlers}>
       <div className="card">
         <QuestionText text={q?.QuestionText || ""} />
-        <section>
-          <small>{q?.CorrectAnswerId.toString()}</small>
+
+        <section className="instructions">
+          <AnswerButtons correctAnswerId={q?.CorrectAnswerId || ""} answers={q?.Answers || []} onAnswerSelect={handleAnswerById} />
         </section>
-        <div className="instructions">
-          <div className="answers">
-            <button
-              className="answer-item"
-              onClick={() => {
-                const id = q?.Answers?.[0]?.AnswerId;
-                console.log("click A ->", id);
-                if (id) handleAnswerById(String(id));
-              }}
-              disabled={!q?.Answers?.[0]}
-            >
-              ⬅ {q?.Answers?.[0]?.AnswerText ?? "—"}
-              {q?.Answers?.[0]?.AnswerId }
-            </button>
-
-            <button
-              className="answer-item"
-              onClick={() => {
-                const id = q?.Answers?.[1]?.AnswerId;
-                console.log("click B ->", id);
-                if (id) handleAnswerById(String(id));
-              }}
-              disabled={!q?.Answers?.[1]}
-            >
-              ⬆ {q?.Answers?.[1]?.AnswerText ?? "—"}
-              {q?.Answers?.[1]?.AnswerId }
-            </button>
-
-            <button
-              className="answer-item"
-              onClick={() => {
-                const id = q?.Answers?.[2]?.AnswerId;
-                console.log("click C ->", id);
-                if (id) handleAnswerById(String(id));
-              }}
-              disabled={!q?.Answers?.[2]}
-            >
-              ➡ {q?.Answers?.[2]?.AnswerText ?? "—"}
-              {q?.Answers?.[2]?.AnswerId }
-            </button>
-          </div>
-        </div>
       </div>
 
       {showOverlay && (
@@ -287,6 +249,3 @@ function App() {
 }
 
 export default App;
-
- 
- 
