@@ -34,6 +34,7 @@ function App() {
   const [error, setError] = useState<string | null>(null);
   const [answerHistory, setAnswerHistory] = useState<boolean[]>([]);
   const [showAnswerOnButtons, setShowAnswerOnButtons] = useState(false);
+  const [incorrectQuestions, setIncorrectQuestions] = useState<Record<string, number>>({});
   // Trigger workflow test
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -105,11 +106,21 @@ function App() {
     const ids = Object.keys(data);
     if (ids.length === 0) return;
 
-    setCurrentId(pickRandom(ids));
+    // Create weighted list: incorrect questions appear 5 times more often
+    const weightedIds: string[] = [];
+    ids.forEach(id => {
+      const weight = incorrectQuestions[id] !== undefined ? 5 : 1;
+      for (let i = 0; i < weight; i++) {
+        weightedIds.push(id);
+      }
+    });
+
+    const selectedId = pickRandom(weightedIds);
+    setCurrentId(selectedId);
     setUserAnswer(null);
     setIsCorrect(null);
     setShowOverlay(false);
-  }, [data]);
+  }, [data, incorrectQuestions]);
 
 
   // --- inside your component, replace handleAnswer with this ---
@@ -143,6 +154,27 @@ function App() {
     console.log(userAnswer, 'useranswer');
     setIsCorrect(isCorrect); 
     setShowOverlay(true);
+
+    // Update incorrect questions tracking
+    setIncorrectQuestions(prev => {
+      const newIncorrect = { ...prev };
+      if (isCorrect) {
+        // If correct and question is in incorrect list, increment count
+        if (newIncorrect[currentId]) {
+          newIncorrect[currentId] += 1;
+          // If answered correctly twice, remove from incorrect list
+          if (newIncorrect[currentId] >= 2) {
+            delete newIncorrect[currentId];
+          }
+        }
+      } else {
+        // If wrong, add to incorrect list with count 0
+        if (newIncorrect[currentId] === undefined) {
+          newIncorrect[currentId] = 0;
+        }
+      }
+      return newIncorrect;
+    });
 
     // Track answer in history (keep last 20)
     setAnswerHistory((prev) => {
