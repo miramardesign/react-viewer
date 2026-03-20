@@ -8,7 +8,8 @@
     "dev": "tsc -w -p tsconfig.server.json",
     "start": "nodemon dist/index.js",
     "html": "nodemon --ignore json/data.json dist/index.js --mode=html",
-    "net": "nodemon --ignore json/data.json dist/index.js --mode=net"
+    "net": "nodemon --ignore json/data.json dist/index.js --mode=net",
+    "add-translations": "node scripts/add-translations.mjs"
   },
   "keywords": [],
   "author": "",

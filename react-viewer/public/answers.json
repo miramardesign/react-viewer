@@ -15,7 +15,8 @@
         "AnswerId": 1996,
         "AnswerText": "c. Es el acto de relacionarnos tanto con el mundo externo como interno para una mejor conducción."
       }
-    ]
+    ],
+    "QuestionTextEn": "What is attention?"
   },
   "1006": {
     "QuestionText": "¿Qué medidas de precaución se deben tomar al conducir en caso de lluvia en ruta?",
@@ -33,7 +34,8 @@
         "AnswerId": 2005,
         "AnswerText": "c. Detener el vehículo sobre la banquina para resguardo."
       }
-    ]
+    ],
+    "QuestionTextEn": "What precautionary measures should be taken when driving in case of rain on the road?"
   },
   "1007": {
     "QuestionText": "¿Qué actitud se debe tomar en caso de niebla?",
@@ -51,7 +53,8 @@
         "AnswerId": 2008,
         "AnswerText": "c. Encender las balizas para mayor visibilidad."
       }
-    ]
+    ],
+    "QuestionTextEn": "What attitude should be taken in case of fog?"
   },
   "1008": {
     "QuestionText": "¿A que se denomina acera?",
@@ -69,7 +72,8 @@
         "AnswerId": 2011,
         "AnswerText": "c. Sector de la vía pública ubicado entre la calzada y la línea de edificación, destinado exclusivamente al tránsito de peatones."
       }
-    ]
+    ],
+    "QuestionTextEn": "What is called a sidewalk?"
   },
   "1009": {
     "QuestionText": "¿Qué se debe hacer en caso de encandilamiento?",
@@ -87,7 +91,8 @@
         "AnswerId": 2014,
         "AnswerText": "c. Se debe detener al vehículo en la banquina para evitar riesgos."
       }
-    ]
+    ],
+    "QuestionTextEn": "What should be done in case of dazzle?"
   },
   "1010": {
     "QuestionText": "En la vía pública se debe circular respetando las indicaciones de la autoridad de comprobación o aplicación, las señales de tránsito y las normas legales, en ese orden de prioridad.",
@@ -105,7 +110,8 @@
         "AnswerId": 2017,
         "AnswerText": "c. No, las señales de tránsito por norma general deben respetarse siempre."
       }
-    ]
+    ],
+    "QuestionTextEn": "On public roads you must circulate respecting the instructions of the verification or application authority, traffic signs and legal regulations, in that order of priority."
   },
   "1011": {
     "QuestionText": "¿En caso de que un inspector de tránsito indique circular traspasando el semáforo en rojo?",
@@ -123,7 +129,8 @@
         "AnswerId": 2020,
         "AnswerText": "c. Rige la norma legal en el caso particular."
       }
-    ]
+    ],
+    "QuestionTextEn": "In case a traffic inspector tells you to drive through the red light?"
   },
   "1012": {
     "QuestionText": "En caso de que me detengan en un operativo:",
@@ -141,7 +148,8 @@
         "AnswerId": 2023,
         "AnswerText": "c. Tengo derecho a no presentar la documentación para circular."
       }
-    ]
+    ],
+    "QuestionTextEn": "In case I am detained in an operation:"
   },
   "1013": {
     "QuestionText": "En zonas urbanas y rurales si existen cruces a distinto nivel con senda para peatones ¿Su uso es obligatorio para atravesar la calzada?",
@@ -159,7 +167,8 @@
         "AnswerId": 2026,
         "AnswerText": "c. Depende de las destrezas del peatón."
       }
-    ]
+    ],
+    "QuestionTextEn": "In urban and rural areas, if there are crossings at different levels with a pedestrian path, is their use mandatory to cross the road?"
   },
   "1014": {
     "QuestionText": "¿En la circulación deben advertirse las maniobras?",
@@ -177,7 +186,8 @@
         "AnswerId": 2029,
         "AnswerText": "c. Cualquier maniobra deben advertirla previamente y realizarla con precaución, en caso de que cree riesgo o afecte la fluidez del tránsito."
       }
-    ]
+    ],
+    "QuestionTextEn": "Should maneuvers be warned in traffic?"
   },
   "1015": {
     "QuestionText": "¿Por dónde deben circular los vehículos?",
@@ -195,7 +205,8 @@
         "AnswerId": 2032,
         "AnswerText": "c. Por la acera."
       }
-    ]
+    ],
+    "QuestionTextEn": "Where should vehicles circulate?"
   },
   "1016": {
     "QuestionText": "¿Cómo se reglamenta el uso del casco en motocicletas?",
@@ -213,7 +224,8 @@
         "AnswerId": 2035,
         "AnswerText": "c. Obligatorio para conductor y acompañante."
       }
-    ]
+    ],
+    "QuestionTextEn": "How is the use of helmets on motorcycles regulated?"
   },
   "1017": {
     "QuestionText": "Todo conductor debe ceder siempre el paso en las encrucijadas al que cruza desde su derecha. Esta prioridad del que viene por la derecha es absoluta, y sólo se pierde ante:",
@@ -231,7 +243,8 @@
         "AnswerId": 2038,
         "AnswerText": "c. Los vehículos de mayor porte."
       }
-    ]
+    ],
+    "QuestionTextEn": "Every driver must always give way at crossroads to anyone crossing from their right. This priority of the one coming from the right is absolute, and is only lost to:"
   },
   "1018": {
     "QuestionText": "¿Cómo se realiza un giro?",
@@ -249,7 +262,8 @@
         "AnswerId": 2041,
         "AnswerText": "c. Al momento de llegar a la bocacalle, me cruzo de  carril y giro."
       }
-    ]
+    ],
+    "QuestionTextEn": "How is a turn made?"
   },
   "1019": {
     "QuestionText": "¿Cómo se realiza un giro en rotonda?",
@@ -267,7 +281,8 @@
         "AnswerId": 2044,
         "AnswerText": "c. La circulación a su alrededor será interrumpiendo la circulación al ingresar nuevos vehículos que tienen la prioridad."
       }
-    ]
+    ],
+    "QuestionTextEn": "How do you make a roundabout turn?"
   },
   "1020": {
     "QuestionText": "¿Quién tiene prioridad de paso en la rotonda?",
@@ -285,7 +300,8 @@
         "AnswerId": 2047,
         "AnswerText": "c. Rige la prioridad de la derecha indistintamente."
       }
-    ]
+    ],
+    "QuestionTextEn": "Who has the right of way at the roundabout?"
   },
   "1021": {
     "QuestionText": "¿Qué luces deben utilizarse mientras el vehículo transite por rutas?",
@@ -303,7 +319,8 @@
         "AnswerId": 2050,
         "AnswerText": "c. Luces de posición."
       }
-    ]
+    ],
+    "QuestionTextEn": "What lights should be used while the vehicle travels on routes?"
   },
   "1023": {
     "QuestionText": "¿En qué momento deben usarse las luces de destellos?",
@@ -321,7 +338,8 @@
         "AnswerId": 2056,
         "AnswerText": "c. En caso de emergencias."
       }
-    ]
+    ],
+    "QuestionTextEn": "When should flashing lights be used?"
   },
   "1024": {
     "QuestionText": "¿Está permitido ceder o permitir la conducción a personas sin habilitación para ello?",
@@ -339,7 +357,8 @@
         "AnswerId": 2059,
         "AnswerText": "c. Está permitido mientras lo realice un conductor habilitado."
       }
-    ]
+    ],
+    "QuestionTextEn": "Is it allowed to give way or allow driving to people without authorization to do so?"
   },
   "1025": {
     "QuestionText": "Conforme la Ley Nacional Nº 24.449, en autopistas:",
@@ -357,7 +376,8 @@
         "AnswerId": 2062,
         "AnswerText": "c. El carril extremo izquierdo sólo debe utilizarse en caso de urgencias."
       }
-    ]
+    ],
+    "QuestionTextEn": "In accordance with National Law No. 24,449, on highways:"
   },
   "1026": {
     "QuestionText": "Según la Ley Nacional Nº 24.449, la licencia clase F autoriza a conducir:",
@@ -375,7 +395,8 @@
         "AnswerId": 2065,
         "AnswerText": "c. Automotores especialmente adaptados para conductores con alguna discapacidad."
       }
-    ]
+    ],
+    "QuestionTextEn": "According to National Law No. 24,449, the class F license authorizes you to drive:"
   },
   "1027": {
     "QuestionText": "Según las disposiciones de la Ley Nacional Nº 24.449 relativas a adelantamiento de vehículos, para indicar a los vehículos posteriores la inconveniencia de adelantarse, se pondrá:",
@@ -393,7 +414,8 @@
         "AnswerId": 2068,
         "AnswerText": "c. La baliza, ante la cual los mismos se abstendrán del sobrepaso."
       }
-    ]
+    ],
+    "QuestionTextEn": "According to the provisions of National Law No. 24,449 regarding overtaking of vehicles, to indicate to subsequent vehicles the inconvenience of overtaking, the following will be placed:"
   },
   "1028": {
     "QuestionText": "¿Se puede adelantar por la derecha?",
@@ -411,7 +433,8 @@
         "AnswerId": 2071,
         "AnswerText": "c. Sí."
       }
-    ]
+    ],
+    "QuestionTextEn": "Can you overtake on the right?"
   },
   "1029": {
     "QuestionText": "Después de realizar un adelantamiento, tiene usted la obligación de señalizar la maniobra de volver al carril derecho?",
@@ -429,7 +452,8 @@
         "AnswerId": 2074,
         "AnswerText": "c. No, es indiferente."
       }
-    ]
+    ],
+    "QuestionTextEn": "After overtaking, do you have the obligation to signal the maneuver to return to the right lane?"
   },
   "1030": {
     "QuestionText": "El vehículo que está siendo adelantado, ¿debe facilitar el adelantamiento?",
@@ -447,7 +471,8 @@
         "AnswerId": 2077,
         "AnswerText": "c. En determinadas circunstancias, según a la velocidad que circule."
       }
-    ]
+    ],
+    "QuestionTextEn": "Should the vehicle being passed facilitate the overtaking?"
   },
   "1031": {
     "QuestionText": "El cinturón de seguridad es obligatorio para:",
@@ -465,7 +490,8 @@
         "AnswerId": 2080,
         "AnswerText": "c. Todos los ocupantes del vehículo."
       }
-    ]
+    ],
+    "QuestionTextEn": "The seat belt is mandatory for:"
   },
   "1032": {
     "QuestionText": "Según la Ley Nacional Nº 24.449, cuál es el límite mínimo de velocidad obligatorio para zona urbana y autopistas?",
@@ -483,7 +509,8 @@
         "AnswerId": 2083,
         "AnswerText": "c. 60 km/h."
       }
-    ]
+    ],
+    "QuestionTextEn": "According to National Law No. 24,449, what is the mandatory minimum speed limit for urban areas and highways?"
   },
   "1033": {
     "QuestionText": "¿Qué validez máxima tiene la licencia de conducir?",
@@ -501,7 +528,8 @@
         "AnswerId": 2086,
         "AnswerText": "c. Las licencias podrán otorgarse con una validez de hasta veinte (20) años."
       }
-    ]
+    ],
+    "QuestionTextEn": "What is the maximum validity of the driver's license?"
   },
   "1034": {
     "QuestionText": "¿Todo titular de una licencia deberá acatar los controles y órdenes que imparta la autoridad de tránsito en el ejercicio de sus funciones?",
@@ -519,7 +547,8 @@
         "AnswerId": 2089,
         "AnswerText": "c. Según las circunstancias."
       }
-    ]
+    ],
+    "QuestionTextEn": "Will every license holder have to comply with the controls and orders issued by the traffic authority in the exercise of their functions?"
   },
   "1035": {
     "QuestionText": "¿Es un requisito saber leer para obtener la licencia de conducir?",
@@ -537,7 +566,8 @@
         "AnswerId": 2092,
         "AnswerText": "c. Sólo si el contexto de circulación frecuente del conductor lo amerita."
       }
-    ]
+    ],
+    "QuestionTextEn": "Is knowing how to read a requirement to obtain a driver's license?"
   },
   "1036": {
     "QuestionText": "La licencia de conducir debe contener obligatoriamente los siguientes datos:",
@@ -555,7 +585,8 @@
         "AnswerId": 2095,
         "AnswerText": "c. Correo electrónico."
       }
-    ]
+    ],
+    "QuestionTextEn": "The driver's license must contain the following information:"
   },
   "1037": {
     "QuestionText": "Si el titular de la Licencia de Conducir cambia su domicilio real a otra localidad. ¿Cómo debe proceder?",
@@ -573,7 +604,8 @@
         "AnswerId": 2098,
         "AnswerText": "c. Tiene noventa (90) días para denunciar el nuevo domicilio y actualizar su licencia de conducir en la nueva localidad en que reside."
       }
-    ]
+    ],
+    "QuestionTextEn": "If the holder of the Driver's License changes his or her real address to another location. How should you proceed?"
   },
   "1038": {
     "QuestionText": "¿A qué se denomina autopista?",
@@ -591,7 +623,8 @@
         "AnswerId": 2101,
         "AnswerText": "c. Una vía multicarril con cruces a nivel con ferrocarril, con calzadas sin separar físicamente y sin limitación de ingreso directo desde los predios frentistas lindantes."
       }
-    ]
+    ],
+    "QuestionTextEn": "What is called a highway?"
   },
   "1039": {
     "QuestionText": "¿A qué se denomina banquina?",
@@ -609,7 +642,8 @@
         "AnswerId": 2104,
         "AnswerText": "c. La zona delimitada para adelantamiento de la vía contigua a una calzada sólo pavimentada."
       }
-    ]
+    ],
+    "QuestionTextEn": "What is called shoulder?"
   },
   "1040": {
     "QuestionText": "¿A qué se denomina calzada?",
@@ -627,7 +661,8 @@
         "AnswerId": 2107,
         "AnswerText": "c. La zona de la vía destinada a los peatones."
       }
-    ]
+    ],
+    "QuestionTextEn": "What is called a road?"
   },
   "1041": {
     "QuestionText": "¿A qué se denomina vehículo detenido?",
@@ -645,7 +680,8 @@
         "AnswerId": 2110,
         "AnswerText": "c. El que detiene la marcha por circunstancias de la circulación (señalización, embotellamiento) o para ascenso o descenso de pasajeros o carga, aunque deje el conductor su puesto."
       }
-    ]
+    ],
+    "QuestionTextEn": "What is called a stopped vehicle?"
   },
   "1042": {
     "QuestionText": "¿A qué se denomina vehículo estacionado?",
@@ -663,7 +699,8 @@
         "AnswerId": 2113,
         "AnswerText": "c. Al vehículo apagado."
       }
-    ]
+    ],
+    "QuestionTextEn": "What is called a parked vehicle?"
   },
   "1043": {
     "QuestionText": "¿A qué se denomina vías multicarriles?",
@@ -681,7 +718,8 @@
         "AnswerId": 2116,
         "AnswerText": "c. Son aquellas que disponen de más de 5 carriles."
       }
-    ]
+    ],
+    "QuestionTextEn": "What is multilane roads?"
   },
   "1044": {
     "QuestionText": "¿A qué se denomina semiautopista?",
@@ -699,7 +737,8 @@
         "AnswerId": 2119,
         "AnswerText": "c. Un camino similar a la autopista pero sin separadores físicos."
       }
-    ]
+    ],
+    "QuestionTextEn": "What is called a semi-highway?"
   },
   "1045": {
     "QuestionText": "¿A qué se denomina vehículo automotor?",
@@ -717,7 +756,8 @@
         "AnswerId": 2122,
         "AnswerText": "c. Todo vehículo de más de dos ruedas que no tiene motor, sólo tracción sangre."
       }
-    ]
+    ],
+    "QuestionTextEn": "What is called a motor vehicle?"
   },
   "1046": {
     "QuestionText": "¿A que se define como accidente?",
@@ -735,7 +775,8 @@
         "AnswerId": 2125,
         "AnswerText": "c. A un hecho previsible, producto de una secuencia de eventos que lo desencadena."
       }
-    ]
+    ],
+    "QuestionTextEn": "What is defined as an accident?"
   },
   "1047": {
     "QuestionText": "¿A que se denomina pasajero?",
@@ -753,7 +794,8 @@
         "AnswerId": 2128,
         "AnswerText": "c. Es aquella persona que viaja en ómnibus, taxi o remis."
       }
-    ]
+    ],
+    "QuestionTextEn": "What is called a passenger?"
   },
   "1048": {
     "QuestionText": "¿A qué se denomina Paso a Nivel?",
@@ -771,7 +813,8 @@
         "AnswerId": 2131,
         "AnswerText": "c. El cruce de una vía de circulación con o sin el ferrocarril."
       }
-    ]
+    ],
+    "QuestionTextEn": "What is called Level Crossing?"
   },
   "1049": {
     "QuestionText": "¿Por dónde debe circular un peatón?",
@@ -789,7 +832,8 @@
         "AnswerId": 2134,
         "AnswerText": "c. Por la acera, sendas y puentes peatonales, y excepcionalmente por la calzada rodeando el vehículo para ascenso y descenso."
       }
-    ]
+    ],
+    "QuestionTextEn": "Where should a pedestrian walk?"
   },
   "1050": {
     "QuestionText": "El conductor que estaciona y desciende del vehículo ¿Puede caminar por la calzada?",
@@ -807,7 +851,8 @@
         "AnswerId": 2137,
         "AnswerText": "c. Debe circular paralelo a los autos estacionados hasta la senda peatonal."
       }
-    ]
+    ],
+    "QuestionTextEn": "Can the driver who parks and gets out of the vehicle walk on the road?"
   },
   "1051": {
     "QuestionText": "¿Cuál es la velocidad máxima permitida en ciudad, para un automóvil particular en calles comunes?",
@@ -825,7 +870,8 @@
         "AnswerId": 2140,
         "AnswerText": "c. 60 km por hora."
       }
-    ]
+    ],
+    "QuestionTextEn": "What is the maximum speed allowed in the city, for a private car on common streets?"
   },
   "1052": {
     "QuestionText": "¿Qué debe hacer si extravía o le roban la chapa o placa patente?",
@@ -843,7 +889,8 @@
         "AnswerId": 2143,
         "AnswerText": "c. Realizar sólo la denuncia policial."
       }
-    ]
+    ],
+    "QuestionTextEn": "What should you do if your license plate is lost or stolen?"
   },
   "1053": {
     "QuestionText": "¿Cuál es el máximo de tolerancia que puede sobresalir una carga indivisible del vehículo?",
@@ -861,7 +908,8 @@
         "AnswerId": 2146,
         "AnswerText": "c. 20 cm del lado izquierdo, 40 cm. del lado derecho  y un metro en la parte trasera."
       }
-    ]
+    ],
+    "QuestionTextEn": "What is the maximum tolerance that an indivisible load of the vehicle can exceed?"
   },
   "1054": {
     "QuestionText": "¿Con qué luces encendidas se debe circular de noche en la ciudad?",
@@ -879,7 +927,8 @@
         "AnswerId": 2149,
         "AnswerText": "c. Con luz alta, bajando a luz de alcance medio en caso de aproximarse un vehículo de frente."
       }
-    ]
+    ],
+    "QuestionTextEn": "With which lights on should you drive at night in the city?"
   },
   "1055": {
     "QuestionText": "¿Con qué luces encendidas cruza de noche un paso a nivel sin barreras?",
@@ -897,7 +946,8 @@
         "AnswerId": 2152,
         "AnswerText": "c. Con las luces apagadas para poder observar mejor las luces de un tren que pudiera estar aproximándose."
       }
-    ]
+    ],
+    "QuestionTextEn": "With what lights on do you cross a barrier-free level crossing at night?"
   },
   "1056": {
     "QuestionText": "¿Qué es el alcohol?",
@@ -915,7 +965,8 @@
         "AnswerId": 2155,
         "AnswerText": "c. Sirve para combatir el frío y no produce efectos superando los 500 miligramos por litro de sangre."
       }
-    ]
+    ],
+    "QuestionTextEn": "What is alcohol?"
   },
   "1057": {
     "QuestionText": "¿Cuáles son los factores que facilitan la aparición de la fatiga?",
@@ -933,7 +984,8 @@
         "AnswerId": 2158,
         "AnswerText": "c. Disminuir el número de descansos o hacerlos inadecuadamente."
       }
-    ]
+    ],
+    "QuestionTextEn": "What are the factors that facilitate the appearance of fatigue?"
   },
   "1058": {
     "QuestionText": "¿Cuáles son los síntomas más frecuentes de la fatiga?",
@@ -951,7 +1003,8 @@
         "AnswerId": 2161,
         "AnswerText": "c. Contractura y dolores en el cuerpo."
       }
-    ]
+    ],
+    "QuestionTextEn": "What are the most common symptoms of fatigue?"
   },
   "1059": {
     "QuestionText": "¿A quién se presume responsable en un accidente de tránsito?",
@@ -969,7 +1022,8 @@
         "AnswerId": 2164,
         "AnswerText": "c. Se presume responsable de un accidente al que carecía de prioridad de paso o cometió una infracción relacionada con la causa del mismo."
       }
-    ]
+    ],
+    "QuestionTextEn": "Who is presumed responsible in a traffic accident?"
   },
   "1060": {
     "QuestionText": "¿En caso de un accidente que nos involucre, es obligatorio?",
@@ -987,7 +1041,8 @@
         "AnswerId": 2167,
         "AnswerText": "c. Circular normalmente."
       }
-    ]
+    ],
+    "QuestionTextEn": "In the event of an accident involving us, is it mandatory?"
   },
   "1061": {
     "QuestionText": "¿En el vehículo son obligatorios los correajes y cabezales normalizados o dispositivos que los reemplacen?",
@@ -1005,7 +1060,8 @@
         "AnswerId": 2170,
         "AnswerText": "c. No, todo queda a criterio del usuario."
       }
-    ]
+    ],
+    "QuestionTextEn": "Are standardized straps and heads or devices that replace them mandatory in the vehicle?"
   },
   "1062": {
     "QuestionText": "¿Son obligatorios en el automóvil los sistemas autónomo de limpieza, lavado y desempañado de parabrisas, sistema retrovisor, bocina de sonoridad y los vidrios de seguridad?",
@@ -1023,7 +1079,8 @@
         "AnswerId": 2173,
         "AnswerText": "c. Sólo para los vehículos afectados a servicios públicos."
       }
-    ]
+    ],
+    "QuestionTextEn": "Are autonomous windshield cleaning, washing and defogging systems, rear-view mirror system, loudspeaker and safety glass systems mandatory in the car?"
   },
   "1063": {
     "QuestionText": "¿Son obligatorios los dispositivos de protección contra encandilamiento solar, corte rápido de energía y sistema motriz de retroceso?",
@@ -1041,7 +1098,8 @@
         "AnswerId": 2176,
         "AnswerText": "c. Sólo para los vehículos afectados a servicios públicos."
       }
-    ]
+    ],
+    "QuestionTextEn": "Are protection devices against solar glare, rapid power cut-off and reverse drive system mandatory?"
   },
   "1064": {
     "QuestionText": "¿Son obligatorios los sistema de renovación de aire interior, traba de seguridad para niños en puertas traseras, sistema de mandos e instrumental y el dispositivo de retención infantil para menores?",
@@ -1059,7 +1117,8 @@
         "AnswerId": 2179,
         "AnswerText": "c. Sólo para los vehículos afectados a servicios públicos."
       }
-    ]
+    ],
+    "QuestionTextEn": "Are the interior air renewal system, child safety lock on rear doors, control and instrument system and child restraint device for minors mandatory?"
   },
   "1065": {
     "QuestionText": "¿Qué características deben tener los faros delanteros de un vehículo?",
@@ -1077,7 +1136,8 @@
         "AnswerId": 2182,
         "AnswerText": "c. Luz roja en no más de dos pares, con alta y baja, ésta de proyección asimétrica."
       }
-    ]
+    ],
+    "QuestionTextEn": "What characteristics should a vehicle's headlights have?"
   },
   "1066": {
     "QuestionText": "¿De qué color deben ser las luces de giro de un vehículo?",
@@ -1095,7 +1155,8 @@
         "AnswerId": 2185,
         "AnswerText": "c. Intermitentes de color amarillo delante, y rojas atrás."
       }
-    ]
+    ],
+    "QuestionTextEn": "What color should a vehicle's turn signals be?"
   },
   "1067": {
     "QuestionText": "¿Qué características deben tener las luces de freno traseras?",
@@ -1113,7 +1174,8 @@
         "AnswerId": 2188,
         "AnswerText": "c. De color blanca o amarilla, encenderán al accionarse el mando de frenos antes de actuar éste."
       }
-    ]
+    ],
+    "QuestionTextEn": "What features should rear brake lights have?"
   },
   "1068": {
     "QuestionText": "¿Debe tener luz la placa patente trasera?",
@@ -1131,7 +1193,8 @@
         "AnswerId": 2191,
         "AnswerText": "c. Sí, es obligatorio."
       }
-    ]
+    ],
+    "QuestionTextEn": "Should the rear license plate have a light?"
   },
   "1069": {
     "QuestionText": "¿De qué color debe ser la luz de retroceso?",
@@ -1149,7 +1212,8 @@
         "AnswerId": 2194,
         "AnswerText": "c. Roja adelante y blanca atrás."
       }
-    ]
+    ],
+    "QuestionTextEn": "What color should the backup light be?"
   },
   "1070": {
     "QuestionText": "¿Qué es la tara de un automotor?",
@@ -1167,7 +1231,8 @@
         "AnswerId": 2197,
         "AnswerText": "c. Es el peso del vehículo sin su carga útil."
       }
-    ]
+    ],
+    "QuestionTextEn": "What is the tare of a car?"
   },
   "1071": {
     "QuestionText": "Para los ciclistas, ¿es obligatorio el uso de casco protector?",
@@ -1185,7 +1250,8 @@
         "AnswerId": 2200,
         "AnswerText": "c. Sólo en rutas o autopistas."
       }
-    ]
+    ],
+    "QuestionTextEn": "For cyclists, is the use of a protective helmet mandatory?"
   },
   "1072": {
     "QuestionText": "Si una bicicleta viene circulando por la derecha, ¿tiene prioridad de paso, en un cruce de calles, como sucede con los automóviles?",
@@ -1203,7 +1269,8 @@
         "AnswerId": 2203,
         "AnswerText": "c. Sólo en avenidas."
       }
-    ]
+    ],
+    "QuestionTextEn": "If a bicycle is traveling on the right, does it have priority of passage at a street intersection, as happens with cars?"
   },
   "1073": {
     "QuestionText": "¿Es necesario tener licencia de conducir para conducir ciclomotores?",
@@ -1221,7 +1288,8 @@
         "AnswerId": 2206,
         "AnswerText": "c. Es obligatorio tener licencia de conducir sólo si el ciclomotor es más de 50 cc."
       }
-    ]
+    ],
+    "QuestionTextEn": "Is it necessary to have a driver's license to drive mopeds?"
   },
   "1074": {
     "QuestionText": "¿Está prohibido para el conductor el uso de teléfonos celulares?",
@@ -1239,7 +1307,8 @@
         "AnswerId": 2209,
         "AnswerText": "c. Está prohibido sólo en rutas y autopistas."
       }
-    ]
+    ],
+    "QuestionTextEn": "Is the driver prohibited from using cell phones?"
   },
   "1075": {
     "QuestionText": "¿Qué incidencia puede tener la velocidad en la posibilidad de sufrir un accidente?",
@@ -1257,7 +1326,8 @@
         "AnswerId": 2212,
         "AnswerText": "c. Tiene incidencia sólo si superamos los 130 km por hora."
       }
-    ]
+    ],
+    "QuestionTextEn": "What impact can speed have on the possibility of suffering an accident?"
   },
   "1076": {
     "QuestionText": "Si circulo en una ruta detrás de un camión, y éste hace señas manuales y/o con la luz de giro derecha para que lo pase, ¿qué se debe hacer?",
@@ -1275,7 +1345,8 @@
         "AnswerId": 2215,
         "AnswerText": "c. Quedarse en el carril hasta que con los propios ojos se observa el camino y se comprueba que se tiene la vía libre en una distancia suficiente para evitar todo riesgo al sobrepasar."
       }
-    ]
+    ],
+    "QuestionTextEn": "If I am driving on a route behind a truck, and it signals manually and/or with the right turn signal for me to pass it, what should I do?"
   },
   "1077": {
     "QuestionText": "¿Es obligatorio el uso de luces bajas encendidas durante la circulación en rutas?",
@@ -1293,7 +1364,8 @@
         "AnswerId": 2218,
         "AnswerText": "c. Es obligatorio."
       }
-    ]
+    ],
+    "QuestionTextEn": "Is the use of low beams on while driving on routes mandatory?"
   },
   "1078": {
     "QuestionText": "Las señales verticales de prevención transmiten:",
@@ -1311,7 +1383,8 @@
         "AnswerId": 2221,
         "AnswerText": "c. Prohibiciones."
       }
-    ]
+    ],
+    "QuestionTextEn": "Vertical prevention signs convey:"
   },
   "1079": {
     "QuestionText": "¿Cuál es la velocidad máxima permitida en rutas cuando atravesamos zonas urbanas?",
@@ -1329,7 +1402,8 @@
         "AnswerId": 2224,
         "AnswerText": "c. 90km por hora."
       }
-    ]
+    ],
+    "QuestionTextEn": "What is the maximum speed allowed on routes when we cross urban areas?"
   },
   "1080": {
     "QuestionText": "Ante la luz intermitente de color rojo en un semáforo, ¿qué se debe hacer?",
@@ -1347,7 +1421,8 @@
         "AnswerId": 2227,
         "AnswerText": "c. Detener hasta que cambie de color."
       }
-    ]
+    ],
+    "QuestionTextEn": "When faced with a flashing red light at a traffic light, what should you do?"
   },
   "1081": {
     "QuestionText": "Una denuncia policial de extravío de la licencia de conducir, ¿lo habilita a conducir?",
@@ -1365,7 +1440,8 @@
         "AnswerId": 2230,
         "AnswerText": "c. No."
       }
-    ]
+    ],
+    "QuestionTextEn": "Does a police report of lost driver's license entitle you to drive?"
   },
   "1082": {
     "QuestionText": "Llevar matafuegos en un automóvil, ¿es exigible por ley?",
@@ -1383,7 +1459,8 @@
         "AnswerId": 2233,
         "AnswerText": "c. Sí, es exigible por ley."
       }
-    ]
+    ],
+    "QuestionTextEn": "Carrying a fire extinguisher in a car, is it required by law?"
   },
   "1083": {
     "QuestionText": "¿Es necesario circular con las dos manos sobre el volante?",
@@ -1401,7 +1478,8 @@
         "AnswerId": 2236,
         "AnswerText": "c. No, sólo debe sujetarse con ambas manos al realizar un giro."
       }
-    ]
+    ],
+    "QuestionTextEn": "Is it necessary to drive with both hands on the steering wheel?"
   },
   "1084": {
     "QuestionText": "¿Qué deben hacer los conductores para facilitar el paso a un coche de bomberos en servicio de emergencia?",
@@ -1419,7 +1497,8 @@
         "AnswerId": 2239,
         "AnswerText": "c. Apartarse normalmente a la derecha, y si es necesario, detenerse."
       }
-    ]
+    ],
+    "QuestionTextEn": "What should drivers do to facilitate the passage of a fire engine on emergency duty?"
   },
   "1085": {
     "QuestionText": "¿Qué significa la señal horizontal de doble línea continua amarilla?",
@@ -1437,7 +1516,8 @@
         "AnswerId": 2242,
         "AnswerText": "c. Significa que sólo  pueden circular vehículos particulares."
       }
-    ]
+    ],
+    "QuestionTextEn": "What does the horizontal double yellow solid line sign mean?"
   },
   "1086": {
     "QuestionText": "¿Qué es una arteria de doble mano?",
@@ -1455,7 +1535,8 @@
         "AnswerId": 2245,
         "AnswerText": "c. Una vía reservada para el uso del transporte público."
       }
-    ]
+    ],
+    "QuestionTextEn": "What is a double handed artery?"
   },
   "1087": {
     "QuestionText": "¿Qué identifica la Cruz de San Andrés?",
@@ -1473,7 +1554,8 @@
         "AnswerId": 2248,
         "AnswerText": "c. Cruce de peatones."
       }
-    ]
+    ],
+    "QuestionTextEn": "What identifies the Cross of Saint Andrew?"
   },
   "1088": {
     "QuestionText": "¿Qué señales verticales (carteles) nos indican que NO tenemos prioridad de paso en un cruce o bocacalle sin semáforo?",
@@ -1491,7 +1573,8 @@
         "AnswerId": 2251,
         "AnswerText": "c. Señal de contramano o dirección obligatoria."
       }
-    ]
+    ],
+    "QuestionTextEn": "What vertical signs (signs) tell us that we do NOT have priority of passage at an intersection or side street without a traffic light?"
   },
   "1089": {
     "QuestionText": "En algunas vías de tránsito podemos encontrar marcas horizontales en el piso similares a una V invertida, ¿qué significado tienen esas señales?",
@@ -1509,7 +1592,8 @@
         "AnswerId": 2254,
         "AnswerText": "c. Que estamos en una zona que se inunda."
       }
-    ]
+    ],
+    "QuestionTextEn": "On some traffic routes we can find horizontal markings on the floor similar to an inverted V, what meaning do these signs have?"
   },
   "1090": {
     "QuestionText": "Si para adelantar debe invadir un carril exclusivo para ómnibus y taxis; ¿le está permitido realizar la maniobra?",
@@ -1527,7 +1611,8 @@
         "AnswerId": 2257,
         "AnswerText": "c. Sí, este tipo de maniobras siempre están permitidas."
       }
-    ]
+    ],
+    "QuestionTextEn": "If to overtake you must invade an exclusive lane for buses and taxis; Are you allowed to perform the maneuver?"
   },
   "1091": {
     "QuestionText": "¿Está permitido en los vehículos agregar en los paragolpes aditamentos (defensas, etc.) de cualquier naturaleza, que puedan considerarse peligrosos para personas u otros vehículos?",
@@ -1545,7 +1630,8 @@
         "AnswerId": 2260,
         "AnswerText": "c. Pueden agregarse sólo en vehículos 4 x 4."
       }
-    ]
+    ],
+    "QuestionTextEn": "Is it permitted on vehicles to add accessories (fenders, etc.) of any nature to the bumpers, which may be considered dangerous for people or other vehicles?"
   },
   "1092": {
     "QuestionText": "Si usted sale de un estacionamiento paralelo al cordón, previamente debe:",
@@ -1563,7 +1649,8 @@
         "AnswerId": 2263,
         "AnswerText": "c. Salir lo más rápido posible porque tiene prioridad."
       }
-    ]
+    ],
+    "QuestionTextEn": "If you leave a parking lot parallel to the curb, you must first:"
   },
   "1093": {
     "QuestionText": "¿Cuánto tiempo está habilitado a circular un vehículo sin placas patentes?",
@@ -1581,7 +1668,8 @@
         "AnswerId": 2266,
         "AnswerText": "c. No está permitido circular sin placas patentes."
       }
-    ]
+    ],
+    "QuestionTextEn": "How long is a vehicle allowed to circulate without license plates?"
   },
   "1094": {
     "QuestionText": "Si la luz verde del semáforo nos da paso en un cruce de calles, y por la vía transversal aún avanza algún vehículo, ¿qué debemos hacer?.",
@@ -1599,7 +1687,8 @@
         "AnswerId": 2269,
         "AnswerText": "c. Girar a la derecha o izquierda, según el sentido de circulación"
       }
-    ]
+    ],
+    "QuestionTextEn": "If the green light of the traffic light gives way to us at a street intersection, and a vehicle is still advancing on the cross road, what should we do?"
   },
   "1095": {
     "QuestionText": "Al atravesar túneles y puentes en una ruta, ¿está permitido adelantarse a otro vehículo?",
@@ -1617,7 +1706,8 @@
         "AnswerId": 2272,
         "AnswerText": "c. Según los días y horas."
       }
-    ]
+    ],
+    "QuestionTextEn": "When passing through tunnels and bridges on a route, is it allowed to overtake another vehicle?"
   },
   "1096": {
     "QuestionText": "Adelantarse en una curva, ¿está permitido?",
@@ -1635,7 +1725,8 @@
         "AnswerId": 2275,
         "AnswerText": "c. No, está prohibido."
       }
-    ]
+    ],
+    "QuestionTextEn": "Overtaking on a curve, is it allowed?"
   },
   "1097": {
     "QuestionText": "En el vehículo que usted conduce va a viajar como pasajero su hijo de 6 años; está permitido que lo haga en el asiento delantero?",
@@ -1653,7 +1744,8 @@
         "AnswerId": 2278,
         "AnswerText": "c. Sí, está permitido."
       }
-    ]
+    ],
+    "QuestionTextEn": "Your 6-year-old son will be traveling as a passenger in the vehicle you drive; Is it allowed to do it in the front seat?"
   },
   "1098": {
     "QuestionText": "En el vehículo que usted conduce va a viajar como pasajero su hijo de 2 años; está permitido que lo haga en el asiento trasero?",
@@ -1671,7 +1763,8 @@
         "AnswerId": 2281,
         "AnswerText": "c. Es indistinto, puede viajar en el asiento delantero o en el trasero."
       }
-    ]
+    ],
+    "QuestionTextEn": "Your 2-year-old child will be traveling as a passenger in the vehicle you drive; Is it allowed to do it in the back seat?"
   },
   "1099": {
     "QuestionText": "¿Qué se entiende por conductor de un vehículo?",
@@ -1689,7 +1782,8 @@
         "AnswerId": 2284,
         "AnswerText": "c. Es una pieza o conducto del vehículo."
       }
-    ]
+    ],
+    "QuestionTextEn": "What is meant by the driver of a vehicle?"
   },
   "1100": {
     "QuestionText": "¿Qué se entiende por alcoholemia?",
@@ -1707,7 +1801,8 @@
         "AnswerId": 2287,
         "AnswerText": "c. Es el estado de ebriedad de una persona."
       }
-    ]
+    ],
+    "QuestionTextEn": "What is meant by alcohol level?"
   },
   "1101": {
     "QuestionText": "¿Qué efectos produce el alcohol en la conducción de vehículos?",
@@ -1725,7 +1820,8 @@
         "AnswerId": 2290,
         "AnswerText": "c. Aumenta  el sentido de la responsabilidad y la prudencia, y disminuyen las conductas impulsivas, agresivas y descorteses."
       }
-    ]
+    ],
+    "QuestionTextEn": "What effects does alcohol have on driving?"
   },
   "1102": {
     "QuestionText": "Ante un control de tránsito, ¿puedo negarme a detener mi vehículo y a someterme a un test de alcoholemia?",
@@ -1743,7 +1839,8 @@
         "AnswerId": 2293,
         "AnswerText": "c. Sólo puedo negarme si tengo licencia de conducir."
       }
-    ]
+    ],
+    "QuestionTextEn": "When faced with a traffic stop, can I refuse to stop my vehicle and submit to a breathalyzer test?"
   },
   "1103": {
     "QuestionText": "Una autoridad de tránsito me detuvo para realizar un control de alcoholemia,  e intentó retener mi vehículo y llevarlo al corralón. ¿Puede hacerlo si el resultado de la prueba con alcoholímetro fue de 0,75 gramos de alcohol por litro de sangre?",
@@ -1761,7 +1858,8 @@
         "AnswerId": 2296,
         "AnswerText": "c. Sólo puede retener el vehículo si está afectado a un servicio público."
       }
-    ]
+    ],
+    "QuestionTextEn": "A traffic authority stopped me to perform a breathalyzer test, and tried to detain my vehicle and take it to the corral. Can you do this if the breathalyzer test result was 0.75 grams of alcohol per liter of blood?"
   },
   "1104": {
     "QuestionText": "Una autoridad de tránsito me detuvo en un control de alcoholemia, e intentó retener mi vehículo y llevarlo a un corralón. ¿Puede hacerlo si el resultado de la prueba con alcoholímetro fue de 0,10 gramos de alcohol por litro de sangre, conduzco un automóvil particular y cuento con la documentación y mi vehículo en condiciones?",
@@ -1779,7 +1877,8 @@
         "AnswerId": 2299,
         "AnswerText": "c. Depende la bebida alcohólica que haya consumido."
       }
-    ]
+    ],
+    "QuestionTextEn": "A traffic authority stopped me at a breathalyzer test, and tried to detain my vehicle and take it to a corral. Can you do it if the result of the breathalyzer test was 0.10 grams of alcohol per liter of blood, I drive a private car and I have the documentation and my vehicle is in good condition?"
   },
   "1105": {
     "QuestionText": "Según la Ley Provincial  Nº 13.169,  ¿la multa que corresponde por cometer la infracción de alcoholemia positiva grave puede cancelarse completamente a través de un pago voluntario con beneficio de descuento?",
@@ -1797,7 +1896,8 @@
         "AnswerId": 2302,
         "AnswerText": "c. Sí, sólo si el pago voluntario se efectiviza dentro de los 30 días."
       }
-    ]
+    ],
+    "QuestionTextEn": "According to Provincial Law No. 13,169, can the fine corresponding to committing the serious positive alcohol infraction be paid completely through a voluntary payment with discount benefit?"
   },
   "1106": {
     "QuestionText": "El conductor de un vehículo que se negare a someterse a las pruebas destinadas a determinar su estado de intoxicación alcohólica, de ser hallado responsable debe ser sancionado por el juez:",
@@ -1815,7 +1915,8 @@
         "AnswerId": 2305,
         "AnswerText": "c. Sólo con pena de multa."
       }
-    ]
+    ],
+    "QuestionTextEn": "The driver of a vehicle who refuses to undergo tests to determine his state of alcohol intoxication, if found responsible, must be punished by the judge:"
   },
   "1107": {
     "QuestionText": "Las alteraciones más importantes producidas por la somnolencia y que afectan la conducción son:",
@@ -1833,7 +1934,8 @@
         "AnswerId": 2308,
         "AnswerText": "c. No produce alteraciones en la conducción."
       }
-    ]
+    ],
+    "QuestionTextEn": "The most important alterations produced by drowsiness and that affect driving are:"
   },
   "1108": {
     "QuestionText": "¿Qué condiciones facilitan la fatiga en el conductor?",
@@ -1851,7 +1953,8 @@
         "AnswerId": 2311,
         "AnswerText": "c. Disminuir el número de descansos o hacerlos en forma inadecuada, la monotonía del entorno o de la propia conducción, cuando la conducción se vuelve incomoda, o si el estado psicofísico del conductor no es el óptimo."
       }
-    ]
+    ],
+    "QuestionTextEn": "What conditions facilitate driver fatigue?"
   },
   "1109": {
     "QuestionText": "Una persona que experimenta un fuerte estado emocional de ira, ansiedad o euforia, está en condiciones de conducir:",
@@ -1869,7 +1972,8 @@
         "AnswerId": 2314,
         "AnswerText": "c. Puede conducir porque tiene licencia habilitante."
       }
-    ]
+    ],
+    "QuestionTextEn": "A person who experiences a strong emotional state of anger, anxiety or euphoria is in a position to drive:"
   },
   "1110": {
     "QuestionText": "¿Cuándo se produce el fenómeno de aquaplanning o hidroplaneo?",
@@ -1887,7 +1991,8 @@
         "AnswerId": 2317,
         "AnswerText": "c. Cuando en días de lluvia un vehículo expulsa agua hacia los costados."
       }
-    ]
+    ],
+    "QuestionTextEn": "When does the phenomenon of aquaplaning or hydroplaning occur?"
   },
   "1111": {
     "QuestionText": "En caso de conducir con niebla, si al pasar con el vehículo en marcha sólo se ven dos de las señales horizontales  de V invertida existentes:",
@@ -1905,7 +2010,8 @@
         "AnswerId": 2320,
         "AnswerText": "c. No se puede circular a más de 60 km por hora."
       }
-    ]
+    ],
+    "QuestionTextEn": "In case of driving in fog, if only two of the existing horizontal inverted V signs are visible when passing with the vehicle in motion:"
   },
   "1112": {
     "QuestionText": "En caso de conducir con fuertes vientos laterales se debe:",
@@ -1923,7 +2029,8 @@
         "AnswerId": 2323,
         "AnswerText": "c. Bajar los cristales del vehículo para evitar el efecto remolino."
       }
-    ]
+    ],
+    "QuestionTextEn": "If driving with strong side winds you should:"
   },
   "1113": {
     "QuestionText": "¿Cuáles son las señales verticales?",
@@ -1941,7 +2048,8 @@
         "AnswerId": 2326,
         "AnswerText": "c. Son aquellas que tienen la función de regular el tránsito, destinadas en su gran mayoría a los conductores de los vehículos, colocadas al costado de la vía o elevadas sobre la calzada (aéreas)."
       }
-    ]
+    ],
+    "QuestionTextEn": "What are the vertical signs?"
   },
   "1114": {
     "QuestionText": "Las señales verticales se clasifican en:",
@@ -1959,7 +2067,8 @@
         "AnswerId": 2329,
         "AnswerText": "c. Reglamentarias y transitorias."
       }
-    ]
+    ],
+    "QuestionTextEn": "Vertical signs are classified as:"
   },
   "1115": {
     "QuestionText": "Las señales reglamentarias:",
@@ -1977,7 +2086,8 @@
         "AnswerId": 2332,
         "AnswerText": "c. Sirven para brindar información acerca de servicios, lugares, tipos de ruta, distancias y cualquier otro dato de utilidad para el usuario de la vía."
       }
-    ]
+    ],
+    "QuestionTextEn": "Regulatory signs:"
   },
   "1116": {
     "QuestionText": "Las señales de advertencia:",
@@ -1995,7 +2105,8 @@
         "AnswerId": 2335,
         "AnswerText": "c. Señalizan la ejecución de trabajos de construcción y mantenimiento de la vía o zonas aledañas y su función principal es permitir el desplazamiento de vehículos y personas, evitando el riesgo de siniestros y las demoras."
       }
-    ]
+    ],
+    "QuestionTextEn": "Warning signs:"
   },
   "1117": {
     "QuestionText": "Las señales informativas:",
@@ -2013,7 +2124,8 @@
         "AnswerId": 2338,
         "AnswerText": "c. Sirven para brindar información acerca de servicios, lugares, tipos de ruta, distancias y cualquier otro dato de utilidad para el usuario de la vía."
       }
-    ]
+    ],
+    "QuestionTextEn": "Informative signs:"
   },
   "1118": {
     "QuestionText": "Las señales transitorias:",
@@ -2031,7 +2143,8 @@
         "AnswerId": 2341,
         "AnswerText": "c. Señalizan la ejecución de trabajos de construcción y mantenimiento de la vía o zonas aledañas y su función principal es permitir el desplazamiento de vehículos y personas, evitando el riesgo de siniestros y las demoras."
       }
-    ]
+    ],
+    "QuestionTextEn": "Transient signals:"
   },
   "1119": {
     "QuestionText": "¿Cuáles son las señales horizontales?",
@@ -2049,7 +2162,8 @@
         "AnswerId": 2344,
         "AnswerText": "c. Señalizan la ejecución de trabajos de construcción y mantenimiento de la vía o zonas aledañas y su función principal es permitir el desplazamiento de vehículos y personas, evitando el riesgo de siniestros y las demoras."
       }
-    ]
+    ],
+    "QuestionTextEn": "What are the horizontal signals?"
   },
   "1120": {
     "QuestionText": "¿Qué indican las señales horizontales de líneas longitudinales continuas?",
@@ -2067,7 +2181,8 @@
         "AnswerId": 2347,
         "AnswerText": "c. Indican los carriles o zonas de circulación."
       }
-    ]
+    ],
+    "QuestionTextEn": "What do horizontal signs of continuous longitudinal lines indicate?"
   },
   "1121": {
     "QuestionText": "Las señales horizontales de líneas continuas y discontinuas paralelas indican la autorización de traspasar en el sentido de la línea discontinua a la continua y la prohibición de hacerlo en el sentido inverso.Si circulo junto a la línea continúa:",
@@ -2085,7 +2200,8 @@
         "AnswerId": 2350,
         "AnswerText": "c. Puedo realizar el adelantamiento siempre."
       }
-    ]
+    ],
+    "QuestionTextEn": "The horizontal signs with parallel continuous and dotted lines indicate the authorization to cross in the direction from the dotted line to the solid line and the prohibition of doing so in the opposite direction. If I circle next to the continuous line:"
   },
   "1122": {
     "QuestionText": "La sucesión de líneas transversales blancas continuas indican que:",
@@ -2103,7 +2219,8 @@
         "AnswerId": 2353,
         "AnswerText": "c. No debo transponer mi carril."
       }
-    ]
+    ],
+    "QuestionTextEn": "The succession of continuous white transverse lines indicates that:"
   },
   "1123": {
     "QuestionText": "Si circulo con mi vehículo y veo dos líneas paralelas blancas de trazo continuo o discontinuo, transversales a la vía o numerosas franjas blancas paralelas al sentido de circulación, tipo cebrado:",
@@ -2121,7 +2238,8 @@
         "AnswerId": 2356,
         "AnswerText": "c. Debo dar prioridad de cruce a los peatones porque estoy frente a una senda peatonal."
       }
-    ]
+    ],
+    "QuestionTextEn": "If I am driving my vehicle and see two parallel white lines with continuous or discontinuous lines, transversal to the road or numerous white stripes parallel to the direction of traffic, like a zebra pattern:"
   },
   "1124": {
     "QuestionText": "¿Qué señales intermitentes se pueden encender frente al paso ferrovial?",
@@ -2139,7 +2257,8 @@
         "AnswerId": 2359,
         "AnswerText": "c. Dos luces rojas, puestas una junto a la otra, que se encienden alternadamente e indican que el tren se aproxima o que está pasando."
       }
-    ]
+    ],
+    "QuestionTextEn": "What flashing signals can be turned on in front of the railway crossing?"
   },
   "1125": {
     "QuestionText": "¿Qué indica la luz roja de un semáforo?",
@@ -2157,7 +2276,8 @@
         "AnswerId": 2362,
         "AnswerText": "c. Indica cruce riesgoso, por lo que se debe circular con precaución."
       }
-    ]
+    ],
+    "QuestionTextEn": "What does a red light on a traffic light indicate?"
   },
   "1126": {
     "QuestionText": "¿Qué indica la luz amarilla intermitente de un semáforo?",
@@ -2175,7 +2295,8 @@
         "AnswerId": 2365,
         "AnswerText": "c. Indica cruce riesgoso, por lo que se debe circular con precaución."
       }
-    ]
+    ],
+    "QuestionTextEn": "What does the flashing yellow light on a traffic light indicate?"
   },
   "1127": {
     "QuestionText": "¿Qué indica la luz amarilla de un semáforo?",
@@ -2193,7 +2314,8 @@
         "AnswerId": 2368,
         "AnswerText": "c. Indica que hay que avanzar."
       }
-    ]
+    ],
+    "QuestionTextEn": "What does the yellow light of a traffic light indicate?"
   },
   "1128": {
     "QuestionText": "¿Qué indica la luz verde de un semáforo?",
@@ -2211,7 +2333,8 @@
         "AnswerId": 2371,
         "AnswerText": "c. Indica que hay que avanzar aunque mi vehículo quede detenido en el medio obstruyendo la circulación de la calzada que cruza."
       }
-    ]
+    ],
+    "QuestionTextEn": "What does the green light of a traffic light indicate?"
   },
   "1129": {
     "QuestionText": "El uso del cinturón de seguridad:",
@@ -2229,7 +2352,8 @@
         "AnswerId": 2374,
         "AnswerText": "c. Es obligatorio cuando circulamos en rutas."
       }
-    ]
+    ],
+    "QuestionTextEn": "The use of the seat belt:"
   },
   "1130": {
     "QuestionText": "Las bolsas de aire o airbags:",
@@ -2247,7 +2371,8 @@
         "AnswerId": 2377,
         "AnswerText": "c. Sirven para absorber parte de la energía cinética del cuerpo, frenando suavemente el movimiento de los pasajeros, evitando el impacto contra elementos interiores del vehículo (volante, parabrisas, etc.)."
       }
-    ]
+    ],
+    "QuestionTextEn": "Airbags or airbags:"
   },
   "1131": {
     "QuestionText": "La colocación correcta del apoyacabezas es:",
@@ -2265,7 +2390,8 @@
         "AnswerId": 2380,
         "AnswerText": "c. Cuando apoyemos la cabeza y lo sintamos cómodo."
       }
-    ]
+    ],
+    "QuestionTextEn": "The correct placement of the headrest is:"
   },
   "1132": {
     "QuestionText": "Para poder ser librados al tránsito público, todos los vehículos, acoplados y semiacoplados que se fabriquen en el país o se importen, deben contar con:",
@@ -2283,7 +2409,8 @@
         "AnswerId": 2383,
         "AnswerText": "c. Autorización de la Dirección Nacional de Vialidad."
       }
-    ]
+    ],
+    "QuestionTextEn": "In order to be released to public traffic, all vehicles, coupled and semi-coupled that are manufactured in the country or imported, must have:"
   },
   "1133": {
     "QuestionText": "¿Cómo debe ser el sistema de frenado de un vehículo?",
@@ -2301,7 +2428,8 @@
         "AnswerId": 2386,
         "AnswerText": "c. Puede no ser seguro, ya que en caso de emergencia accionaremos el freno de mano."
       }
-    ]
+    ],
+    "QuestionTextEn": "What should a vehicle's braking system be like?"
   },
   "1134": {
     "QuestionText": "¿Qué función cumple el sistema de suspensión de un vehículo?",
@@ -2319,7 +2447,8 @@
         "AnswerId": 2389,
         "AnswerText": "c. Permitir conducir a mayor velocidad."
       }
-    ]
+    ],
+    "QuestionTextEn": "What function does a vehicle's suspension system perform?"
   },
   "1135": {
     "QuestionText": "Según la Ley Nacional Nº 24.449, los vidrios de seguridad de un vehículo tienen que tener tonalidad adecuada;  esto significa que:",
@@ -2337,7 +2466,8 @@
         "AnswerId": 2392,
         "AnswerText": "c. La ley no es clara cuando habla de tonalidad adecuada."
       }
-    ]
+    ],
+    "QuestionTextEn": "According to National Law No. 24,449, the safety glass of a vehicle must have an appropriate shade;  this means that:"
   },
   "1136": {
     "QuestionText": "Si conduzco un vehículo que no reúne las condiciones de seguridad:",
@@ -2355,7 +2485,8 @@
         "AnswerId": 2395,
         "AnswerText": "c. La autoridad de control debe llevar mi vehículo a un taller de reparación."
       }
-    ]
+    ],
+    "QuestionTextEn": "If I drive a vehicle that does not meet safety conditions:"
   },
   "1137": {
     "QuestionText": "¿A qué se denomina carretón?",
@@ -2373,7 +2504,8 @@
         "AnswerId": 2398,
         "AnswerText": "c. Dispositivo estructural especial armado para el transporte de cargas, independiente del vehículo."
       }
-    ]
+    ],
+    "QuestionTextEn": "What is called a cart?"
   },
   "1138": {
     "QuestionText": "¿Cual es el plazo de gracia para efectuar la primera Revisión Técnica Vehicular de un   vehículo 0 km?",
@@ -2391,7 +2523,8 @@
         "AnswerId": 2401,
         "AnswerText": "c. 24 meses."
       }
-    ]
+    ],
+    "QuestionTextEn": "What is the grace period to carry out the first Vehicle Technical Inspection of a 0 km vehicle?"
   },
   "1139": {
     "QuestionText": "images/preguntas/a95c2d71610bc718f59f87c0095a5789c704bc92.jpg",
@@ -2409,7 +2542,8 @@
         "AnswerId": 2404,
         "AnswerText": "c. Puente ferroviario."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/a95c2d71610bc718f59f87c0095a5789c704bc92.jpg"
   },
   "1140": {
     "QuestionText": "images/preguntas/2ad271576a9eaa947aafadb1e0a763c07c02f4d8.jpg",
@@ -2427,7 +2561,8 @@
         "AnswerId": 2407,
         "AnswerText": "c. Precaución, disminuir la velocidad."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/2ad271576a9eaa947aafadb1e0a763c07c02f4d8.jpg"
   },
   "1141": {
     "QuestionText": "images/preguntas/0cb4582c1b29b3674b36342aef2370195a5d047f.jpg",
@@ -2445,7 +2580,8 @@
         "AnswerId": 2410,
         "AnswerText": "c. Precaución, bocacalle."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/0cb4582c1b29b3674b36342aef2370195a5d047f.jpg"
   },
   "1142": {
     "QuestionText": "images/preguntas/1d520eb67906a7b6897348156ba73a22e70a00f7.jpg",
@@ -2463,7 +2599,8 @@
         "AnswerId": 2413,
         "AnswerText": "c. Contramano."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/1d520eb67906a7b6897348156ba73a22e70a00f7.jpg"
   },
   "1143": {
     "QuestionText": "images/preguntas/46aed63eb8c3892ee69d6b0a873689eddd355661.jpg",
@@ -2481,7 +2618,8 @@
         "AnswerId": 2416,
         "AnswerText": "c. Prohibido girar en U."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/46aed63eb8c3892ee69d6b0a873689eddd355661.jpg"
   },
   "1144": {
     "QuestionText": "images/preguntas/a2d466861ee50a81fb4327d4f22a3c1275bf3207.jpg",
@@ -2499,7 +2637,8 @@
         "AnswerId": 2419,
         "AnswerText": "c. Prohibido girar en U."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/a2d466861ee50a81fb4327d4f22a3c1275bf3207.jpg"
   },
   "1145": {
     "QuestionText": "images/preguntas/5e9424f134d12671ffc09ab8bc25089095398c05.jpg",
@@ -2517,7 +2656,8 @@
         "AnswerId": 2422,
         "AnswerText": "c. Prohibido Estacionar y Detenerse."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/5e9424f134d12671ffc09ab8bc25089095398c05.jpg"
   },
   "1146": {
     "QuestionText": "images/preguntas/8083a97b4eafaab02cf17ca812e6560f015cddeb.jpg",
@@ -2535,7 +2675,8 @@
         "AnswerId": 2425,
         "AnswerText": "c. Prohibido Estacionar y Detenerse."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/8083a97b4eafaab02cf17ca812e6560f015cddeb.jpg"
   },
   "1147": {
     "QuestionText": "images/preguntas/b8351b6c8f3025f5c61461c4ce0706ecb6cdeade.jpg",
@@ -2553,7 +2694,8 @@
         "AnswerId": 2428,
         "AnswerText": "c. Circulación sólo de autos."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/b8351b6c8f3025f5c61461c4ce0706ecb6cdeade.jpg"
   },
   "1148": {
     "QuestionText": "images/preguntas/c2b7cd1aae3310f0bb2ea3d222c01921b2741db6.jpg",
@@ -2571,7 +2713,8 @@
         "AnswerId": 2431,
         "AnswerText": "c. Circulación exclusiva de autos."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/c2b7cd1aae3310f0bb2ea3d222c01921b2741db6.jpg"
   },
   "1149": {
     "QuestionText": "images/preguntas/a9348c39346227c6e73ee3f3ff2b2a83d883191f.jpg",
@@ -2589,7 +2732,8 @@
         "AnswerId": 2434,
         "AnswerText": "c. Prohibido circular automotores."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/a9348c39346227c6e73ee3f3ff2b2a83d883191f.jpg"
   },
   "1150": {
     "QuestionText": "images/preguntas/ec578a2ecd2cf0ee786a59433a4ded2e58cda015.jpg",
@@ -2607,7 +2751,8 @@
         "AnswerId": 2437,
         "AnswerText": "c. Circulación exclusiva de autos."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/ec578a2ecd2cf0ee786a59433a4ded2e58cda015.jpg"
   },
   "1151": {
     "QuestionText": "images/preguntas/027b8890a45d74fa189dddace2be93bcdb608860.jpg",
@@ -2625,7 +2770,8 @@
         "AnswerId": 2440,
         "AnswerText": "c. Prohibido adelantarse."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/027b8890a45d74fa189dddace2be93bcdb608860.jpg"
   },
   "1152": {
     "QuestionText": "images/preguntas/89c6d7d35ab20c44c46c0a4095d43c1b000a9223.jpg",
@@ -2643,7 +2789,8 @@
         "AnswerId": 2443,
         "AnswerText": "c. Conserve su derecha."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/89c6d7d35ab20c44c46c0a4095d43c1b000a9223.jpg"
   },
   "1153": {
     "QuestionText": "images/preguntas/74346cbe6311afc9491283baf83fcfb3e1e0188d.jpg",
@@ -2661,7 +2808,8 @@
         "AnswerId": 2446,
         "AnswerText": "c. Carga máxima permitida."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/74346cbe6311afc9491283baf83fcfb3e1e0188d.jpg"
   },
   "1154": {
     "QuestionText": "images/preguntas/d3136e1c56542fdaac56562aa68e45d213c9fea6.jpg",
@@ -2679,7 +2827,8 @@
         "AnswerId": 2449,
         "AnswerText": "c. Carga máxima permitida."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/d3136e1c56542fdaac56562aa68e45d213c9fea6.jpg"
   },
   "1155": {
     "QuestionText": "images/preguntas/5e68f7b09c983b5b89463df29e5a79870453b008.jpg",
@@ -2697,7 +2846,8 @@
         "AnswerId": 2452,
         "AnswerText": "c. Carga máxima permitida."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/5e68f7b09c983b5b89463df29e5a79870453b008.jpg"
   },
   "1156": {
     "QuestionText": "images/preguntas/fa1d8ed1ae1e18ed5620f5521eff028d28180710.jpg",
@@ -2715,7 +2865,8 @@
         "AnswerId": 2455,
         "AnswerText": "c. Velocidad precautoria en el carril derecho."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/fa1d8ed1ae1e18ed5620f5521eff028d28180710.jpg"
   },
   "1157": {
     "QuestionText": "images/preguntas/7397a50e0c74821029f1e2a274cbf169fe1cdbdd.jpg",
@@ -2733,7 +2884,8 @@
         "AnswerId": 2458,
         "AnswerText": "c. Prohibido circular por los dos carriles."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/7397a50e0c74821029f1e2a274cbf169fe1cdbdd.jpg"
   },
   "1158": {
     "QuestionText": "images/preguntas/e9565f4b53a6d2e917a8e55d0145589db1ef0aa5.jpg",
@@ -2751,7 +2903,8 @@
         "AnswerId": 2461,
         "AnswerText": "c. Prohibido ese sentido de circulación."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/e9565f4b53a6d2e917a8e55d0145589db1ef0aa5.jpg"
   },
   "1159": {
     "QuestionText": "images/preguntas/69c4625649fe0a815f0bf7c0b70bd2544338fdb7.jpg",
@@ -2769,7 +2922,8 @@
         "AnswerId": 2464,
         "AnswerText": "c. Circulación exclusiva de trenes."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/69c4625649fe0a815f0bf7c0b70bd2544338fdb7.jpg"
   },
   "1160": {
     "QuestionText": "images/preguntas/50ddda20166f0636f63f80e1af68907c9e0102ff.jpg",
@@ -2787,7 +2941,8 @@
         "AnswerId": 2467,
         "AnswerText": "c. Prohibido tránsito pesado."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/50ddda20166f0636f63f80e1af68907c9e0102ff.jpg"
   },
   "1161": {
     "QuestionText": "images/preguntas/937bd486f813139d023a102d6aec26a2ed394bf3.jpg",
@@ -2805,7 +2960,8 @@
         "AnswerId": 2470,
         "AnswerText": "c. Detenerse obligatoriamente."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/937bd486f813139d023a102d6aec26a2ed394bf3.jpg"
   },
   "1162": {
     "QuestionText": "images/preguntas/55a9d603e69fe9fcdc36df9c3974bba1032caf2d.jpg",
@@ -2823,7 +2979,8 @@
         "AnswerId": 2473,
         "AnswerText": "c. Prohibido el tránsito pesado."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/55a9d603e69fe9fcdc36df9c3974bba1032caf2d.jpg"
   },
   "1163": {
     "QuestionText": "images/preguntas/0296b58151d199950dae175a0dc4348ecf11cbd0.jpg",
@@ -2841,7 +2998,8 @@
         "AnswerId": 2476,
         "AnswerText": "c. Prohibido seguir en el sentido de circulación."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/0296b58151d199950dae175a0dc4348ecf11cbd0.jpg"
   },
   "1164": {
     "QuestionText": "images/preguntas/30e448be669f39fa389bd74f6a35ab14b2553314.jpg",
@@ -2859,7 +3017,8 @@
         "AnswerId": 2479,
         "AnswerText": "c. Disminuir la velocidad."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/30e448be669f39fa389bd74f6a35ab14b2553314.jpg"
   },
   "1165": {
     "QuestionText": "images/preguntas/ea8f22d7c87788d99ce71b02587db19f93119152.jpg",
@@ -2877,7 +3036,8 @@
         "AnswerId": 2482,
         "AnswerText": "c. Curva y contracurva menor."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/ea8f22d7c87788d99ce71b02587db19f93119152.jpg"
   },
   "1166": {
     "QuestionText": "images/preguntas/6f832ce1cde89e8fdeeb61e27b96230073adcafc.jpg",
@@ -2895,7 +3055,8 @@
         "AnswerId": 2485,
         "AnswerText": "c. Curva y contracurva menor."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/6f832ce1cde89e8fdeeb61e27b96230073adcafc.jpg"
   },
   "1167": {
     "QuestionText": "images/preguntas/5c70c054b506ab4f074b20a59be8e3ee87518603.jpg",
@@ -2913,7 +3074,8 @@
         "AnswerId": 2488,
         "AnswerText": "c. Proximidad de semáforo."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/5c70c054b506ab4f074b20a59be8e3ee87518603.jpg"
   },
   "1168": {
     "QuestionText": "images/preguntas/549933a52ea9820e19488471c8640a035a51bb86.jpg",
@@ -2931,7 +3093,8 @@
         "AnswerId": 2491,
         "AnswerText": "c. Cruce de caminos."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/549933a52ea9820e19488471c8640a035a51bb86.jpg"
   },
   "1169": {
     "QuestionText": "images/preguntas/12717868bc5c7d3a974836bf4b1bd14b7b91afb9.jpg",
@@ -2949,7 +3112,8 @@
         "AnswerId": 2494,
         "AnswerText": "c. Camino lateral."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/12717868bc5c7d3a974836bf4b1bd14b7b91afb9.jpg"
   },
   "1170": {
     "QuestionText": "images/preguntas/ffa3df04dd6d1135d90a0db146bc739a2bc296d3.jpg",
@@ -2967,7 +3131,8 @@
         "AnswerId": 2497,
         "AnswerText": "c. Camino lateral."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/ffa3df04dd6d1135d90a0db146bc739a2bc296d3.jpg"
   },
   "1171": {
     "QuestionText": "images/preguntas/ab5160a5e4a93e65c87f0cbef0f6628e2e086b91.jpg",
@@ -2985,7 +3150,8 @@
         "AnswerId": 2500,
         "AnswerText": "c. Camino lateral."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/ab5160a5e4a93e65c87f0cbef0f6628e2e086b91.jpg"
   },
   "1172": {
     "QuestionText": "images/preguntas/c3574b12e349f4470919307f0600101b9a63f79b.jpg",
@@ -3003,7 +3169,8 @@
         "AnswerId": 2503,
         "AnswerText": "c. Cruce de caminos."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/c3574b12e349f4470919307f0600101b9a63f79b.jpg"
   },
   "1173": {
     "QuestionText": "images/preguntas/d301116e827c576f318aea7b60729e1b4a82eda6.jpg",
@@ -3021,7 +3188,8 @@
         "AnswerId": 2506,
         "AnswerText": "c. Empalme contrarios sucesivos."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/d301116e827c576f318aea7b60729e1b4a82eda6.jpg"
   },
   "1174": {
     "QuestionText": "images/preguntas/4b25c7e576a8dbf20720e1f588b97c814ff8fc76.jpg",
@@ -3039,7 +3207,8 @@
         "AnswerId": 2509,
         "AnswerText": "c. Inicio/Fin de camino dividido."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/4b25c7e576a8dbf20720e1f588b97c814ff8fc76.jpg"
   },
   "1175": {
     "QuestionText": "images/preguntas/9010b8ac22c879652888e68ff5503570e24a3996.jpg",
@@ -3057,7 +3226,8 @@
         "AnswerId": 2512,
         "AnswerText": "c. Camino dividido."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/9010b8ac22c879652888e68ff5503570e24a3996.jpg"
   },
   "1176": {
     "QuestionText": "images/preguntas/d2846d103ccce2be4f0fdecad415f3ea9abf4d00.jpg",
@@ -3075,7 +3245,8 @@
         "AnswerId": 2515,
         "AnswerText": "c. Curva y contracurva."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/d2846d103ccce2be4f0fdecad415f3ea9abf4d00.jpg"
   },
   "1179": {
     "QuestionText": "images/preguntas/ea656d9eface9deb941a2b7debe8645f7dd8f30f.jpg",
@@ -3093,7 +3264,8 @@
         "AnswerId": 2524,
         "AnswerText": "c. Puente angosto."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/ea656d9eface9deb941a2b7debe8645f7dd8f30f.jpg"
   },
   "1180": {
     "QuestionText": "images/preguntas/4367e5743839919646358ca9a53f4f3dedab2b31.jpg",
@@ -3111,7 +3283,8 @@
         "AnswerId": 2527,
         "AnswerText": "c. Pendiente peligrosa bajada."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/4367e5743839919646358ca9a53f4f3dedab2b31.jpg"
   },
   "1181": {
     "QuestionText": "images/preguntas/a8a964f043ff46470006e846bad8d689007764d8.jpg",
@@ -3129,7 +3302,8 @@
         "AnswerId": 2530,
         "AnswerText": "c. Pendiente peligrosa bajada."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/a8a964f043ff46470006e846bad8d689007764d8.jpg"
   },
   "1182": {
     "QuestionText": "images/preguntas/43be0bdaf6255af2ee2d7d92e8033d50c32c5332.jpg",
@@ -3147,7 +3321,8 @@
         "AnswerId": 2533,
         "AnswerText": "c. Calzada estrecha."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/43be0bdaf6255af2ee2d7d92e8033d50c32c5332.jpg"
   },
   "1183": {
     "QuestionText": "images/preguntas/23b19d6970e7fca3fafbbc5649cd9ce7e5df975c.jpg",
@@ -3165,7 +3340,8 @@
         "AnswerId": 2536,
         "AnswerText": "c. Curva y contracurva menor."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/23b19d6970e7fca3fafbbc5649cd9ce7e5df975c.jpg"
   },
   "1184": {
     "QuestionText": "images/preguntas/91fd9c61e39d71dbe7b5cba32c27cc7128de62b4.jpg",
@@ -3183,7 +3359,8 @@
         "AnswerId": 2539,
         "AnswerText": "c. Camino sinuoso."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/91fd9c61e39d71dbe7b5cba32c27cc7128de62b4.jpg"
   },
   "1185": {
     "QuestionText": "images/preguntas/05f9b91e44fd2401ed48711ad82e27ecfa132eab.jpg",
@@ -3201,7 +3378,8 @@
         "AnswerId": 2542,
         "AnswerText": "c. Pendiente peligrosa subida."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/05f9b91e44fd2401ed48711ad82e27ecfa132eab.jpg"
   },
   "1186": {
     "QuestionText": "images/preguntas/7ec7b8779865c78dc5d1431c16ef04c6173be64e.jpg",
@@ -3219,7 +3397,8 @@
         "AnswerId": 2545,
         "AnswerText": "c. Obras."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/7ec7b8779865c78dc5d1431c16ef04c6173be64e.jpg"
   },
   "1187": {
     "QuestionText": "images/preguntas/aa2ee90378ff0a2dbda428978522d3030d2b5dcb.jpg",
@@ -3237,7 +3416,8 @@
         "AnswerId": 2548,
         "AnswerText": "c. Cruce peatones."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/aa2ee90378ff0a2dbda428978522d3030d2b5dcb.jpg"
   },
   "1188": {
     "QuestionText": "images/preguntas/9b72c7d808c3e251159f663080065c7e56552b6b.jpg",
@@ -3255,7 +3435,8 @@
         "AnswerId": 2551,
         "AnswerText": "c. Cruce peatones."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/9b72c7d808c3e251159f663080065c7e56552b6b.jpg"
   },
   "1189": {
     "QuestionText": "images/preguntas/757bef1a355e886d2da75bac4ab6bdbecfabeb38.jpg",
@@ -3273,7 +3454,8 @@
         "AnswerId": 2554,
         "AnswerText": "c. Cruce peatones."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/757bef1a355e886d2da75bac4ab6bdbecfabeb38.jpg"
   },
   "1190": {
     "QuestionText": "images/preguntas/bcf510110dacf7ef2d02b13f2024b1f9d585af17.jpg",
@@ -3291,7 +3473,8 @@
         "AnswerId": 2557,
         "AnswerText": "c. Proximidad de zona rural."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/bcf510110dacf7ef2d02b13f2024b1f9d585af17.jpg"
   },
   "1191": {
     "QuestionText": "images/preguntas/1886cdc3663a744b3f8bacb37c5ec2e56fabc637.jpg",
@@ -3309,7 +3492,8 @@
         "AnswerId": 2560,
         "AnswerText": "c. Proximidad de zona rural."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/1886cdc3663a744b3f8bacb37c5ec2e56fabc637.jpg"
   },
   "1192": {
     "QuestionText": "images/preguntas/4474310e7423256bf53c845f0e1c5e13239811de.jpg",
@@ -3327,7 +3511,8 @@
         "AnswerId": 2563,
         "AnswerText": "c. Camino angosto."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/4474310e7423256bf53c845f0e1c5e13239811de.jpg"
   },
   "1193": {
     "QuestionText": "images/preguntas/cb57dbb980efd4fafc22381706d68f3fe4d90168.jpg",
@@ -3345,7 +3530,8 @@
         "AnswerId": 2566,
         "AnswerText": "c. Túnel."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/cb57dbb980efd4fafc22381706d68f3fe4d90168.jpg"
   },
   "1194": {
     "QuestionText": "images/preguntas/a310f37596f126ca5143acc314cdf916915cc307.jpg",
@@ -3363,7 +3549,8 @@
         "AnswerId": 2569,
         "AnswerText": "c. Prohibido circular maquinaria agrícola."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/a310f37596f126ca5143acc314cdf916915cc307.jpg"
   },
   "1195": {
     "QuestionText": "images/preguntas/6711dc63fcd646fdfa1927efa59d21d8349f9293.jpg",
@@ -3381,7 +3568,8 @@
         "AnswerId": 2572,
         "AnswerText": "c. Zona rural."
       }
-    ]
+    ],
+    "QuestionTextEn": "images/preguntas/6711dc63fcd646fdfa1927efa59d21d8349f9293.jpg"
   },
   "1552": {
     "QuestionText": "¿Puede un conductor llevar a menores de 10 años en los asientos delanteros?",
@@ -3399,7 +3587,8 @@
         "AnswerId": 3265,
         "AnswerText": "c. En principio no, pero podría hacerlo en una pick up."
       }
-    ]
+    ],
+    "QuestionTextEn": "Can a driver carry children under 10 years old in the front seats?"
   },
   "1553": {
     "QuestionText": "De acuerdo a las disposiciones contenidas en la Ley Nacional Nº  24.449, ¿la traba de seguridad para niños en puertas traseras, es un requisito de seguridad obligatorio para los automotores?",
@@ -3417,7 +3606,8 @@
         "AnswerId": 3268,
         "AnswerText": "c. Sólo es obligatorio en  los automóviles, pero no así en las pick ups."
       }
-    ]
+    ],
+    "QuestionTextEn": "According to the provisions contained in National Law No. 24,449, is the child safety lock on rear doors a mandatory safety requirement for automobiles?"
   },
   "1554": {
     "QuestionText": "Según la Ley Nacional Nº 24.449,¿cuál es la velocidad máxima para automotores en autopistas?",
@@ -3435,7 +3625,8 @@
         "AnswerId": 3271,
         "AnswerText": "c. 110 km/h."
       }
-    ]
+    ],
+    "QuestionTextEn": "According to National Law No. 24,449, what is the maximum speed for automobiles on highways?"
   },
   "1555": {
     "QuestionText": "En una camioneta, ¿pueden transportarse personas en el sector de carga?",
@@ -3453,7 +3644,8 @@
         "AnswerId": 3274,
         "AnswerText": "c. Depende de las condiciones de seguridad de los ocupantes."
       }
-    ]
+    ],
+    "QuestionTextEn": "In a van, can people be transported in the cargo area?"
   },
   "1556": {
     "QuestionText": "La tolerancia máxima de alcohol en sangre para conductores de automóviles es de:",
@@ -3471,7 +3663,8 @@
         "AnswerId": 3277,
         "AnswerText": "c. 0,5 gr/1000 cm3."
       }
-    ]
+    ],
+    "QuestionTextEn": "The maximum blood alcohol tolerance for car drivers is:"
   },
   "1557": {
     "QuestionText": "¿En un automóvil, pueden viajar 9 personas mayores?",
@@ -3489,7 +3682,8 @@
         "AnswerId": 3280,
         "AnswerText": "c. Sólo si al menos cuatro de ellos fueran menores de 10 años."
       }
-    ]
+    ],
+    "QuestionTextEn": "Can 9 elderly people travel in a car?"
   },
   "1558": {
     "QuestionText": "¿Cuál es la velocidad mínima para un automóvil en autopistas?",
@@ -3507,7 +3701,8 @@
         "AnswerId": 3283,
         "AnswerText": "c. 100km/h."
       }
-    ]
+    ],
+    "QuestionTextEn": "What is the minimum speed for a car on highways?"
   },
   "1559": {
     "QuestionText": "¿Cuál es la velocidad máxima en ciudad para un automóvil en calles?",
@@ -3525,7 +3720,8 @@
         "AnswerId": 3286,
         "AnswerText": "c. 60km/h."
       }
-    ]
+    ],
+    "QuestionTextEn": "What is the maximum speed in the city for a car on streets?"
   },
   "1560": {
     "QuestionText": "¿Qué vehículos permite conducir las clases de licencias B ?",
@@ -3543,7 +3739,8 @@
         "AnswerId": 3289,
         "AnswerText": "c. Sólo automóviles de no más de cinco ocupantes incluido el conductor."
       }
-    ]
+    ],
+    "QuestionTextEn": "What vehicles are class B licenses allowed to drive?"
   },
   "1561": {
     "QuestionText": "¿A qué se denomina camioneta?",
@@ -3561,7 +3758,8 @@
         "AnswerId": 3292,
         "AnswerText": "c. Automotor para transporte adaptado para la circulación por diversos terrenos."
       }
-    ]
+    ],
+    "QuestionTextEn": "What is called a truck?"
   },
   "1562": {
     "QuestionText": "La licencia habilitante clase B1, ¿incluye la posibilidad de conducir un motovehículo?",
@@ -3579,7 +3777,8 @@
         "AnswerId": 3295,
         "AnswerText": "c. Posibilita conducir ciclomotores, pero no motovehículos."
       }
-    ]
+    ],
+    "QuestionTextEn": "Does the class B1 qualifying license include the possibility of driving a motorcycle?"
   },
   "1563": {
     "QuestionText": "¿Qué tipo de defensas adicionales al paragolpes está permitido utilizar en una pick-up?",
@@ -3597,7 +3796,8 @@
         "AnswerId": 3298,
         "AnswerText": "c. Cualquier tipo de defensas."
       }
-    ]
+    ],
+    "QuestionTextEn": "What type of additional fenders to the bumper is allowed to be used on a pick-up?"
   },
   "1564": {
     "QuestionText": "¿Qué elemento contra incendios es reglamentario para automóviles?",
@@ -3615,7 +3815,8 @@
         "AnswerId": 3301,
         "AnswerText": "c. Matafuegos de 1 kilogramo mínimo con indicador de presión de carga."
       }
-    ]
+    ],
+    "QuestionTextEn": "What fire protection element is regulatory for automobiles?"
   },
   "1565": {
     "QuestionText": "En un automóvil, ¿dónde debe ubicarse el matafuegos?",
@@ -3633,7 +3834,8 @@
         "AnswerId": 3304,
         "AnswerText": "c. Dentro del habitáculo, firmemente amarrado."
       }
-    ]
+    ],
+    "QuestionTextEn": "In a car, where should the fire extinguisher be located?"
   },
   "1566": {
     "QuestionText": "¿Cuál es la manera menos peligrosa de trasladar un bebé en un automóvil?",
@@ -3651,7 +3853,8 @@
         "AnswerId": 3307,
         "AnswerText": "c. En sillas especialmente adaptadas con cinturón de seguridad, en el asiento trasero."
       }
-    ]
+    ],
+    "QuestionTextEn": "What is the least dangerous way to transport a baby in a car?"
   },
   "1567": {
     "QuestionText": "¿Dónde debe tener las manos la persona que está conduciendo un automotor?",
@@ -3669,7 +3872,8 @@
         "AnswerId": 3310,
         "AnswerText": "c. Una sobre el volante de dirección y la otra puede llevarla apoyada en la ventanilla, siempre que asegure la maniobrabilidad del vehículo."
       }
-    ]
+    ],
+    "QuestionTextEn": "Where should a person who is driving a car have their hands?"
   },
   "1568": {
     "QuestionText": "Circulando en el ámbito de la ciudad, ¿es obligatorio llevar abrochado el cinturón de seguridad?",
@@ -3687,7 +3891,8 @@
         "AnswerId": 3313,
         "AnswerText": "c. No, es obligatorio sólo circulando a más de 60km/h."
       }
-    ]
+    ],
+    "QuestionTextEn": "When driving in the city, is it mandatory to wear a seat belt?"
   },
   "1569": {
     "QuestionText": "Cambiar los neumáticos del automóvil es obligatorio cuando las ranuras en la banda de rodamiento es inferior a:",
@@ -3705,7 +3910,8 @@
         "AnswerId": 3316,
         "AnswerText": "c. 2,6 milímetros. (aprox 2.000km de uso)."
       }
-    ]
+    ],
+    "QuestionTextEn": "Changing car tires is mandatory when the grooves in the tread are less than:"
   },
   "1570": {
     "QuestionText": "¿Qué requisito respecto de la carga debe cumplir una pick-up que traslada arena?",
@@ -3723,7 +3929,8 @@
         "AnswerId": 3319,
         "AnswerText": "c. Llevar la factura correspondiente."
       }
-    ]
+    ],
+    "QuestionTextEn": "What load requirement must a pick-up that transports sand meet?"
   },
   "1571": {
     "QuestionText": "Si una pick-up traslada carga liviana, ¿puede sobresalir de la carrocería?",
@@ -3741,7 +3948,8 @@
         "AnswerId": 3322,
         "AnswerText": "c. 20 cm a ambos lados y 70 cm en la parte trasera."
       }
-    ]
+    ],
+    "QuestionTextEn": "If a pick-up carries a light load, can it protrude from the body?"
   },
   "1572": {
     "QuestionText": "Si conduce un automóvil que tenga air-bag en la parte delantera, ¿es obligatorio abrocharse el cinturón de seguridad?",
@@ -3759,7 +3967,8 @@
         "AnswerId": 3325,
         "AnswerText": "c. Sólo para el acompañante del asiento delantero, el conductor además de ir tomado del volante cuenta con la protección adicional del air-bag."
       }
-    ]
+    ],
+    "QuestionTextEn": "If you drive a car that has an airbag in the front, is it mandatory to fasten your seat belt?"
   },
   "1573": {
     "QuestionText": "El apoyacabezas es un elemento de seguridad pasiva que evita lesiones en las cervicales producidas por una colisión en la parte trasera del vehículo, ¿es obligatorio?",
@@ -3777,7 +3986,8 @@
         "AnswerId": 3328,
         "AnswerText": "c. Únicamente en los asientos delanteros del vehículo."
       }
-    ]
+    ],
+    "QuestionTextEn": "The headrest is a passive safety element that prevents neck injuries caused by a collision at the rear of the vehicle. Is it mandatory?"
   },
   "1574": {
     "QuestionText": "El apoyacabezas debe regularse a la altura de:",
@@ -3795,7 +4005,8 @@
         "AnswerId": 3331,
         "AnswerText": "c. La cabeza."
       }
-    ]
+    ],
+    "QuestionTextEn": "The headrest must be adjusted to the height of:"
   },
   "1575": {
     "QuestionText": "El freno de mano es el dispositivo que actúa:",
@@ -3813,7 +4024,8 @@
         "AnswerId": 3334,
         "AnswerText": "c. En las ruedas delanteras únicamente."
       }
-    ]
+    ],
+    "QuestionTextEn": "The handbrake is the device that acts:"
   },
   "1576": {
     "QuestionText": "¿De qué color deben ser los faros delanteros de un automóvil?",
@@ -3831,7 +4043,8 @@
         "AnswerId": 3337,
         "AnswerText": "c. Amarillos o verdes."
       }
-    ]
+    ],
+    "QuestionTextEn": "What color should a car's headlights be?"
   },
   "1577": {
     "QuestionText": "Con una licencia clase B1 podrá conducir:",
@@ -3849,7 +4062,8 @@
         "AnswerId": 3340,
         "AnswerText": "c. Automóviles y pick-up cuyo peso total no supere los 3500kg."
       }
-    ]
+    ],
+    "QuestionTextEn": "With a class B1 license you can drive:"
   },
   "1578": {
     "QuestionText": "¿Con qué licencia habilitante se le permite arrastrar un remolque que no exceda los 750kg de peso?",
@@ -3867,7 +4081,8 @@
         "AnswerId": 3343,
         "AnswerText": "c. Licencias clase B2, D2 y E1."
       }
-    ]
+    ],
+    "QuestionTextEn": "With what license are you allowed to tow a trailer that does not exceed 750kg in weight?"
   },
   "1579": {
     "QuestionText": "La obtención de la licencia clase B1; ¿implica en forma directa la posibilidad de conducir los vehículos comprendidos en clase A21?",
@@ -3885,7 +4100,8 @@
         "AnswerId": 3346,
         "AnswerText": "c. Los de la clase B2, en forma directa."
       }
-    ]
+    ],
+    "QuestionTextEn": "Obtaining the class B1 license; Does it directly imply the possibility of driving vehicles included in class A21?"
   },
   "1580": {
     "QuestionText": "Con la licencia clase B1; ¿puedo conducir un furgón de 3.200kg de peso?",
@@ -3903,7 +4119,8 @@
         "AnswerId": 3349,
         "AnswerText": "c. Sí, siempre que no supere los 3500kg de peso total."
       }
-    ]
+    ],
+    "QuestionTextEn": "With the class B1 license; Can I drive a 3,200kg van?"
   },
   "1581": {
     "QuestionText": "Una pick-up traslada perfiles de hierro que sobresalen de la carrocería en la parte trasera del vehículo, esa carga se denomina:",
@@ -3921,7 +4138,8 @@
         "AnswerId": 3352,
         "AnswerText": "c. Carga indivisible."
       }
-    ]
+    ],
+    "QuestionTextEn": "A pick-up transports iron profiles that protrude from the body at the rear of the vehicle, this load is called:"
   },
   "1582": {
     "QuestionText": "Una pick-up traslada arena, debe ir cubierta con una lona y se denomina:",
@@ -3939,7 +4157,8 @@
         "AnswerId": 3355,
         "AnswerText": "c. Carga general."
       }
-    ]
+    ],
+    "QuestionTextEn": "A pick-up transports sand, it must be covered with a tarp and is called:"
   },
   "1583": {
     "QuestionText": "Una pick-up traslada fardos de pasto, traslada carga:",
@@ -3957,7 +4176,8 @@
         "AnswerId": 3358,
         "AnswerText": "c. Volátil."
       }
-    ]
+    ],
+    "QuestionTextEn": "A pick-up transports bales of grass, transports cargo:"
   },
   "1584": {
     "QuestionText": "¿Cuál es la velocidad máxima para un automóvil en avenidas?",
@@ -3975,7 +4195,8 @@
         "AnswerId": 3361,
         "AnswerText": "c. 60km/h."
       }
-    ]
+    ],
+    "QuestionTextEn": "What is the maximum speed for a car on avenues?"
   },
   "40638": {
     "QuestionText": "En caso de niebla, se debe circular con:",
@@ -3993,7 +4214,8 @@
         "AnswerId": 77594,
         "AnswerText": "c. Luz bajas."
       }
-    ]
+    ],
+    "QuestionTextEn": "In case of fog, you should drive with:"
   },
   "40639": {
     "QuestionText": "En caso de transitar por una zona ventosa o con clima de vientos, usted debe:",
@@ -4011,7 +4233,8 @@
         "AnswerId": 77597,
         "AnswerText": "c. Disminuir y acelerar constantemente."
       }
-    ]
+    ],
+    "QuestionTextEn": "If traveling through a windy area or in windy weather, you must:"
   },
   "40640": {
     "QuestionText": "Para efectuar las maniobras de adelantamiento por el carril izquierdo en una autopista, ¿cuál es la velocidad máxima que puede alcanzar?:",
@@ -4029,7 +4252,8 @@
         "AnswerId": 77600,
         "AnswerText": "c. 90 km/h."
       }
-    ]
+    ],
+    "QuestionTextEn": "To carry out overtaking maneuvers in the left lane on a highway, what is the maximum speed you can reach?:"
   },
   "40641": {
     "QuestionText": "La señalización horizontal de doble línea continua indica:",
@@ -4047,7 +4271,8 @@
         "AnswerId": 77603,
         "AnswerText": "c. Que está permitido circular sobre ella."
       }
-    ]
+    ],
+    "QuestionTextEn": "The horizontal double continuous line signage indicates:"
   },
   "40642": {
     "QuestionText": "La señalización horizontal de líneas continuas y discontinuas paralelas indica:",
@@ -4065,7 +4290,8 @@
         "AnswerId": 77606,
         "AnswerText": "c. La autorización de traspasar de sentidos ambas líneas sin inconvenientes."
       }
-    ]
+    ],
+    "QuestionTextEn": "The horizontal marking of parallel continuous and dashed lines indicates:"
   },
   "40643": {
     "QuestionText": "Las sendas para la circulación de ciclistas son:",
@@ -4083,7 +4309,8 @@
         "AnswerId": 77609,
         "AnswerText": "c. El resto de los vehículos pueden invadirlas y circular por ellas en casos excepcionales."
       }
-    ]
+    ],
+    "QuestionTextEn": "The paths for cycling are:"
   },
   "40644": {
     "QuestionText": "La señal roja intermitente frente al paso ferrovial significa:",
@@ -4101,7 +4328,8 @@
         "AnswerId": 77612,
         "AnswerText": "c. Que el tren se aproxima y que tiene prioridad de paso."
       }
-    ]
+    ],
+    "QuestionTextEn": "The flashing red signal in front of the railway crossing means:"
   },
   "40646": {
     "QuestionText": "¿Cuándo se produce el “efecto túnel”, es decir la reducción del campo visual en la conducción?",
@@ -4119,7 +4347,8 @@
         "AnswerId": 77618,
         "AnswerText": "c. Al ingresar en una zona de poca luminosidad."
       }
-    ]
+    ],
+    "QuestionTextEn": "When does the “tunnel effect” occur, that is, the reduction of the visual field when driving?"
   },
   "40647": {
     "QuestionText": "La prioridad de paso en las encrucijadas al conductor que viene circulando por la derecha es:",
@@ -4137,7 +4366,8 @@
         "AnswerId": 77621,
         "AnswerText": "c. No es una prioridad."
       }
-    ]
+    ],
+    "QuestionTextEn": "The priority of passage at crossroads for the driver traveling on the right is:"
   },
   "40648": {
     "QuestionText": "Cuando se realiza una maniobra de adelantamiento y el vehículo utiliza la luz de giro izquierda está indicando:",
@@ -4155,7 +4385,8 @@
         "AnswerId": 77624,
         "AnswerText": "c. Que el vehículo debe adelantarse por la derecha."
       }
-    ]
+    ],
+    "QuestionTextEn": "When an overtaking maneuver is performed and the vehicle uses the left turn signal, it indicates:"
   },
   "40649": {
     "QuestionText": "Si usted se encuentra circulando en una ruta y observa varios vehículos encolumnados, la prioridad de paso para el adelantamiento la tiene:",
@@ -4173,7 +4404,8 @@
         "AnswerId": 77627,
         "AnswerText": "c. Ninguno tiene prioridad."
       }
-    ]
+    ],
+    "QuestionTextEn": "If you are traveling on a route and see several vehicles lined up, the priority of passage for overtaking is:"
   },
   "40652": {
     "QuestionText": "El uso adecuado del apoyacabezas en un vehículo es:",
@@ -4191,7 +4423,8 @@
         "AnswerId": 77636,
         "AnswerText": "c. La distancia entre el apoyacabeza y la nuca del conductor no debe ser mayor a 5 cm."
       }
-    ]
+    ],
+    "QuestionTextEn": "The proper use of the headrest in a vehicle is:"
   },
   "40653": {
     "QuestionText": "¿Cuál es la forma correcta en que debe colocarse el cinturón de seguridad para que sea efectivo?",
@@ -4209,7 +4442,8 @@
         "AnswerId": 77639,
         "AnswerText": "c. Todas las opciones son correctas."
       }
-    ]
+    ],
+    "QuestionTextEn": "What is the correct way to put on the seat belt for it to be effective?"
   },
   "40654": {
     "QuestionText": "La seguridad preventiva es:",
@@ -4227,7 +4461,8 @@
         "AnswerId": 77642,
         "AnswerText": "c. Los dispositivos que ayudan a disminuir los daños producidos por un siniestro vial."
       }
-    ]
+    ],
+    "QuestionTextEn": "Preventive security is:"
   },
   "40655": {
     "QuestionText": "El cinturón de seguridad en los vehículos:",
@@ -4245,7 +4480,8 @@
         "AnswerId": 77645,
         "AnswerText": "c. Se debe utilizar sólo en el ámbito urbano."
       }
-    ]
+    ],
+    "QuestionTextEn": "The seat belt in vehicles:"
   },
   "40656": {
     "QuestionText": "El número de ocupantes de un vehículo debe:",
@@ -4263,7 +4499,8 @@
         "AnswerId": 77648,
         "AnswerText": "c. No debe superar en ningún caso las cuatro personas por vehículo."
       }
-    ]
+    ],
+    "QuestionTextEn": "The number of occupants of a vehicle must:"
   },
   "40658": {
     "QuestionText": "Los titulares de vehículos siniestrados, deben:",
@@ -4281,7 +4518,8 @@
         "AnswerId": 77654,
         "AnswerText": "c. Pueden circular en forma condicional por 60 días."
       }
-    ]
+    ],
+    "QuestionTextEn": "Owners of damaged vehicles must:"
   },
   "40659": {
     "QuestionText": "La distancia de seguridad es  el espacio que se deja de margen entre un vehículo y el propio. En rutas debe ser como mínimo de:",
@@ -4299,7 +4537,8 @@
         "AnswerId": 77657,
         "AnswerText": "c. 20 m de distancia."
       }
-    ]
+    ],
+    "QuestionTextEn": "The safety distance is the space left between a vehicle and your own. On routes it must be at least:"
   },
   "40660": {
     "QuestionText": "¿A que se denomina punto ciego en los vehículos?:",
@@ -4317,7 +4556,8 @@
         "AnswerId": 77660,
         "AnswerText": "c. Es el área de visión no cubierta por el parabrisas."
       }
-    ]
+    ],
+    "QuestionTextEn": "What is called a blind spot in vehicles?:"
   },
   "40661": {
     "QuestionText": "En una subida estrecha, ¿quién tiene la prioridad de paso?",
@@ -4335,7 +4575,8 @@
         "AnswerId": 77663,
         "AnswerText": "c. No existe prioridad definida."
       }
-    ]
+    ],
+    "QuestionTextEn": "On a narrow climb, who has the right of way?"
   },
   "40662": {
     "QuestionText": "En una rotonda ¿quién tiene la prioridad de paso?",
@@ -4353,6 +4594,7 @@
         "AnswerId": 77666,
         "AnswerText": "c. Quien ingresa por sobre el conductor que está girando, salvo que este último tenga la derecha."
       }
-    ]
+    ],
+    "QuestionTextEn": "At a roundabout, who has the right of way?"
   }
 }
