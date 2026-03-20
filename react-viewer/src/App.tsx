@@ -1,5 +1,4 @@
 import { useEffect, useState, useCallback, useRef } from "react";
-import { useSwipeable } from "react-swipeable";
 import "./App.css";
 import { QuestionText } from "./QuestionText";
 import AnswerButtons from "./AnswerButtons";
@@ -35,6 +34,7 @@ function App() {
   const [answerHistory, setAnswerHistory] = useState<boolean[]>([]);
   const [showAnswerOnButtons, setShowAnswerOnButtons] = useState(false);
   const [incorrectQuestions, setIncorrectQuestions] = useState<Record<string, number>>({});
+  const [showEnglish, setShowEnglish] = useState(false);
   // Trigger workflow test
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -120,6 +120,7 @@ function App() {
     setUserAnswer(null);
     setIsCorrect(null);
     setShowOverlay(false);
+    setShowEnglish(false);
   }, [data, incorrectQuestions]);
 
 
@@ -195,36 +196,28 @@ function App() {
   };
 
   // --- update swipe handlers to call handleAnswerById ---
-  const swipeHandlers = useSwipeable({
-    onSwipedLeft: () => {
-      const id = q?.Answers?.[0]?.AnswerId;
-      console.log("swipe LEFT -> AnswerId:", id);
-      if (id) handleAnswerById(String(id));
-    },
-    onSwipedUp: () => {
-      const id = q?.Answers?.[1]?.AnswerId;
-      console.log("swipe UP -> AnswerId:", id);
-      if (id) handleAnswerById(String(id));
-    },
-    onSwipedRight: () => {
-      const id = q?.Answers?.[2]?.AnswerId;
-      console.log("swipe RIGHT -> AnswerId:", id);
-      if (id) handleAnswerById(String(id));
-    },
-    trackMouse: true,
-  });
-
   if (error) return <div className="error" style={{ color: "red", fontSize: "20px", padding: "40px", textAlign: "center", fontWeight: "bold" }}>❌ {error}</div>;
   if (loading || !currentId) return <div className="loading" style={{ fontSize: "24px", padding: "40px", textAlign: "center" }}>⏳ Loading… now</div>;
 
   const q = data[currentId];
 
-  // q.CorrectAnswerId
-
   return (
-    <div className="wrapper" {...swipeHandlers}>
+    <div className="wrapper">
       <div className="card">
-        <QuestionText text={q?.QuestionText || ""} />
+        <button
+          className="language-toggle"
+          onClick={() => setShowEnglish((prev) => !prev)}
+          aria-label="Toggle language"
+        >
+          [EN]
+        </button>
+        <QuestionText
+          text={
+            showEnglish
+              ? q?.QuestionTextEn || q?.QuestionText || ""
+              : q?.QuestionText || ""
+          }
+        />
 
         <section className="instructions">
           <AnswerButtons 

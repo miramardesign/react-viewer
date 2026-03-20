@@ -21,7 +21,27 @@
   max-width: 700px;
   width: 90%;
   box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  position: relative;
 }
+
+.language-toggle {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  border: 1px solid #999;
+  background: #444;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.language-toggle:hover {
+  background: #555;
+}
+
 
 /* Question text */
 .question {
@@ -92,6 +112,7 @@
   font-size: 18px;
   touch-action: manipulation;
   cursor: pointer;
+  text-align: left;
 }
 
 .text-correct {

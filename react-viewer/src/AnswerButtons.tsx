@@ -25,7 +25,7 @@ const AnswerButtons: React.FC<AnswerButtonsProps> = ({
     }
   };
 
-  const buttonIcons = ["⬅", "⬆", "➡"];
+  //const buttonIcons = ["⬅", "⬆", "➡"];
 
   return (
     <div className="answers">
@@ -40,7 +40,7 @@ const AnswerButtons: React.FC<AnswerButtonsProps> = ({
             onClick={() => handleAnswerClick(index)}
             disabled={!answer}
           >
-            {buttonIcons[index]} {answer?.AnswerText ?? "—"}
+            {answer?.AnswerText ?? "—"}
           </button>
         );
       })}
