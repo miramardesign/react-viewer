@@ -1,21 +1,22 @@
 /* Wrapper area */
 .wrapper {
   padding: 20px;
-  height: 100vh;
+  min-height: 100vh;
   background: #111;
   color: #fff;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
   text-align: center;
   touch-action: pan-y;
 }
 
+
 /* Card structure */
 .card {
   background: #222;
-  padding: 24px;
+  padding: 20px;
   border-radius: 14px;
   max-width: 700px;
   width: 90%;
