@@ -5,37 +5,44 @@ interface QuestionTextProps {
 }
 
 const extractImageUrl = (text: string): string | null => {
-  if (!text) return null;
+  if (!text) {
+    return null;
+  }
 
   const cleaned = text.trim();
 
-  // Case 1: whole text is an image URL
   if (/\.(jpg|jpeg|png|gif|webp)$/i.test(cleaned)) {
     return cleaned;
   }
 
-  // Case 2: find full http(s) image URLs in text
-  const match = cleaned.match(/https?:\/\/\S+\.(jpg|jpeg|png|gif|webp)/i);
-  if (match) return match[0];
+  const absoluteMatch = cleaned.match(/https?:\/\/\S+\.(jpg|jpeg|png|gif|webp)/i);
+  if (absoluteMatch) {
+    return absoluteMatch[0];
+  }
 
-  // Case 3: find relative paths ending in image extension
-  const rel = cleaned.match(/[./\w-]+\.(jpg|jpeg|png|gif|webp)/i);
-  if (rel) return rel[0];
-
-  return null;
+  const relativeMatch = cleaned.match(/[./\w-]+\.(jpg|jpeg|png|gif|webp)/i);
+  return relativeMatch ? relativeMatch[0] : null;
 };
 
+const resolveImageUrl = (imgUrl: string): string => {
+  if (/^https?:\/\//i.test(imgUrl)) {
+    return imgUrl;
+  }
+
+  return `${import.meta.env.BASE_URL}${imgUrl.replace(/^\.?\//, "")}`;
+};
 
 export const QuestionText: React.FC<QuestionTextProps> = ({ text }) => {
-
-  //todo save locally
-  const baseUrl = "https://www.santafe.gob.ar/examenlicencia/examenETLC/";
   const imgUrl = extractImageUrl(text);
 
   return imgUrl ? (
     <section>
-      <h2 className="question">¿Qué significa esta señal?</h2>
-      <img src={baseUrl + imgUrl} alt="Pregunta" className="question-image" />
+      <h2 className="question">Que significa esta senal?</h2>
+      <img
+        src={resolveImageUrl(imgUrl)}
+        alt="Pregunta"
+        className="question-image"
+      />
     </section>
   ) : (
     <section>
