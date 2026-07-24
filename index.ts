@@ -2,6 +2,8 @@ import * as crypto from "crypto";
 import { promises as fs } from "fs";
 import path from "path";
 import { load } from "cheerio";
+import { Agent } from "undici";
+import type { Element } from "domhandler";
 import type {
   Answer,
   AnswerData,
@@ -9,464 +11,541 @@ import type {
   QuestionForm,
 } from "./types/AnswerTypes.js";
 import { examPages } from "./const/urls.js";
-import { Agent } from 'undici';
 
-// Create a custom undici Agent (Dispatcher)
-// This is where you include specific connection options to handle legacy servers.
-// The secureOptions line below helps resolve the 'unsafe legacy renegotiation disabled' error.
-const customDispatcher = new Agent({
+type FetchOptions = RequestInit & {
+  dispatcher?: Agent;
+};
+
+type ScanMode = "html" | "images" | "net";
+
+const SCAN_DELAY_MS = 2_000;
+const DEFAULT_NET_SCAN_COUNT = 100;
+const SAVED_HTML_DIR = path.join(process.cwd(), "savedHtml");
+const MASTER_JSON_PATH = path.join(process.cwd(), "json", "data.json");
+const REACT_PUBLIC_DIR = path.join(process.cwd(), "react-viewer", "public");
+const QUESTION_IMAGE_DIR = path.join("images", "preguntas");
+const EXAM_ASSET_BASE_URL = `${examPages.origin}/examenlicencia/examenETLC/`;
+
+const START_QUIZ_BODY =
+  "id_sel=245&idcm_sel=245%7CAUTO%2C+UTILITARIO%2C+CAMIONETA+Y+CASA+RODANTE+MOTOR.+H%2F3.500+KG+TOTAL&uword=small&comenzar=Comenzar";
+
+const commonHeaders = {
+  "User-Agent":
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+  Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+  "Accept-Language": "es-419,es;q=0.9,en;q=0.8",
+  "Content-Type": "application/x-www-form-urlencoded",
+};
+
+// The Santa Fe exam site currently needs legacy TLS renegotiation enabled.
+const legacyTlsDispatcher = new Agent({
   connect: {
-    // Re-enables the ability to connect to legacy servers if they use insecure renegotiation
-    secureOptions: crypto.constants.SSL_OP_LEGACY_SERVER_CONNECT
-  }
+    secureOptions: crypto.constants.SSL_OP_LEGACY_SERVER_CONNECT,
+  },
 });
 
+const wait = (ms = SCAN_DELAY_MS) =>
+  new Promise((resolve) => setTimeout(resolve, ms));
 
-const getQuestions = async (url: string) => {
+const parseMode = (): ScanMode => {
+  const modeArg = process.argv.find((arg) => arg.startsWith("--mode="));
+  const mode = modeArg?.split("=")[1];
 
-// Configure the fetch options, using 'dispatcher' instead of 'agent'
-const fetchOptions = {
-  method: "POST",
-  headers: {
-    "User-Agent":
-      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
-    Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-    "Accept-Language": "es-419,es;q=0.9,en;q=0.8",
-    "Content-Type": "application/x-www-form-urlencoded",
-    Origin: examPages.origin,
-    Referer: examPages.listPg      
-  },
-  body: "id_sel=245&idcm_sel=245%7CAUTO%2C+UTILITARIO%2C+CAMIONETA+Y+CASA+RODANTE+MOTOR.+H%2F3.500+KG+TOTAL&uword=small&comenzar=Comenzar",
-  // Add the custom dispatcher here
-  dispatcher: customDispatcher
+  if (mode === "html" || mode === "images") {
+    return mode;
+  }
+
+  return "net";
 };
 
+const parseScanCount = (): number => {
+  const maxArg = process.argv.find((arg) => arg.startsWith("--max="));
+  const parsed = Number(maxArg?.split("=")[1]);
 
-// Make the fetch request using the custom dispatcher
-const response = await fetch(url, fetchOptions);
-
-// You can now process the response as usual
-if (response.ok) {
-    console.log('Fetch successful! Status:', response.status);
-    // const data = await response.text();
-    // console.log(data);
-} else {
-    console.error('Fetch failed with status:', response.status);
-}
-
-
-  const text = await response.text();
-
-  // ⬅️ Capture cookies so i dont spam the same session.
-  const cookies = response.headers.getSetCookie().join("; ");
-  // console.log("Cookies:", cookies);
-
-  await new Promise((resolve) => setTimeout(resolve, 2000));
-  processQuestionsFile(text, cookies);
+  return Number.isFinite(parsed) && parsed > 0
+    ? Math.floor(parsed)
+    : DEFAULT_NET_SCAN_COUNT;
 };
 
-//kicks the whole thing off, aka init.
+const extractFirstElement = (html: string, selector = "form"): string => {
+  const $ = load(html);
+  return $(selector).first().toString();
+};
 
-const arg = process.argv.find((a) => a.startsWith("--mode="));
-const mode = arg ? arg.split("=")[1] : "net";
+const isImageQuestion = (questionText: string): boolean =>
+  questionText.includes("significa esta se");
 
-const scanNet = async () => {
-  const maxScans = 100;
-  for(let i = 0;i <=  maxScans; i++){
-  
-    await getQuestions(examPages.questionPg);
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+const parseQuestionIdsFromFilename = (filename: string): number[] =>
+  filename
+    .replace(/^a-/, "")
+    .replace(/\.htm$/i, "")
+    .split("-")
+    .map((id) => Number(id))
+    .filter((id) => Number.isFinite(id));
 
+const buildCacheFilename = (
+  questionIds: number[],
+  prefix: string,
+  suffix: string
+): string => {
+  // Keep filenames compact enough for Windows path limits.
+  return `${prefix}-${questionIds.join("-")}${suffix}`;
+};
+
+const getLocalQuestionImagePath = (imageSrc: string): string | null => {
+  const match = imageSrc
+    .replace(/\\/g, "/")
+    .match(/images\/preguntas\/([^/?#]+\.(?:jpg|jpeg|png|gif|webp))/i);
+
+  return match ? `images/preguntas/${match[1]}` : null;
+};
+
+const fileExists = async (filePath: string): Promise<boolean> => {
+  try {
+    await fs.access(filePath);
+    return true;
+  } catch {
+    return false;
   }
 };
 
-const getIdPregFromFilename = (filename: string): number[] => {
-  // Remove prefix and extension
-  const cleaned = filename
-    .replace(/^a-/, "") // remove leading "a-"
-    .replace(/\.htm$/i, ""); // remove trailing ".htm"
+const cacheQuestionImage = async (imageSrc: string): Promise<string> => {
+  const localImagePath = getLocalQuestionImagePath(imageSrc);
 
-  // Split → string[] → convert to number[]
-  return cleaned
-    .split("-")
-    .map((n) => Number(n))
-    .filter((n) => !isNaN(n)); // safety: drop any non-numbers
+  if (!localImagePath) {
+    return imageSrc;
+  }
+
+  const imageFileName = path.basename(localImagePath);
+  const imagePath = path.join(
+    REACT_PUBLIC_DIR,
+    QUESTION_IMAGE_DIR,
+    imageFileName
+  );
+
+  if (await fileExists(imagePath)) {
+    return localImagePath;
+  }
+
+  const imageUrl = new URL(localImagePath, EXAM_ASSET_BASE_URL).toString();
+  const response = await fetch(imageUrl, {
+    headers: {
+      ...commonHeaders,
+      Referer: examPages.answerPg,
+    },
+    dispatcher: legacyTlsDispatcher,
+  } as FetchOptions);
+
+  if (!response.ok) {
+    console.warn(`Image fetch failed with status ${response.status}: ${imageUrl}`);
+    return localImagePath;
+  }
+
+  const imageBuffer = Buffer.from(await response.arrayBuffer());
+
+  await fs.mkdir(path.dirname(imagePath), { recursive: true });
+  await fs.writeFile(imagePath, imageBuffer);
+
+  console.log(`Cached question image: ${localImagePath}`);
+  return localImagePath;
 };
 
-//get from saved thml backup.
-const scanHtmlAnswerFiles = async () => {
-  const dir = path.join(process.cwd(), "savedHtml");
+const readMasterJsonFile = async (): Promise<AnswerDataMap> => {
+  const raw = await fs.readFile(MASTER_JSON_PATH, "utf8");
+  return JSON.parse(raw) as AnswerDataMap;
+};
 
-  let files: string[] = [];
+const cacheImagesFromMasterJson = async (): Promise<void> => {
+  let data: AnswerDataMap;
 
   try {
-    files = await fs.readdir(dir);
+    data = await readMasterJsonFile();
   } catch (err) {
-    console.error("❌ Could not read ./savedHtml directory:", err);
+    console.error("Could not read json/data.json:", err);
     return;
   }
 
-  // Match files like a-1006-1145-1008-1170-...-1559.htm
-  //const pattern = /1553\-1559\.htm/; //to test one withtou looping.
-  const pattern = /^a-(\d+-)*\d+\.htm$/i;
-  const htmlFiles = files.filter((f) => pattern.test(f));
+  const imagePaths = [
+    ...new Set(
+      Object.values(data)
+        .map((answerData) => getLocalQuestionImagePath(answerData.QuestionText))
+        .filter((imagePath): imagePath is string => Boolean(imagePath))
+    ),
+  ];
 
-  console.log(`📁 Found ${htmlFiles.length} files:`);
+  console.log(`Found ${imagePaths.length} unique question images in data.json.`);
 
-  for (const file of htmlFiles) {
-    console.log("➡ scanning:", file);
-
-    const filePath = path.join(dir, file);
-    const content = await fs.readFile(filePath, "utf8");
-
-    const idPreg = getIdPregFromFilename(file);
-    /// console.log("idPregfggggggggg", idPreg);
-
-    const questionFormParams: QuestionForm = {
-      nombre_cuest: "test?",
-      id_preg: idPreg,
-      respuestas: {
-        1: "mock-1",
-      } as Record<number, string>,
-      enviar: "enviar",
-    };
-
-    const justForm = getElement(content, ".form");
-
-    await processAnswersFile(justForm, questionFormParams);
-
-    // break; // ← stops after first file
+  let cachedCount = 0;
+  for (const imagePath of imagePaths) {
+    await cacheQuestionImage(imagePath);
+    cachedCount++;
   }
 
-  console.log("✔ Finished scanning saved HTML files.");
-};
-
-console.log("modeeeeeeeeeeeeeeeeeeeeeeeeee", mode);
-
-if (mode === "html") {
-  scanHtmlAnswerFiles();
-} else {
-  scanNet();
-}
-
-const getElement = (htmlRes: string, selector = "form"): string => {
-  const $ = load(htmlRes);
-
-  const formHtml = $(selector).first().toString();
-  return formHtml;
-};
-
-const isImage = (questionText: string): boolean => {
-  return questionText.includes("significa esta se");
+  console.log(`Finished image cache sync. Checked ${cachedCount} images.`);
 };
 
 const getQuestionFormParamsFromHtml = (formHtml: string): QuestionForm => {
-  let formArr: any = [];
-
   const $ = load(formHtml);
-
-  let id_preg_arr: number[] = [];
-  const respuestas_data: Record<number, string> = {};
+  const questionIds: number[] = [];
+  const answersByQuestionId: Record<number, string> = {};
 
   $(".formulation").each((_, el) => {
-    const id_preg = $(el)
+    const rawQuestionId = $(el)
       .find('input[type="hidden"][name="id_preg[]"]')
-      .val() as string | undefined;
-    const firstRadioValue = $(el).find('input[type="radio"]').first().val() as
-      | string
-      | undefined;
-    let questionText = $(el).find(".qtext p").text().trim();
+      .val();
+    const firstAnswerValue = $(el).find('input[type="radio"]').first().val();
+    const questionId = Number(rawQuestionId);
 
-    if (isImage(questionText)) {
-      questionText =
-        $(el).find(".qtext p").next("p").next("img").attr("src") ?? "false";
+    if (Number.isFinite(questionId)) {
+      questionIds.push(questionId);
     }
 
-    formArr.push({ id_preg, firstRadioValue, questionText });
-
-    //console.log({ id_preg, firstRadioValue, questionText });
-
-    if (id_preg && !isNaN(parseInt(id_preg, 10))) {
-      id_preg_arr.push(parseInt(id_preg, 10));
-    }
-
-    if (id_preg && firstRadioValue) {
-      respuestas_data[parseInt(id_preg, 10)] = firstRadioValue;
+    // The answer page only renders after submitting something for each question.
+    // We send the first radio value as a harmless placeholder, then parse the
+    // correct answer from the result page.
+    if (Number.isFinite(questionId) && typeof firstAnswerValue === "string") {
+      answersByQuestionId[questionId] = firstAnswerValue;
     }
   });
 
-  const params: QuestionForm = {
+  return {
     nombre_cuest: "Cuestionario para Clase B1",
-    id_preg: id_preg_arr,
-
-    //needs 20 TODO
-    respuestas: respuestas_data,
+    id_preg: questionIds,
+    respuestas: answersByQuestionId,
     enviar: "Enviar",
   };
-
-  return params;
 };
 
-const processQuestionsFile = async (htmlRes: string, cookies: string) => {
-  console.log("process questions file===============");
-  const $ = load(htmlRes);
+const buildAnswerPostBody = (questionFormParams: QuestionForm): string => {
+  const body = new URLSearchParams();
 
-  const formHtml = getElement(htmlRes, "form");
+  body.set("nombre_cuest", questionFormParams.nombre_cuest);
 
-  const questionFormParams: QuestionForm =
-    getQuestionFormParamsFromHtml(formHtml);
-
-  if (!formHtml) {
-    console.warn("⚠️ No <form> element found!");
-  } else {
-    //worry about spamming them.
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    // CALLs next step!====
-    postTest(examPages.answerPg, questionFormParams, cookies);
+  for (const questionId of questionFormParams.id_preg) {
+    body.append("id_preg[]", questionId.toString());
   }
+
+  for (const [questionId, answerId] of Object.entries(
+    questionFormParams.respuestas
+  )) {
+    body.set(questionId, answerId);
+  }
+
+  body.set("enviar", questionFormParams.enviar);
+
+  return body.toString();
 };
 
-const writeFileSimple = async (htmlRes: string, fileName: string) => {
-  if (!htmlRes) {
-    console.warn("⚠️ No <html> element found!", htmlRes);
-  } else {
-    const dir = path.join(process.cwd(), "savedHtml");
-    await fs.mkdir(dir, { recursive: true });
-
-    const filePath = path.join(dir, fileName);
-    await fs.writeFile(filePath, htmlRes, "utf8");
-
-    console.log(`✅ Saved form fragment to ${filePath}`);
-  }
-};
-
-/** passsed in cookies from 1st respons so that its not always the same session. */
-const postTest = async (
-  answerPgUrl: string,
-  questionFormParams: QuestionForm,
-  cookies: string
-) => {
-  console.warn("post tests4 =============called");
-
-  // Define your POST parameters as a JSON object
-
-  // Helper to turn that JSON into `application/x-www-form-urlencoded`
-  function toFormBody(p: typeof questionFormParams): string {
-    const pairs: string[] = [];
-
-    pairs.push(`nombre_cuest=${encodeURIComponent(p.nombre_cuest)}`);
-
-    for (const id of p.id_preg) {
-      pairs.push(`id_preg%5B%5D=${encodeURIComponent(id.toString())}`);
-    }
-
-    for (const [id, value] of Object.entries(p.respuestas)) {
-      pairs.push(`${encodeURIComponent(id)}=${encodeURIComponent(value)}`);
-    }
-
-    pairs.push(`enviar=${encodeURIComponent(p.enviar)}`);
-
-    return pairs.join("&");
-  }
-  const body = toFormBody(questionFormParams);
-
-
-  const fetchOptions = {
+const fetchQuestionPage = async (url: string): Promise<void> => {
+  const fetchOptions: FetchOptions = {
     method: "POST",
-    "User-Agent":
-      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
-
-    Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-    "Accept-Language": "es-419,es;q=0.9,en;q=0.8",
-    "Content-Type": "application/x-www-form-urlencoded",
-    Origin: examPages.origin,
-    Referer: examPages.questionPg,
-
-    Cookie: cookies,
-    dispatcher: customDispatcher,
-    body: body
-
+    headers: {
+      ...commonHeaders,
+      Origin: examPages.origin,
+      Referer: examPages.listPg,
+    },
+    body: START_QUIZ_BODY,
+    dispatcher: legacyTlsDispatcher,
   };
 
-  const response = await fetch(answerPgUrl, fetchOptions);
+  const response = await fetch(url, fetchOptions);
+  console.log(`Fetched question page. Status: ${response.status}`);
 
-  const htmlRes = await response.text();
-  const justForm = getElement(htmlRes, ".form");
+  if (!response.ok) {
+    console.error(`Question fetch failed with status ${response.status}.`);
+    return;
+  }
 
-  processAnswersFile(justForm, questionFormParams);
+  const html = await response.text();
+  const cookies = response.headers.getSetCookie().join("; ");
+
+  await wait();
+  await processQuestionPage(html, cookies);
 };
 
-//parse the answer html iterate over elements of the psuedo form it has matching up the ids
-//of the questions and answers such that i can make a master json object with the ids as keys
-const getAnswerDataMap = (
-  justAnswerForm: string,
-  questionFormParams: QuestionForm
-): AnswerDataMap => {
-  const mockAnswerData = processAnswerRows(justAnswerForm, questionFormParams);
-
-  // return answerDataArr;
-  return mockAnswerData;
+const scanNet = async (scanCount: number): Promise<void> => {
+  for (let i = 0; i < scanCount; i++) {
+    console.log(`Network scan ${i + 1}/${scanCount}`);
+    await fetchQuestionPage(examPages.questionPg);
+    await wait();
+  }
 };
 
-const processAnswerRows = (
-  justAnswerForm: string,
-  questionFormParams: QuestionForm
-): AnswerDataMap => {
-  const $ = load(justAnswerForm);
+const scanSavedHtmlFiles = async (): Promise<void> => {
+  let files: string[] = [];
 
-  //const answerDataMap = {};
-  const answerDataMap: Record<string, AnswerData> = {};
-  $(".formulation").each((i, el) => {
-    let questionText =
-      $(el).find(".qtext p").text().trim() ||
-      $(el).find(".qtext").text().trim();
-
-    const isImageQuestionText = isImage(questionText);
-    if (isImageQuestionText) {
-      questionText = $(el).find(".qtext img").attr("src") ?? "";
-      if(questionText){
-        //download image to local folder for reference later.
-        const downloadImage = async (url: string, filepath: string) => {
-          const response = await fetch(url);
-          const buffer = await response.arrayBuffer();  
-          await fs.writeFile(filepath, Buffer.from(buffer));
-        };
-        const imagesDir = path.join(process.cwd(), "react-viewer/data/images");
-        fs.mkdir(imagesDir, { recursive: true });
-        const imageFileName = `question_${questionFormParams.id_preg[i]}.jpg`;
-        const imageFilePath = path.join(imagesDir, imageFileName);
-        downloadImage(questionText, imageFilePath);
-        questionText = imageFilePath; //set to local path now.
-      }
-      console.log(
-        "questionText isIMG===========================",
-        questionText
+  try {
+    files = await fs.readdir(SAVED_HTML_DIR);
+  } catch (err) {
+    if (
+      typeof err === "object" &&
+      err &&
+      "code" in err &&
+      err.code === "ENOENT"
+    ) {
+      console.warn(
+        "No savedHtml directory found. Run --mode=net to fetch fresh scans and cache new answer pages."
       );
+      return;
     }
 
-    const correctAnswerText = $(el)
-      .nextAll(".outcome_correcto, .outcome")
-      .first()
-      .find(".rightanswer")
-      .text()
-      //.replace(/^Respuesta correcta:\s*/i, "")
-      .replace(/Respuesta correcta\:/i, "")
+    console.error("Could not read ./savedHtml directory:", err);
+    return;
+  }
 
-      .trim();
+  // Cached answer files are named with the IDs they contain, for example:
+  // a-1006-1145-1008.htm
+  const htmlFiles = files.filter((file) => /^a-(\d+-)*\d+\.htm$/i.test(file));
+  console.log(`Found ${htmlFiles.length} saved answer files.`);
 
-    let correctAnswerId = -1
+  for (const file of htmlFiles) {
+    console.log(`Scanning cached HTML: ${file}`);
 
-    const questionId = questionFormParams.id_preg[i];
+    const filePath = path.join(SAVED_HTML_DIR, file);
+    const content = await fs.readFile(filePath, "utf8");
+    const questionIds = parseQuestionIdsFromFilename(file);
 
-    const answerArr: Answer[] = [];
+    const questionFormParams: QuestionForm = {
+      nombre_cuest: "Cached scan",
+      id_preg: questionIds,
+      respuestas: {
+        1: "mock-1",
+      },
+      enviar: "enviar",
+    };
+
+    await processAnswerPage(
+      extractFirstElement(content, ".form"),
+      questionFormParams
+    );
+  }
+
+  console.log("Finished scanning saved HTML files.");
+};
+
+const processQuestionPage = async (
+  html: string,
+  cookies: string
+): Promise<void> => {
+  const formHtml = extractFirstElement(html, "form");
+
+  if (!formHtml) {
+    console.warn("No question form found.");
+    return;
+  }
+
+  const questionFormParams = getQuestionFormParamsFromHtml(formHtml);
+
+  await wait();
+  await submitQuestionForm(examPages.answerPg, questionFormParams, cookies);
+};
+
+const submitQuestionForm = async (
+  answerPageUrl: string,
+  questionFormParams: QuestionForm,
+  cookies: string
+): Promise<void> => {
+  const fetchOptions: FetchOptions = {
+    method: "POST",
+    headers: {
+      ...commonHeaders,
+      Origin: examPages.origin,
+      Referer: examPages.questionPg,
+      Cookie: cookies,
+    },
+    body: buildAnswerPostBody(questionFormParams),
+    dispatcher: legacyTlsDispatcher,
+  };
+
+  const response = await fetch(answerPageUrl, fetchOptions);
+  console.log(`Fetched answer page. Status: ${response.status}`);
+
+  if (!response.ok) {
+    console.error(`Answer fetch failed with status ${response.status}.`);
+    return;
+  }
+
+  const html = await response.text();
+  await processAnswerPage(
+    extractFirstElement(html, ".form"),
+    questionFormParams,
+    true
+  );
+};
+
+const getQuestionText = (
+  $: ReturnType<typeof load>,
+  element: Element
+): string => {
+  const text =
+    $(element).find(".qtext p").text().trim() ||
+    $(element).find(".qtext").text().trim();
+
+  if (!isImageQuestion(text)) {
+    return text;
+  }
+
+  // Image questions use generic text; the useful question payload is the image src.
+  return $(element).find(".qtext img").attr("src") ?? text;
+};
+
+const getCorrectAnswerText = (
+  $: ReturnType<typeof load>,
+  element: Element
+): string =>
+  $(element)
+    .nextAll(".outcome_correcto, .outcome")
+    .first()
+    .find(".rightanswer")
+    .text()
+    .replace(/Respuesta correcta\:/i, "")
+    .trim();
+
+const parseAnswerRows = async (
+  answerFormHtml: string,
+  questionFormParams: QuestionForm,
+  shouldCacheImages: boolean
+): Promise<AnswerDataMap> => {
+  const $ = load(answerFormHtml);
+  const answerDataMap: AnswerDataMap = {};
+
+  const formulations = $(".formulation").toArray();
+
+  for (const [index, el] of formulations.entries()) {
+    const questionId = questionFormParams.id_preg[index];
+
+    if (!questionId) {
+      continue;
+    }
+
+    const questionText = shouldCacheImages
+      ? await cacheQuestionImage(getQuestionText($, el))
+      : getQuestionText($, el);
+    const correctAnswerText = getCorrectAnswerText($, el);
+    let correctAnswerId = -1;
+    const answers: Answer[] = [];
+
     $(el)
-      .find(".answer .r0")
-      .each((j, r0) => {
-        const rawId = $(r0).find("input").val();
-        const answerId = rawId ? Number(rawId) : -1; // fallback if undefined
- 
-        const answerText = $(r0).find("label").text().trim();
-        const answerData: Answer = {
-          AnswerId: answerId,
-          AnswerText: answerText,
-        };
-        
-        if(answerText.includes(correctAnswerText)){
-          console.log('found correct99999999999999999999999999999999999===========', )
+      .find(".answer .r0, .answer .r1")
+      .each((_, row) => {
+        const rawAnswerId = $(row).find("input").val();
+        const answerId = rawAnswerId ? Number(rawAnswerId) : -1;
+        const answerText = $(row).find("label").text().trim();
+
+        if (answerText.includes(correctAnswerText)) {
           correctAnswerId = answerId;
-        }else{
-          console.log('correctAnswerText', correctAnswerText, 'answerText:', answerText, )
         }
 
-        answerArr.push(answerData);
-
+        answers.push({
+          AnswerId: answerId,
+          AnswerText: answerText,
+        });
       });
 
-    const answerData: AnswerData = {
+    answerDataMap[questionId] = {
       QuestionText: questionText,
       CorrectAnswerId: correctAnswerId,
-      Answers: answerArr,
+      Answers: answers,
     };
-    if (questionId) {
-      answerDataMap[questionId] = answerData;
-    }
-  });
-
-  // console.log("anserdatamap", JSON.stringify(answerDataMap ) );
+  }
 
   return answerDataMap;
 };
 
-const processAnswersFile = async (
-  justForm: string,
-  questionFormParams: QuestionForm
-) => {
-  const answerData: AnswerDataMap = getAnswerDataMap(
-    justForm,
-    questionFormParams
-  );
+const processAnswerPage = async (
+  answerFormHtml: string,
+  questionFormParams: QuestionForm,
+  shouldCacheHtml = false
+): Promise<void> => {
+  if (!answerFormHtml) {
+    console.warn("No answer form found.");
+    return;
+  }
 
+  const answerData = await parseAnswerRows(
+    answerFormHtml,
+    questionFormParams,
+    shouldCacheHtml
+  );
   const additions = await appendMasterJsonFile(answerData);
 
-  if (additions > 0) {
-    const mdfFileName = getFileNameFromFormParms(
-      questionFormParams.id_preg,
-      "a",
-      ".htm"
-    );
-    writeFileSimple(justForm, mdfFileName);
+  // Network scans cache the answer HTML even if data.json already had those IDs.
+  // That lets --mode=html rebuild json/data.json later without touching the site.
+  if (shouldCacheHtml || additions > 0) {
+    const filename = buildCacheFilename(questionFormParams.id_preg, "a", ".htm");
+    await writeSavedHtml(answerFormHtml, filename);
   }
+};
+
+const writeSavedHtml = async (html: string, filename: string): Promise<void> => {
+  await fs.mkdir(SAVED_HTML_DIR, { recursive: true });
+
+  const filePath = path.join(SAVED_HTML_DIR, filename);
+  await fs.writeFile(filePath, html, "utf8");
+
+  console.log(`Saved answer form cache to ${filePath}`);
 };
 
 const appendMasterJsonFile = async (
   answerData: AnswerDataMap
 ): Promise<number> => {
-  const filePath = path.join(process.cwd(), "json", "data.json");
-
-  // 1. Load existing file
   let existing: AnswerDataMap = {};
 
   try {
-    const raw = await fs.readFile(filePath, "utf8");
-    existing = JSON.parse(raw);
-  } catch (err: any) {
-    if (err.code === "ENOENT") {
-      console.warn("data.json not found — creating a new one.");
+    existing = await readMasterJsonFile();
+  } catch (err: unknown) {
+    if (
+      typeof err === "object" &&
+      err &&
+      "code" in err &&
+      err.code === "ENOENT"
+    ) {
+      console.warn("data.json not found; creating a new one.");
     } else {
       throw err;
     }
   }
 
-  // 2. Merge only *new* IDs
   let addedCount = 0;
+  const addedIds: string[] = [];
 
-  const entriesAdded: string[] = [];
-  for (const [id, data] of Object.entries(answerData)) {
-    if (!existing[id]) {
-      existing[id] = data;
-      addedCount++;
-      entriesAdded.push(id);
+  for (const [questionId, data] of Object.entries(answerData)) {
+    if (existing[questionId]) {
+      continue;
     }
+
+    existing[questionId] = data;
+    addedCount++;
+    addedIds.push(questionId);
   }
 
-  // 3. Save back to file, no use saving if nothing added.
-  const totalCount = Object.keys(existing).length;
+  await fs.mkdir(path.dirname(MASTER_JSON_PATH), { recursive: true });
+  await fs.writeFile(MASTER_JSON_PATH, JSON.stringify(existing, null, 2), "utf8");
 
   console.log(
-    `✔ Saved. Added ${addedCount} new entries. Total entries: ${totalCount}`,
-    entriesAdded.join(",")
+    `Saved data.json. Added ${addedCount} new entries. Total entries: ${
+      Object.keys(existing).length
+    }${addedIds.length ? `. New IDs: ${addedIds.join(", ")}` : ""}`
   );
 
-  await fs.writeFile(filePath, JSON.stringify(existing, null, 2), "utf8");
   return addedCount;
 };
 
-const getFileNameFromFormParms = (
-  questionsArr: number[],
-  prefix: string,
-  suffix: string
-): string => {
-  //is about 154 chars at 250 ename too long happens, including full win path c://
-  const listIds = questionsArr.join("-");
-  return `${prefix}-${listIds}${suffix}`;
+const main = async (): Promise<void> => {
+  const mode = parseMode();
+  const scanCount = parseScanCount();
+  console.log(`Scan mode: ${mode}`);
+
+  if (mode === "html") {
+    await scanSavedHtmlFiles();
+  } else if (mode === "images") {
+    await cacheImagesFromMasterJson();
+  } else {
+    await scanNet(scanCount);
+  }
 };
+
+main().catch((err) => {
+  console.error("Scan failed:", err);
+  process.exitCode = 1;
+});
